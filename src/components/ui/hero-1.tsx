@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ArrowRightIcon, PhoneCallIcon, Cpu } from "lucide-react";
+import { ArrowRightIcon, Cpu } from "lucide-react";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 export function HeroSection() {
@@ -68,10 +68,6 @@ export function HeroSection() {
 					<GradientButton>
 						Explore Solutions
 						<ArrowRightIcon className="size-4 ms-2" data-icon="inline-end" />
-					</GradientButton>
-					<GradientButton variant="variant">
-						<PhoneCallIcon data-icon="inline-start" className="size-4 mr-2" />
-						Book a Call
 					</GradientButton>
 				</div>
 			</div>
