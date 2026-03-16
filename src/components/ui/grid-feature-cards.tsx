@@ -14,7 +14,11 @@ type FeatureCardProps = React.ComponentProps<'div'> & {
 };
 
 export function FeatureCard({ feature, className, ...props }: FeatureCardProps) {
-	const p = React.useMemo(() => genRandomPattern(), []);
+	const [pattern, setPattern] = React.useState<number[][]>([]);
+
+	React.useEffect(() => {
+		setPattern(genRandomPattern());
+	}, []);
 
 	return (
 		<div className={cn('relative overflow-hidden p-8 group', className)} {...props}>
@@ -25,7 +29,7 @@ export function FeatureCard({ feature, className, ...props }: FeatureCardProps) 
 						height={20}
 						x="-12"
 						y="4"
-						squares={p}
+						squares={pattern}
 						className="fill-accent/10 stroke-accent/20 absolute inset-0 h-full w-full mix-blend-overlay"
 					/>
 				</div>
@@ -57,7 +61,7 @@ function GridPattern({
 				</pattern>
 			</defs>
 			<rect width="100%" height="100%" strokeWidth={0} fill={`url(#${patternId})`} />
-			{squares && (
+			{squares && squares.length > 0 && (
 				<svg x={x} y={y} className="overflow-visible">
 					{squares.map(([x, y], index) => (
 						<rect strokeWidth="0" key={index} width={width + 1} height={height + 1} x={x * width} y={y * height} />
