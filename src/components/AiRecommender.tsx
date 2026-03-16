@@ -1,12 +1,12 @@
-
 "use client";
 
 import { useState } from "react";
 import { recommendSolutions, type AiSolutionRecommenderOutput } from "@/ai/flows/ai-solution-recommender";
-import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sparkles, Loader2, BrainCircuit, CheckCircle, ArrowRight } from "lucide-react";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { Button } from "@/components/ui/button";
 
 export function AiRecommender() {
   const [challenges, setChallenges] = useState("");
@@ -40,15 +40,15 @@ export function AiRecommender() {
               <BrainCircuit className="h-4 w-4" /> GenAI Powered
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-headline">Smart Solution Recommender</h2>
-            <p className="text-lg text-white/70">
+            <p className="text-lg text-white/70 font-body">
               Describe your data center challenges, and our AI will recommend the ideal Tektonics strategic approach.
             </p>
           </div>
 
           <Card className="glass-card border-accent/20 overflow-hidden">
             <CardHeader className="bg-white/5 border-b border-white/5">
-              <CardTitle className="text-white">What challenges are you facing?</CardTitle>
-              <CardDescription className="text-white/50">
+              <CardTitle className="text-white font-headline">What challenges are you facing?</CardTitle>
+              <CardDescription className="text-white/50 font-body">
                 Mention things like power instability, environmental hotspots, asset mismanagement, or security gaps.
               </CardDescription>
             </CardHeader>
@@ -58,12 +58,12 @@ export function AiRecommender() {
                   placeholder="e.g. We are experiencing unexplained hotspots in our Row B server racks and struggle to track physical assets during our monthly audits..."
                   value={challenges}
                   onChange={(e) => setChallenges(e.target.value)}
-                  className="min-h-[150px] bg-background/50 border-white/10 text-white placeholder:text-white/30 focus:border-accent transition-colors text-lg"
+                  className="min-h-[150px] bg-background/50 border-white/10 text-white placeholder:text-white/30 focus:border-accent transition-colors text-lg font-body"
                 />
-                <Button 
+                <GradientButton 
                   type="submit" 
                   disabled={loading || !challenges.trim()} 
-                  className="w-full h-14 bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-bold text-lg"
+                  className="w-full"
                 >
                   {loading ? (
                     <>
@@ -76,7 +76,7 @@ export function AiRecommender() {
                       Generate Tailored Strategy
                     </>
                   )}
-                </Button>
+                </GradientButton>
               </form>
             </CardContent>
           </Card>
@@ -86,7 +86,7 @@ export function AiRecommender() {
               <div className="grid md:grid-cols-2 gap-8">
                 <Card className="glass-card border-primary/40 h-full">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-white">
+                    <CardTitle className="flex items-center gap-2 text-white font-headline">
                       <Sparkles className="h-5 w-5 text-accent" /> Actionable Recommendations
                     </CardTitle>
                   </CardHeader>
@@ -96,7 +96,7 @@ export function AiRecommender() {
                         <div className="flex-shrink-0 mt-1">
                           <CheckCircle className="h-5 w-5 text-accent" />
                         </div>
-                        <p className="text-white/80 text-sm leading-relaxed">{rec}</p>
+                        <p className="text-white/80 text-sm leading-relaxed font-body">{rec}</p>
                       </div>
                     ))}
                   </CardContent>
@@ -104,26 +104,26 @@ export function AiRecommender() {
 
                 <Card className="glass-card border-accent/40 h-full">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-white">
-                      <BrainCircuit className="h-5 w-5 text-primary" /> Recommended Tektonics Products
+                    <CardTitle className="flex items-center gap-2 text-white font-headline">
+                      <BrainCircuit className="h-5 w-5 text-primary" /> Recommended Products
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {result.tektonicsSolutions.length > 0 ? (
                       result.tektonicsSolutions.map((sol, i) => (
                         <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-primary/10 border border-primary/20">
-                          <span className="text-white font-bold">{sol}</span>
+                          <span className="text-white font-bold font-body">{sol}</span>
                           <ArrowRight className="h-4 w-4 text-accent" />
                         </div>
                       ))
                     ) : (
-                      <p className="text-white/50 text-sm italic p-4 text-center">
+                      <p className="text-white/50 text-sm italic p-4 text-center font-body">
                         Our AI suggests a custom strategic consultation for your specific needs.
                       </p>
                     )}
                     <div className="mt-6 pt-6 border-t border-white/5 text-center">
-                      <p className="text-white/60 text-xs mb-4">Want to implement these recommendations?</p>
-                      <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent/10">
+                      <p className="text-white/60 text-xs mb-4 font-body">Want to implement these recommendations?</p>
+                      <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent/10 rounded-full font-headline">
                         Book Expert Consultation
                       </Button>
                     </div>

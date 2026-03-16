@@ -1,13 +1,12 @@
-
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 export function ContactForm() {
   const { toast } = useToast();
@@ -32,11 +31,11 @@ export function ContactForm() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">Get In Touch</h2>
+            <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4 font-headline">Get In Touch</h2>
             <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 font-headline leading-tight">
               Ready to <span className="text-gradient">Optimize</span> Your Gateway?
             </h3>
-            <p className="text-lg text-white/70 mb-10 leading-relaxed">
+            <p className="text-lg text-white/70 mb-10 leading-relaxed font-body">
               Whether you're starting a new data center build or optimizing a legacy facility, our experts are ready to assist. Reach out for a free consultation.
             </p>
 
@@ -46,8 +45,8 @@ export function ContactForm() {
                   <Mail className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">Email Inquiry</h4>
-                  <p className="text-white/60">solutions@tektonicsdg.com</p>
+                  <h4 className="text-white font-bold mb-1 font-headline">Email Inquiry</h4>
+                  <p className="text-white/60 font-body">solutions@tektonicsdg.com</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -55,8 +54,8 @@ export function ContactForm() {
                   <Phone className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">Regional HQ</h4>
-                  <p className="text-white/60">+234 (0) 1 234 5678 (Lagos, NG)</p>
+                  <h4 className="text-white font-bold mb-1 font-headline">Regional HQ</h4>
+                  <p className="text-white/60 font-body">+234 (0) 1 234 5678 (Lagos, NG)</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -64,8 +63,8 @@ export function ContactForm() {
                   <MapPin className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">Global Address</h4>
-                  <p className="text-white/60">123 Tech Avenue, Victoria Island, Lagos</p>
+                  <h4 className="text-white font-bold mb-1 font-headline">Global Address</h4>
+                  <p className="text-white/60 font-body">123 Tech Avenue, Victoria Island, Lagos</p>
                 </div>
               </div>
             </div>
@@ -77,39 +76,29 @@ export function ContactForm() {
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white/80">Full Name</Label>
-                  <Input id="name" required placeholder="John Doe" className="bg-white/5 border-white/10 text-white focus:border-accent" />
+                  <Label htmlFor="name" className="text-white/80 font-headline">Full Name</Label>
+                  <Input id="name" required placeholder="John Doe" className="bg-white/5 border-white/10 text-white focus:border-accent font-body" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white/80">Business Email</Label>
-                  <Input id="email" type="email" required placeholder="john@company.com" className="bg-white/5 border-white/10 text-white focus:border-accent" />
+                  <Label htmlFor="email" className="text-white/80 font-headline">Business Email</Label>
+                  <Input id="email" type="email" required placeholder="john@company.com" className="bg-white/5 border-white/10 text-white focus:border-accent font-body" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="company" className="text-white/80">Company Name</Label>
-                <Input id="company" placeholder="Enterprise Infrastructure Ltd" className="bg-white/5 border-white/10 text-white focus:border-accent" />
+                <Label htmlFor="company" className="text-white/80 font-headline">Company Name</Label>
+                <Input id="company" placeholder="Enterprise Infrastructure Ltd" className="bg-white/5 border-white/10 text-white focus:border-accent font-body" />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="service" className="text-white/80">Inquiry Type</Label>
-                <select id="service" className="w-full h-10 px-3 py-2 rounded-md border border-white/10 bg-white/5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent">
-                  <option className="bg-background">General Inquiry</option>
-                  <option className="bg-background">DCIM Solution Showcase</option>
-                  <option className="bg-background">Security Integration</option>
-                  <option className="bg-background">Consulting Services</option>
-                </select>
+                <Label htmlFor="message" className="text-white/80 font-headline">Your Message</Label>
+                <Textarea id="message" required placeholder="How can we help your data center?" className="bg-white/5 border-white/10 text-white focus:border-accent min-h-[120px] font-body" />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-white/80">Your Message</Label>
-                <Textarea id="message" required placeholder="How can we help your data center?" className="bg-white/5 border-white/10 text-white focus:border-accent min-h-[120px]" />
-              </div>
-
-              <Button type="submit" disabled={submitting} className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold group">
+              <GradientButton type="submit" disabled={submitting} className="w-full">
                 {submitting ? "Sending..." : "Send Inquiry"}
                 <Send className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </GradientButton>
             </form>
           </div>
         </div>

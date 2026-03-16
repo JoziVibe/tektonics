@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useScroll } from '@/components/ui/use-scroll';
 import { Cpu } from 'lucide-react';
 import Link from 'next/link';
 import { NavBar } from './tubelight-navbar';
 import { LucideIcon } from 'lucide-react';
+import { GradientButton } from './gradient-button';
 
 interface NavItem {
   name: string
@@ -43,14 +43,11 @@ export function Header({ items }: HeaderProps) {
         </div>
 
 				<div className="flex items-center gap-4 shrink-0">
-					<Button className="rounded-full bg-primary hover:bg-primary/90 hidden sm:flex font-bold" size="sm">
+					<GradientButton className="hidden sm:flex" size="sm">
 						Get Started
-					</Button>
+					</GradientButton>
 				</div>
 			</nav>
-      
-      {/* Mobile Nav - only visible on mobile as a bottom pill if needed, 
-          but since it's integrated above, we handle visibility there */}
 		</header>
 	);
 }

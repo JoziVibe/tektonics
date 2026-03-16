@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { RocketIcon, ArrowRightIcon, PhoneCallIcon, Cpu } from "lucide-react";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { ArrowRightIcon, PhoneCallIcon, Cpu } from "lucide-react";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 export function HeroSection() {
@@ -26,7 +26,7 @@ export function HeroSection() {
 			</div>
 
 			{/* main content */}
-			<div className="relative flex flex-col items-center justify-center gap-5 pt-56 pb-48 px-6">
+			<div className="relative flex flex-col items-center justify-center gap-5 pt-32 pb-24 px-6">
 				{/* X Content Faded Borders */}
 				<div
 					aria-hidden="true"
@@ -46,7 +46,7 @@ export function HeroSection() {
 					href="#overview"
 				>
 					<Cpu className="size-3 text-accent" />
-					<span className="text-xs text-white/80 font-medium">New DCIM features deployed</span>
+					<span className="text-xs text-white/80 font-medium font-body">New DCIM features deployed</span>
 					<span className="block h-5 border-l border-white/10" />
 					<ArrowRightIcon className="size-3 text-accent duration-150 ease-out group-hover:translate-x-1" />
 				</a>
@@ -60,19 +60,19 @@ export function HeroSection() {
 					Give your digital <br /> <span className="text-gradient">real estate</span> a voice
 				</h1>
 
-				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-[16px] text-white/70 tracking-wide delay-200 duration-500 ease-out leading-relaxed">
+				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-[16px] text-white/70 tracking-wide delay-200 duration-500 ease-out leading-relaxed font-body">
 					Tektonics Leads the way in African IT management, providing precision monitoring and strategic optimization for modern data centers.
 				</p>
 
 				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-4 fill-mode-backwards pt-4 delay-300 duration-500 ease-out">
-					<Button className="rounded-full bg-primary hover:bg-primary/90 text-white border-none h-12 px-8 text-base font-bold shadow-lg shadow-primary/20" size="lg">
+					<GradientButton>
 						Explore Solutions
 						<ArrowRightIcon className="size-4 ms-2" data-icon="inline-end" />
-					</Button>
-					<Button className="rounded-full border-accent/30 text-accent hover:bg-accent/10 h-12 px-8 text-base font-bold" size="lg" variant="outline">
+					</GradientButton>
+					<GradientButton variant="variant">
 						<PhoneCallIcon data-icon="inline-start" className="size-4 mr-2" />
 						Book a Call
-					</Button>
+					</GradientButton>
 				</div>
 			</div>
 		</section>
@@ -82,7 +82,7 @@ export function HeroSection() {
 export function LogosSection() {
 	return (
 		<section className="relative space-y-6 border-t border-white/5 pt-12 pb-16">
-			<h2 className="text-center font-bold text-sm text-white/40 tracking-[0.2em] uppercase">
+			<h2 className="text-center font-bold text-sm text-white/40 tracking-[0.2em] uppercase font-headline">
 				Trusted by <span className="text-accent">Infrastructure Leaders</span>
 			</h2>
 			<div className="relative z-10 mx-auto max-w-7xl">
