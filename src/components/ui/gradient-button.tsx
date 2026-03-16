@@ -10,7 +10,7 @@ const gradientButtonVariants = cva(
     "gradient-button",
     "inline-flex items-center justify-center",
     "rounded-full min-w-[132px] px-9 py-4",
-    "text-base leading-[19px] font-[500] text-white",
+    "text-base leading-[19px] font-[500]",
     "font-headline font-bold",
     "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-50 transition-all",
@@ -18,7 +18,8 @@ const gradientButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: "",
+        default: "text-white",
+        white: "bg-white text-[#020c1b] [background:white!important]",
       },
       size: {
         default: "",

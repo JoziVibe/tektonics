@@ -56,13 +56,13 @@ function PricingCard({
 				<div className="flex items-center gap-3 p-4">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">{title}</span>
 					<div className="ml-auto">
-						<GradientButton size="sm">
+						<GradientButton variant="white" size="sm">
 							{cta}
 						</GradientButton>
 					</div>
 				</div>
 
-				<div className="px-4 py-2">
+				<div className="px-4 py-2 text-left">
 					<div className="h-[40px] w-[65px] relative rounded-lg overflow-hidden border border-white/10">
 						{image && (
 							<Image
@@ -117,11 +117,11 @@ export function BentoPricing() {
 				<div className="flex items-center gap-3 p-4 relative z-10">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">Data Centre Infrastructure</span>
 					<div className="ml-auto">
-						<GradientButton size="sm">Learn More</GradientButton>
+						<GradientButton variant="white" size="sm">Learn More</GradientButton>
 					</div>
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10 items-start">
-					<div className="pb-4 shrink-0">
+					<div className="pb-4 shrink-0 text-left">
 						<div className="h-[40px] w-[65px] relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
 							{infraImage && (
 								<Image
