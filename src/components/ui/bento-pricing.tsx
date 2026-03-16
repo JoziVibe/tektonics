@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { CheckIcon } from 'lucide-react';
-import { GradientButton } from '@/components/ui/gradient-button';
+import { HoverButton } from '@/components/ui/hover-button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -56,9 +56,9 @@ function PricingCard({
 				<div className="flex items-center gap-3 p-4">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">{title}</span>
 					<div className="ml-auto">
-						<GradientButton variant="white" size="sm">
+						<HoverButton className="px-5 py-1.5 text-xs">
 							{cta}
-						</GradientButton>
+						</HoverButton>
 					</div>
 				</div>
 
@@ -117,7 +117,7 @@ export function BentoPricing() {
 				<div className="flex items-center gap-3 p-4 relative z-10">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">Data Centre Infrastructure</span>
 					<div className="ml-auto">
-						<GradientButton variant="white" size="sm">Learn More</GradientButton>
+						<HoverButton className="px-5 py-1.5 text-xs">Learn More</HoverButton>
 					</div>
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10 items-start">
