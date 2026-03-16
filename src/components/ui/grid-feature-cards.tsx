@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 type FeatureType = {
 	title: string;
@@ -14,9 +14,9 @@ type FeatureCardProps = React.ComponentProps<'div'> & {
 };
 
 export function FeatureCard({ feature, className, ...props }: FeatureCardProps) {
-	const [pattern, setPattern] = React.useState<number[][]>([]);
+	const [pattern, setPattern] = useState<number[][]>([]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setPattern(genRandomPattern());
 	}, []);
 

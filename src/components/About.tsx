@@ -48,7 +48,7 @@ export function About() {
             <div className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20">
               <div className="text-accent text-3xl font-black mb-1">15+</div>
               <div className="text-white font-bold mb-2">Years Excellence</div>
-              <p className="text-white/60 text-sm">Leading the digital transformation of African data centers since 2009.</p>
+              <p className="text-white/60 text-sm">Serving clients in the data centre space across the SADC region.</p>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ export function About() {
 
           <AnimatedContainer
             delay={0.4}
-            className="grid grid-cols-1 divide-x divide-y divide-white/5 border border-white/5 sm:grid-cols-2 md:grid-cols-3 bg-white/[0.02]"
+            className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-3"
           >
             {values.map((feature, i) => (
               <FeatureCard key={i} feature={feature} />
