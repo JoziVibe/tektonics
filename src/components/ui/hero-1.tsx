@@ -57,7 +57,7 @@ export function HeroSection() {
 						"drop-shadow-[0_0px_30px_rgba(18,217,236,0.3)]"
 					)}
 				>
-					Advanced Infrastructure <br /> for the <span className="text-gradient">Digital Gateway</span>
+					Give your digital <br /> <span className="text-gradient">real estate</span> a voice
 				</h1>
 
 				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-lg text-white/70 tracking-wide delay-200 duration-500 ease-out sm:text-xl md:text-2xl leading-relaxed">
