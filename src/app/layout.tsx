@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Tektonics Digital Gateway | African DCIM Solutions',
-  description: 'Tektonics Digital Gateway is an African leader in Data Center Infrastructure Management (DCIM) and IT solutions.',
+  title: 'Tektonics Systems | African DCIM Solutions',
+  description: 'Tektonics Systems is an African leader in Data Center Infrastructure Management (DCIM) and IT solutions.',
 };
 
 export default function RootLayout({

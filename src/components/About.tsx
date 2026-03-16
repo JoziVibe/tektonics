@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -55,7 +54,7 @@ export function About() {
               African Leaders in <br/><span className="text-primary">IT Infrastructure</span>
             </h3>
             <p className="text-lg text-white/70 mb-10 leading-relaxed">
-              Tektonics Digital Gateway is more than a solution provider; we are your strategic partner in data center resilience. Our roots are firmly planted in the African soil, giving us a unique perspective on the regional challenges of power, connectivity, and environmental management.
+              Tektonics Systems is more than a solution provider; we are your strategic partner in data center resilience. Our roots are firmly planted in the African soil, giving us a unique perspective on the regional challenges of power, connectivity, and environmental management.
             </p>
 
             <div className="space-y-8">

@@ -42,8 +42,8 @@ export function Header() {
 					<div className="bg-primary p-1.5 rounded-lg group-hover:bg-accent transition-colors">
 						<Cpu className="h-5 w-5 text-white" />
 					</div>
-					<span className="text-xl font-bold tracking-tight text-white font-headline">
-						TEKTONICS<span className="text-accent">DG</span>
+					<span className="text-xl font-bold tracking-tight text-white font-headline uppercase">
+						TEKTONICS
 					</span>
 				</Link>
 

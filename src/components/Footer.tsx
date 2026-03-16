@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Cpu, Linkedin, Twitter, Facebook, ArrowUpRight } from "lucide-react";
 
@@ -12,8 +11,8 @@ export function Footer() {
               <div className="bg-primary p-1.5 rounded-lg group-hover:bg-accent transition-colors">
                 <Cpu className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-headline">
-                TEKTONICS<span className="text-accent">DG</span>
+              <span className="text-xl font-bold tracking-tight text-white font-headline uppercase">
+                TEKTONICS
               </span>
             </Link>
             <p className="text-white/50 leading-relaxed mb-6">
@@ -70,7 +69,7 @@ export function Footer() {
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-white/30 text-sm">
-            © {new Date().getFullYear()} Tektonics Digital Gateway. All rights reserved.
+            © {new Date().getFullYear()} Tektonics Systems. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-white/30">
             <Link href="#" className="hover:text-white">Privacy Policy</Link>

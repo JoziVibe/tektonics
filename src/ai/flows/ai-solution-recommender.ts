@@ -39,7 +39,7 @@ const prompt = ai.definePrompt({
   name: 'aiSolutionRecommenderPrompt',
   input: {schema: AiSolutionRecommenderInputSchema},
   output: {schema: AiSolutionRecommenderOutputSchema},
-  prompt: `You are an expert in Data Center Infrastructure Management (DCIM) solutions and a representative of Tektonics Digital Gateway, a leading African company in IT and DCIM solutions.
+  prompt: `You are an expert in Data Center Infrastructure Management (DCIM) solutions and a representative of Tektonics Systems, a leading African company in IT and DCIM solutions.
 
 Your mission is to analyze a prospective client's data center challenges and needs, and provide tailored recommendations using Tektonics' DCIM solutions or strategic approaches.
 
