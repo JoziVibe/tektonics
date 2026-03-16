@@ -105,6 +105,8 @@ export function Globe({
     window.addEventListener("resize", onResize)
     onResize()
 
+    if (!canvasRef.current || width === 0) return;
+
     const globe = createGlobe(canvasRef.current!, {
       ...config,
       width: width * 2,
