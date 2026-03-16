@@ -1,6 +1,6 @@
 
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
+import { Header } from "@/components/ui/header-1";
+import { HeroSection, LogosSection } from "@/components/ui/hero-1";
 import { About } from "@/components/About";
 import { Solutions } from "@/components/Solutions";
 import { SuccessStories } from "@/components/SuccessStories";
@@ -12,13 +12,16 @@ import { Toaster } from "@/components/ui/toaster";
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
-      <Hero />
-      <About />
-      <Solutions />
-      <SuccessStories />
-      <AiRecommender />
-      <ContactForm />
+      <Header />
+      <div className="grow">
+        <HeroSection />
+        <LogosSection />
+        <About />
+        <Solutions />
+        <SuccessStories />
+        <AiRecommender />
+        <ContactForm />
+      </div>
       <Footer />
       <Toaster />
     </main>
