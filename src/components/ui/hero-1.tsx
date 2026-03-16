@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -8,7 +7,7 @@ import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 export function HeroSection() {
 	return (
-		<section className="mx-auto w-full max-w-5xl relative">
+		<section className="mx-auto w-full max-w-5xl relative overflow-hidden">
 			{/* Top Shades - Adapted for Cyan/Navy */}
 			<div
 				aria-hidden="true"
@@ -33,10 +32,10 @@ export function HeroSection() {
 					aria-hidden="true"
 					className="absolute inset-0 -z-1 size-full overflow-hidden"
 				>
-					<div className="absolute inset-y-0 left-4 w-px bg-linear-to-b from-transparent via-white/5 to-white/5 md:left-8" />
-					<div className="absolute inset-y-0 right-4 w-px bg-linear-to-b from-transparent via-white/5 to-white/5 md:right-8" />
-					<div className="absolute inset-y-0 left-8 w-px bg-linear-to-b from-transparent via-white/5 to-white/5 md:left-12" />
-					<div className="absolute inset-y-0 right-8 w-px bg-linear-to-b from-transparent via-white/5 to-white/5 md:right-12" />
+					<div className="absolute inset-y-0 left-4 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:left-8" />
+					<div className="absolute inset-y-0 right-4 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:right-8" />
+					<div className="absolute inset-y-0 left-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:left-12" />
+					<div className="absolute inset-y-0 right-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:right-12" />
 				</div>
 
 				<a
