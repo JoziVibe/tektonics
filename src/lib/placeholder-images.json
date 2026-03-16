@@ -7,28 +7,28 @@
       "imageHint": "data center"
     },
     {
-      "id": "solutions-power",
-      "description": "Electrical power management system interface",
-      "imageUrl": "https://picsum.photos/seed/tek-power/800/600",
-      "imageHint": "power management"
+      "id": "solutions-dc-infra",
+      "description": "Modern server room with cooling systems",
+      "imageUrl": "https://picsum.photos/seed/tek-infra/800/600",
+      "imageHint": "server room"
     },
     {
-      "id": "solutions-environment",
-      "description": "Digital temperature and humidity sensors",
-      "imageUrl": "https://picsum.photos/seed/tek-env/800/600",
-      "imageHint": "environmental monitoring"
+      "id": "solutions-software",
+      "description": "Software code on a screen with developer background",
+      "imageUrl": "https://picsum.photos/seed/tek-code/800/600",
+      "imageHint": "software development"
     },
     {
-      "id": "solutions-assets",
-      "description": "Server rack with organized cabling",
-      "imageUrl": "https://picsum.photos/seed/tek-assets/800/600",
-      "imageHint": "server rack"
+      "id": "solutions-consulting",
+      "description": "Business meeting with technical consulting focus",
+      "imageUrl": "https://picsum.photos/seed/tek-consult/800/600",
+      "imageHint": "business consulting"
     },
     {
-      "id": "solutions-security",
-      "description": "Biometric security access panel",
-      "imageUrl": "https://picsum.photos/seed/tek-sec/800/600",
-      "imageHint": "biometric security"
+      "id": "solutions-support",
+      "description": "Technical support engineer with headset and screens",
+      "imageUrl": "https://picsum.photos/seed/tek-support/800/600",
+      "imageHint": "tech support"
     },
     {
       "id": "success-lagos",

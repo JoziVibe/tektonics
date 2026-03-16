@@ -3,42 +3,42 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Thermometer, Box, Lock, ChevronRight } from "lucide-react";
+import { Server, Code, Lightbulb, Headset, ChevronRight } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function Solutions() {
   const solutions = [
     {
-      id: "solutions-power",
-      icon: <Zap className="h-6 w-6" />,
-      title: "Power Intelligence",
-      specs: ["PDU Monitoring", "UPS Analytics", "Generator Telemetry"],
-      desc: "Gain complete visibility into your power chain, from utility entrance to individual socket-level consumption.",
-      accent: "text-yellow-400"
-    },
-    {
-      id: "solutions-environment",
-      icon: <Thermometer className="h-6 w-6" />,
-      title: "Environmental Guardian",
-      specs: ["Temp/Humidity Sensors", "Leak Detection", "Airflow Analysis"],
-      desc: "Protect critical hardware with precise environmental monitoring designed for high-density environments.",
+      id: "solutions-dc-infra",
+      icon: <Server className="h-6 w-6" />,
+      title: "Data Centre Infrastructure",
+      specs: ["Power Intelligence", "Environmental Monitoring", "Asset Lifecycle"],
+      desc: "Robust and scalable solutions for mission-critical facilities, ensuring maximum efficiency and reliability in every rack.",
       accent: "text-blue-400"
     },
     {
-      id: "solutions-assets",
-      icon: <Box className="h-6 w-6" />,
-      title: "Asset Lifecycle Manager",
-      specs: ["RFID Tracking", "Rack Space Optimization", "Capacity Planning"],
-      desc: "Eliminate spreadsheet errors with automated physical asset tracking and rack space management.",
-      accent: "text-green-400"
+      id: "solutions-software",
+      icon: <Code className="h-6 w-6" />,
+      title: "Software Development",
+      specs: ["Custom Dashboards", "API Integration", "Enterprise Platforms"],
+      desc: "Bespoke software engineering tailored to your operational needs, bridging the gap between physical hardware and digital intelligence.",
+      accent: "text-cyan-400"
     },
     {
-      id: "solutions-security",
-      icon: <Lock className="h-6 w-6" />,
-      title: "SecureGate Integration",
-      specs: ["Biometric Access", "CCTV Sync", "Audit Logging"],
-      desc: "Converged security solutions that tie physical access directly to your IT management console.",
-      accent: "text-red-400"
+      id: "solutions-consulting",
+      icon: <Lightbulb className="h-6 w-6" />,
+      title: "Consulting Services",
+      specs: ["Strategic Planning", "Technical Advisory", "Audit & Optimization"],
+      desc: "Expert guidance to help you navigate the complex landscape of IT infrastructure and digital transformation across the region.",
+      accent: "text-accent"
+    },
+    {
+      id: "solutions-support",
+      icon: <Headset className="h-6 w-6" />,
+      title: "Technology Support",
+      specs: ["24/7 Assistance", "Maintenance Programs", "Incident Management"],
+      desc: "Proactive technical support and maintenance programs designed to ensure your critical systems remain operational and peak-performing.",
+      accent: "text-green-400"
     }
   ];
 
@@ -46,7 +46,7 @@ export function Solutions() {
     <section id="solutions" className="py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">DCIM Excellence</h2>
+          <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">Our Expertise</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 font-headline">Precision Solutions for Precise Infrastructure</h3>
           <p className="text-lg text-white/70">
             From proactive monitoring to complete infrastructure integration, Tektonics delivers the expertise and technology you need to protect, optimise, and grow your IT environment.
@@ -83,7 +83,7 @@ export function Solutions() {
                 <CardContent>
                   <p className="text-white/60 text-sm leading-relaxed mb-6">{sol.desc}</p>
                   <button className="flex items-center text-accent text-sm font-bold group/btn">
-                    Technical Specs <ChevronRight className="ml-1 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
+                    Learn More <ChevronRight className="ml-1 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </CardContent>
               </Card>
