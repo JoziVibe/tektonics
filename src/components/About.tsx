@@ -66,7 +66,7 @@ export function About() {
         </div>
 
         {/* Subsection: Strategic Values Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mx-auto max-w-6xl">
+        <div className="grid md:grid-cols-3 gap-8 w-full">
           {values.map((v, i) => (
             <Card key={i} className="group glass-card border-white/5 hover:border-accent/40 transition-all duration-300 shadow-black/5">
               <CardHeader className="pb-3 text-center">
