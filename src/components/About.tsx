@@ -74,7 +74,7 @@ export function About() {
               key={i}
               className={cn(
                 "p-1.5 rounded-3xl relative isolate overflow-hidden group transition-all duration-300",
-                "bg-white/5 bg-gradient-to-br from-white/5 to-white/[0.02]",
+                "bg-background/40 bg-gradient-to-br from-background/90 to-background/20",
                 "backdrop-blur-xl backdrop-saturate-[180%]",
                 "border border-white/10 shadow-[0_8px_16px_rgb(0_0_0_/_0.25)]",
                 "hover:shadow-accent/5 hover:border-accent/30"
@@ -82,7 +82,7 @@ export function About() {
             >
               <Card className={cn(
                 "h-full border-none shadow-none rounded-2xl relative transition-all duration-300 overflow-hidden",
-                "bg-gradient-to-br from-white/[0.08] to-transparent",
+                "bg-gradient-to-br from-white/[0.05] to-transparent",
                 "backdrop-blur-md backdrop-saturate-150",
                 "border border-white/[0.08]",
                 "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/[0.03] before:to-white/[0.01] before:opacity-0 before:transition-opacity before:pointer-events-none group-hover:before:opacity-100"
