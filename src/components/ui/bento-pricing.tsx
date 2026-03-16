@@ -1,14 +1,13 @@
 'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
-import { CheckIcon, SparklesIcon } from 'lucide-react';
+import { CheckIcon } from 'lucide-react';
 import { GradientButton } from '@/components/ui/gradient-button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type PricingCardProps = {
-	titleBadge: string;
+	title: string;
 	imageResourceId: string;
 	features: string[];
 	cta?: string;
@@ -24,7 +23,7 @@ function FilledCheck() {
 }
 
 function PricingCard({
-	titleBadge,
+	title,
 	imageResourceId,
 	features,
 	cta = 'Learn More',
@@ -55,7 +54,7 @@ function PricingCard({
 
 			<div className="relative z-10">
 				<div className="flex items-center gap-3 p-4">
-					<Badge variant="secondary" className="bg-secondary/50 text-white border-white/5">{titleBadge}</Badge>
+					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">{title}</span>
 					<div className="ml-auto">
 						<GradientButton size="sm">
 							{cta}
@@ -91,10 +90,11 @@ function PricingCard({
 }
 
 export function BentoPricing() {
-	const mainImage = PlaceHolderImages.find(img => img.id === 'solutions-dc-infra');
+	const infraImage = PlaceHolderImages.find(img => img.id === 'solutions-dc-infra');
 
 	return (
 		<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-8">
+			{/* Data Centre Infrastructure (Top Left) */}
 			<div
 				className={cn(
 					'bg-card/40 border-white/10 relative w-full overflow-hidden rounded-xl border',
@@ -115,34 +115,32 @@ export function BentoPricing() {
 					</div>
 				</div>
 				<div className="flex items-center gap-3 p-4 relative z-10">
-					<Badge variant="secondary" className="bg-accent/20 text-accent border-accent/20">CREATORS SPECIAL</Badge>
-					<Badge variant="outline" className="hidden lg:flex border-white/10 text-white/70">
-						<SparklesIcon className="me-1 size-3" /> Most Recommended
-					</Badge>
+					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">Data Centre Infrastructure</span>
 					<div className="ml-auto">
 						<GradientButton size="sm">Learn More</GradientButton>
 					</div>
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10 items-start">
 					<div className="pb-4 shrink-0">
-						<div className="h-[40px] w-[65px] relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-							{mainImage && (
+						<div className="h-[40px] w-[65px] relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+							{infraImage && (
 								<Image
-									src={mainImage.imageUrl}
-									alt={mainImage.description}
+									src={infraImage.imageUrl}
+									alt={infraImage.description}
 									fill
 									className="object-cover group-hover:scale-105 transition-transform duration-500"
-									data-ai-hint={mainImage.imageHint}
+									data-ai-hint={infraImage.imageHint}
 								/>
 							)}
 						</div>
 					</div>
 					<ul className="text-white/60 grid gap-4 text-sm flex-1">
 						{[
-							'Perfect for individual bloggers',
-							'freelancers and entrepreneurs',
-							'AI-Powered editing tools',
-							'Basic Analytics to track content performance',
+							'Security & environmental monitoring deployment',
+							'Server room builds and revamps',
+							'Hardware integration and management',
+							'DCIM software supply and deployment',
+							'Peak performance, zero downtime',
 						].map((f, i) => (
 							<li key={i} className="flex items-center gap-3">
 								<FilledCheck />
@@ -153,35 +151,41 @@ export function BentoPricing() {
 				</div>
 			</div>
 
+			{/* Consulting Services (Top Right) */}
 			<PricingCard
-				titleBadge="STARTERS"
-				imageResourceId="solutions-software"
+				title="Consulting Services"
+				imageResourceId="solutions-consulting"
 				features={[
-					'Perfect for beginners',
-					'Unlimited Content Generation',
-					'AI-Powered editing tools',
+					'Energy conservation and auditing expertise',
+					'DCIM tools training and support',
+					'Data collection and analysis guidance',
+					'Strategic IT management made easy',
 				]}
 				className="lg:col-span-3"
 			/>
 
+			{/* Software Development (Bottom Left) */}
 			<PricingCard
-				titleBadge="TEAMS"
-				imageResourceId="solutions-consulting"
+				title="Software Development"
+				imageResourceId="solutions-software"
 				features={[
-					'Ideal for small teams and agencies',
-					'Collaborative features like shared projects',
-					'Advanced Analytics to optimize content strategy',
+					'Tailored systems integration solutions',
+					'Custom software and hardware combined',
+					'Scalable, problem-solving architectures built',
+					'Aligned to your operational goals',
 				]}
 				className="lg:col-span-4"
 			/>
 
+			{/* Technology Support (Bottom Right) */}
 			<PricingCard
-				titleBadge="ENTERPRISE"
+				title="Technology Support"
 				imageResourceId="solutions-support"
 				features={[
-					'Designed for large companies',
-					'high-volume content creators',
-					'dedicated account management',
+					'Expert technology sourcing guidance',
+					'Vendor evaluation and cost outlining',
+					'Desktop and server environment support',
+					'Data security and compliance assured',
 				]}
 				className="lg:col-span-4"
 			/>
