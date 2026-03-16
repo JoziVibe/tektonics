@@ -64,7 +64,7 @@ function PricingCard({
 				</div>
 
 				<div className="px-4 py-2">
-					<div className="h-[60px] w-full relative rounded-lg overflow-hidden border border-white/10">
+					<div className="h-[40px] w-[65px] relative rounded-lg overflow-hidden border border-white/10">
 						{image && (
 							<Image
 								src={image.imageUrl}
@@ -123,9 +123,9 @@ export function BentoPricing() {
 						<GradientButton size="sm">Learn More</GradientButton>
 					</div>
 				</div>
-				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10">
-					<div className="pb-4 lg:w-[30%]">
-						<div className="h-[80px] w-full relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10 items-start">
+					<div className="pb-4 shrink-0">
+						<div className="h-[40px] w-[65px] relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
 							{mainImage && (
 								<Image
 									src={mainImage.imageUrl}
@@ -137,7 +137,7 @@ export function BentoPricing() {
 							)}
 						</div>
 					</div>
-					<ul className="text-white/60 grid gap-4 text-sm lg:w-[70%]">
+					<ul className="text-white/60 grid gap-4 text-sm flex-1">
 						{[
 							'Perfect for individual bloggers',
 							'freelancers and entrepreneurs',
