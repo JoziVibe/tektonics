@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Server, Code, Lightbulb, Headset, ChevronRight } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
@@ -64,6 +63,7 @@ export function Solutions() {
                     alt={sol.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500 opacity-80"
+                    data-ai-hint={sol.id.replace('solutions-', '').replace('-', ' ')}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                   <div className={`absolute bottom-4 left-4 p-2 rounded-lg bg-background/80 backdrop-blur-md ${sol.accent}`}>
@@ -72,13 +72,6 @@ export function Solutions() {
                 </div>
                 <CardHeader>
                   <CardTitle className="text-xl font-bold text-white mb-2">{sol.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {sol.specs.map(s => (
-                      <Badge key={s} variant="secondary" className="bg-white/5 text-[10px] text-white/60 border-white/10 uppercase tracking-tighter">
-                        {s}
-                      </Badge>
-                    ))}
-                  </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-white/60 text-sm leading-relaxed mb-6">{sol.desc}</p>
