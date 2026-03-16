@@ -23,7 +23,7 @@ export function NavBar({ items, className }: NavBarProps) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
+      setIsMobile(window.innerWidth < 1024)
     }
 
     handleResize()
@@ -34,7 +34,7 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-[100] mb-6 sm:pt-6",
+        "fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] lg:relative lg:bottom-auto lg:left-auto lg:translate-x-0 lg:z-auto lg:mb-0 lg:pt-0",
         className,
       )}
     >

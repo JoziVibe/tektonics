@@ -9,7 +9,6 @@ import { AiRecommender } from "@/components/AiRecommender";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Home, Info, Cpu, Trophy, Sparkles } from "lucide-react";
 
 export default function HomePage() {
@@ -23,8 +22,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <Header />
-      <NavBar items={navItems} />
+      <Header items={navItems} />
       <div className="grow">
         <HeroSection />
         <LogosSection />
