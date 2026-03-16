@@ -1,9 +1,8 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Globe, Cpu } from "lucide-react";
+import { Menu, X, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
@@ -22,7 +21,6 @@ export function Navbar() {
     { name: "Overview", href: "#overview" },
     { name: "Solutions", href: "#solutions" },
     { name: "Success Stories", href: "#success" },
-    { name: "AI Recommender", href: "#recommender" },
     { name: "Contact", href: "#contact" },
   ];
 

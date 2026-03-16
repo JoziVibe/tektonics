@@ -5,19 +5,17 @@ import { HeroSection, LogosSection } from "@/components/ui/hero-1";
 import { About } from "@/components/About";
 import { Solutions } from "@/components/Solutions";
 import { SuccessStories } from "@/components/SuccessStories";
-import { AiRecommender } from "@/components/AiRecommender";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { Home, Info, Cpu, Trophy, Sparkles } from "lucide-react";
+import { Home, Info, Cpu, Trophy } from "lucide-react";
 
 export default function HomePage() {
   const navItems = [
     { name: 'Home', url: '#', icon: Home },
     { name: 'Overview', url: '#overview', icon: Info },
     { name: 'Solutions', url: '#solutions', icon: Cpu },
-    { name: 'Success', url: '#success', icon: Trophy },
-    { name: 'AI Expert', url: '#recommender', icon: Sparkles }
+    { name: 'Success', url: '#success', icon: Trophy }
   ];
 
   return (
@@ -29,7 +27,6 @@ export default function HomePage() {
         <About />
         <Solutions />
         <SuccessStories />
-        <AiRecommender />
         <ContactForm />
       </div>
       <Footer />
