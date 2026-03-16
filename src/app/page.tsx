@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/components/ui/header-1";
 import { HeroSection, LogosSection } from "@/components/ui/hero-1";
 import { About } from "@/components/About";
@@ -7,11 +9,22 @@ import { AiRecommender } from "@/components/AiRecommender";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { NavBar } from "@/components/ui/tubelight-navbar";
+import { Home, Info, Cpu, Trophy, Sparkles } from "lucide-react";
 
-export default function Home() {
+export default function HomePage() {
+  const navItems = [
+    { name: 'Home', url: '#', icon: Home },
+    { name: 'Overview', url: '#overview', icon: Info },
+    { name: 'Solutions', url: '#solutions', icon: Cpu },
+    { name: 'Success', url: '#success', icon: Trophy },
+    { name: 'AI Expert', url: '#recommender', icon: Sparkles }
+  ];
+
   return (
     <main className="flex flex-col min-h-screen">
       <Header />
+      <NavBar items={navItems} />
       <div className="grow">
         <HeroSection />
         <LogosSection />
