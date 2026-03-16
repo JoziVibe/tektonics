@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CheckIcon, SparklesIcon } from 'lucide-react';
+import { GradientButton } from '@/components/ui/gradient-button';
 
 type PricingCardProps = {
 	titleBadge: string;
@@ -27,7 +27,7 @@ function PricingCard({
 	priceLabel,
 	priceSuffix = '/month',
 	features,
-	cta = 'Subscribe',
+	cta = 'Learn More',
 	className,
 }: PricingCardProps) {
 	return (
@@ -55,7 +55,9 @@ function PricingCard({
 				<div className="flex items-center gap-3 p-4">
 					<Badge variant="secondary" className="bg-secondary/50 text-white border-white/5">{titleBadge}</Badge>
 					<div className="ml-auto">
-						<Button variant="outline" className="border-white/10 text-white hover:bg-white/5 rounded-full px-4 h-8 text-xs">{cta}</Button>
+						<GradientButton size="sm">
+							{cta}
+						</GradientButton>
 					</div>
 				</div>
 
@@ -109,7 +111,7 @@ export function BentoPricing() {
 						<SparklesIcon className="me-1 size-3" /> Most Recommended
 					</Badge>
 					<div className="ml-auto">
-						<Button className="rounded-full px-6">Subscribe</Button>
+						<GradientButton size="sm">Learn More</GradientButton>
 					</div>
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10">
