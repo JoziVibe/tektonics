@@ -53,7 +53,7 @@ export function HeroSection() {
 
 				<h1
 					className={cn(
-						"fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-5xl font-medium font-headline tracking-tight delay-100 duration-500 ease-out md:text-6xl lg:text-7xl text-white",
+						"fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-5xl font-semibold font-headline tracking-tight delay-100 duration-500 ease-out md:text-6xl lg:text-7xl text-white",
 						"drop-shadow-[0_0px_30px_rgba(18,217,236,0.3)]"
 					)}
 				>
