@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -50,7 +49,7 @@ export function Solutions() {
           <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">DCIM Excellence</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 font-headline">Precision Solutions for Precise Infrastructure</h3>
           <p className="text-lg text-white/70">
-            Our comprehensive DCIM suite addresses the most critical aspects of data center operations with modular, scalable technology.
+            From proactive monitoring to complete infrastructure integration, Tektonics delivers the expertise and technology you need to protect, optimise, and grow your IT environment.
           </p>
         </div>
 
