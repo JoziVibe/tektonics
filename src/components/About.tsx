@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -5,6 +6,7 @@ import { Target, Lightbulb, Users } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 export function About() {
   const teamImg = PlaceHolderImages.find(img => img.id === 'about-team');
@@ -68,20 +70,37 @@ export function About() {
         {/* Subsection: Strategic Values Grid */}
         <div className="grid md:grid-cols-3 gap-8 w-full">
           {values.map((v, i) => (
-            <Card key={i} className="group glass-card border-white/5 hover:border-accent/40 transition-all duration-300 shadow-black/5">
-              <CardHeader className="pb-3 text-center">
-                <CardDecorator>
-                  {v.icon}
-                </CardDecorator>
-                <h3 className="mt-6 text-xl font-bold text-white font-headline">{v.title}</h3>
-              </CardHeader>
+            <div
+              key={i}
+              className={cn(
+                "p-1.5 rounded-3xl relative isolate overflow-hidden group transition-all duration-300",
+                "bg-white/5 bg-gradient-to-br from-white/5 to-white/[0.02]",
+                "backdrop-blur-xl backdrop-saturate-[180%]",
+                "border border-white/10 shadow-[0_8px_16px_rgb(0_0_0_/_0.25)]",
+                "hover:shadow-accent/5 hover:border-accent/30"
+              )}
+            >
+              <Card className={cn(
+                "h-full border-none shadow-none rounded-2xl relative transition-all duration-300 overflow-hidden",
+                "bg-gradient-to-br from-white/[0.08] to-transparent",
+                "backdrop-blur-md backdrop-saturate-150",
+                "border border-white/[0.08]",
+                "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/[0.03] before:to-white/[0.01] before:opacity-0 before:transition-opacity before:pointer-events-none group-hover:before:opacity-100"
+              )}>
+                <CardHeader className="pb-3 text-center relative z-10">
+                  <CardDecorator>
+                    {v.icon}
+                  </CardDecorator>
+                  <h3 className="mt-6 text-xl font-bold text-white font-headline group-hover:text-accent transition-colors">{v.title}</h3>
+                </CardHeader>
 
-              <CardContent className="text-center">
-                <p className="text-white/60 leading-relaxed font-body text-sm md:text-base">
-                  {v.desc}
-                </p>
-              </CardContent>
-            </Card>
+                <CardContent className="text-center relative z-10">
+                  <p className="text-white/60 leading-relaxed font-body text-sm md:text-base">
+                    {v.desc}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
