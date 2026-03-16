@@ -43,7 +43,7 @@ export function Header({ items }: HeaderProps) {
         </div>
 
 				<div className="flex items-center gap-4 shrink-0">
-					<GradientButton className="hidden sm:flex" size="sm">
+					<GradientButton className="hidden sm:flex">
 						Get Started
 					</GradientButton>
 				</div>
