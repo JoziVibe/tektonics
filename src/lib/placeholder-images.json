@@ -1,3 +1,58 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "High-tech data center with servers and blue lighting",
+      "imageUrl": "https://picsum.photos/seed/tektonics-hero/1920/1080",
+      "imageHint": "data center"
+    },
+    {
+      "id": "solutions-power",
+      "description": "Electrical power management system interface",
+      "imageUrl": "https://picsum.photos/seed/tek-power/800/600",
+      "imageHint": "power management"
+    },
+    {
+      "id": "solutions-environment",
+      "description": "Digital temperature and humidity sensors",
+      "imageUrl": "https://picsum.photos/seed/tek-env/800/600",
+      "imageHint": "environmental monitoring"
+    },
+    {
+      "id": "solutions-assets",
+      "description": "Server rack with organized cabling",
+      "imageUrl": "https://picsum.photos/seed/tek-assets/800/600",
+      "imageHint": "server rack"
+    },
+    {
+      "id": "solutions-security",
+      "description": "Biometric security access panel",
+      "imageUrl": "https://picsum.photos/seed/tek-sec/800/600",
+      "imageHint": "biometric security"
+    },
+    {
+      "id": "success-lagos",
+      "description": "Modern office building in Lagos",
+      "imageUrl": "https://picsum.photos/seed/tek-lagos/600/400",
+      "imageHint": "modern city"
+    },
+    {
+      "id": "success-nairobi",
+      "description": "Nairobi skyline at dusk",
+      "imageUrl": "https://picsum.photos/seed/tek-nairobi/600/400",
+      "imageHint": "nairobi city"
+    },
+    {
+      "id": "success-capetown",
+      "description": "Cape Town tech hub interior",
+      "imageUrl": "https://picsum.photos/seed/tek-ct/600/400",
+      "imageHint": "tech office"
+    },
+    {
+      "id": "about-team",
+      "description": "Professional team working in a modern office",
+      "imageUrl": "https://picsum.photos/seed/tek-team/1200/800",
+      "imageHint": "business team"
+    }
+  ]
 }
