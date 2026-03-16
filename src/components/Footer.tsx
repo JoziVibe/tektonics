@@ -58,9 +58,9 @@ export function Footer() {
               <input 
                 type="email" 
                 placeholder="Email Address" 
-                className="bg-white/5 border border-white/10 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-accent w-full"
+                className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-accent w-full"
               />
-              <button className="bg-primary text-white p-2 rounded-md hover:bg-primary/90 transition-colors">
+              <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors">
                 Join
               </button>
             </form>
