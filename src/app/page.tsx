@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Header } from "@/components/ui/header-1";
@@ -5,6 +6,7 @@ import { HeroSection, LogosSection } from "@/components/ui/hero-1";
 import { About } from "@/components/About";
 import { Solutions } from "@/components/Solutions";
 import { SuccessStories } from "@/components/SuccessStories";
+import GlobeFeatureSection from "@/components/ui/globe-feature-section";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
@@ -27,6 +29,7 @@ export default function HomePage() {
         <About />
         <Solutions />
         <SuccessStories />
+        <GlobeFeatureSection />
         <ContactForm />
       </div>
       <Footer />
