@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, Target, Lightbulb, Users } from "lucide-react";
+import { Target, Lightbulb, Users } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function About() {
@@ -28,7 +28,8 @@ export function About() {
   return (
     <section id="overview" className="py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Top Section: Intro and Image */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div className="relative group">
             <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-50 group-hover:opacity-100 transition duration-1000"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
@@ -53,24 +54,28 @@ export function About() {
             <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 font-headline leading-tight">
               African Leaders in <br/><span className="text-primary">IT Infrastructure</span>
             </h3>
-            <p className="text-lg text-white/70 mb-10 leading-relaxed">
-              Tektonics Systems is more than a solution provider; we are your strategic partner in data center resilience. Our roots are firmly planted in the African soil, giving us a unique perspective on the regional challenges of power, connectivity, and environmental management.
+            <p className="text-lg text-white/70 leading-relaxed font-body">
+              Tektonics Systems is more than a solution provider; we are your strategic partner in data center resilience. Our roots are firmly planted in the African soil, giving us a unique perspective on the regional challenges of power, connectivity, and environmental management. 
             </p>
-
-            <div className="space-y-8">
-              {values.map((v, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    {v.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-white mb-1">{v.title}</h4>
-                    <p className="text-white/60 leading-relaxed">{v.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="text-lg text-white/70 mt-4 leading-relaxed font-body">
+              We understand that the backbone of Africa's digital economy relies on robust, monitored, and efficient infrastructure. That's why we deliver precision-engineered DCIM solutions that scale with your growth.
+            </p>
           </div>
+        </div>
+
+        {/* Bottom Section: Strategic Values Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {values.map((v, i) => (
+            <div key={i} className="glass-card p-8 rounded-3xl border border-white/5 hover:border-accent/40 transition-all group">
+              <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                {v.icon}
+              </div>
+              <h4 className="text-xl font-bold text-white mb-4 font-headline">{v.title}</h4>
+              <p className="text-white/60 leading-relaxed font-body text-sm md:text-base">
+                {v.desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
