@@ -4,11 +4,12 @@ import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { CheckIcon, SparklesIcon } from 'lucide-react';
 import { GradientButton } from '@/components/ui/gradient-button';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type PricingCardProps = {
 	titleBadge: string;
-	priceLabel: string;
-	priceSuffix?: string;
+	imageResourceId: string;
 	features: string[];
 	cta?: string;
 	className?: string;
@@ -24,17 +25,18 @@ function FilledCheck() {
 
 function PricingCard({
 	titleBadge,
-	priceLabel,
-	priceSuffix = '/month',
+	imageResourceId,
 	features,
 	cta = 'Learn More',
 	className,
 }: PricingCardProps) {
+	const image = PlaceHolderImages.find(img => img.id === imageResourceId);
+
 	return (
 		<div
 			className={cn(
 				'bg-card/40 border-white/10 relative overflow-hidden rounded-xl border',
-				'backdrop-blur-md',
+				'backdrop-blur-md group',
 				className,
 			)}
 		>
@@ -61,13 +63,18 @@ function PricingCard({
 					</div>
 				</div>
 
-				<div className="flex items-end gap-2 px-4 py-2">
-					<span className="font-mono text-5xl font-semibold tracking-tight text-white">
-						{priceLabel}
-					</span>
-					{priceLabel.toLowerCase() !== 'free' && (
-						<span className="text-white/50 text-sm">{priceSuffix}</span>
-					)}
+				<div className="px-4 py-2">
+					<div className="h-[60px] w-full relative rounded-lg overflow-hidden border border-white/10">
+						{image && (
+							<Image
+								src={image.imageUrl}
+								alt={image.description}
+								fill
+								className="object-cover group-hover:scale-105 transition-transform duration-500"
+								data-ai-hint={image.imageHint}
+							/>
+						)}
+					</div>
 				</div>
 
 				<ul className="text-white/60 grid gap-4 p-4 text-sm">
@@ -84,12 +91,14 @@ function PricingCard({
 }
 
 export function BentoPricing() {
+	const mainImage = PlaceHolderImages.find(img => img.id === 'solutions-dc-infra');
+
 	return (
 		<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-8">
 			<div
 				className={cn(
 					'bg-card/40 border-white/10 relative w-full overflow-hidden rounded-xl border',
-					'backdrop-blur-md',
+					'backdrop-blur-md group',
 					'lg:col-span-5',
 				)}
 			>
@@ -116,10 +125,17 @@ export function BentoPricing() {
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10">
 					<div className="pb-4 lg:w-[30%]">
-						<span className="font-mono text-5xl font-semibold tracking-tight text-white">
-							$19
-						</span>
-						<span className="text-white/50 text-sm">/month</span>
+						<div className="h-[80px] w-full relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+							{mainImage && (
+								<Image
+									src={mainImage.imageUrl}
+									alt={mainImage.description}
+									fill
+									className="object-cover group-hover:scale-105 transition-transform duration-500"
+									data-ai-hint={mainImage.imageHint}
+								/>
+							)}
+						</div>
 					</div>
 					<ul className="text-white/60 grid gap-4 text-sm lg:w-[70%]">
 						{[
@@ -139,7 +155,7 @@ export function BentoPricing() {
 
 			<PricingCard
 				titleBadge="STARTERS"
-				priceLabel="$0"
+				imageResourceId="solutions-software"
 				features={[
 					'Perfect for beginners',
 					'Unlimited Content Generation',
@@ -150,7 +166,7 @@ export function BentoPricing() {
 
 			<PricingCard
 				titleBadge="TEAMS"
-				priceLabel="$49"
+				imageResourceId="solutions-consulting"
 				features={[
 					'Ideal for small teams and agencies',
 					'Collaborative features like shared projects',
@@ -161,7 +177,7 @@ export function BentoPricing() {
 
 			<PricingCard
 				titleBadge="ENTERPRISE"
-				priceLabel="$99"
+				imageResourceId="solutions-support"
 				features={[
 					'Designed for large companies',
 					'high-volume content creators',
