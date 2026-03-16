@@ -60,8 +60,8 @@ export function HeroSection() {
 					Give your digital <br /> <span className="text-gradient">real estate</span> a voice
 				</h1>
 
-				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-lg text-white/70 tracking-wide delay-200 duration-500 ease-out sm:text-xl md:text-2xl leading-relaxed">
-					Tektonics leads the way in IT infrastructure management, <br className="hidden md:block" /> providing precision monitoring and strategic optimization for modern data centers.
+				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-base text-white/70 tracking-wide delay-200 duration-500 ease-out leading-relaxed">
+					Tektonics Leads the way in African IT management, providing precision monitoring and strategic optimization for modern data centers.
 				</p>
 
 				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-4 fill-mode-backwards pt-4 delay-300 duration-500 ease-out">
