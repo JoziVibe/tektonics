@@ -26,7 +26,7 @@ export function HeroSection() {
 			</div>
 
 			{/* main content */}
-			<div className="relative flex flex-col items-center justify-center gap-5 pt-32 pb-24 px-6">
+			<div className="relative flex flex-col items-center justify-center gap-5 py-24 px-6">
 				{/* X Content Faded Borders */}
 				<div
 					aria-hidden="true"
