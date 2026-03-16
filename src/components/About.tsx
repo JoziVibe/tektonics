@@ -1,36 +1,35 @@
-
 "use client";
 
 import Image from "next/image";
 import { Target, Lightbulb, Users } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { motion, useReducedMotion } from "framer-motion";
+import { FeatureCard } from "@/components/ui/grid-feature-cards";
 import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 export function About() {
   const teamImg = PlaceHolderImages.find(img => img.id === 'about-team');
 
   const values = [
     {
-      icon: <Target className="size-6 text-accent" />,
+      icon: Target,
       title: "Our Mission",
-      desc: "To empower African enterprises with world-class DCIM solutions that bridge the gap between physical infrastructure and digital excellence."
+      description: "To empower African enterprises with world-class DCIM solutions that bridge the gap between physical infrastructure and digital excellence."
     },
     {
-      icon: <Lightbulb className="size-6 text-accent" />,
+      icon: Lightbulb,
       title: "Our Innovation",
-      desc: "Continuously pushing the boundaries of what's possible in IT infrastructure monitoring through AI-driven insights."
+      description: "Continuously pushing the boundaries of what's possible in IT infrastructure monitoring through AI-driven insights."
     },
     {
-      icon: <Users className="size-6 text-accent" />,
+      icon: Users,
       title: "Our Expertise",
-      desc: "A multidisciplinary team of African engineers and technologists with decades of experience in global data center standards."
+      description: "A multidisciplinary team of African engineers and technologists with decades of experience in global data center standards."
     }
   ];
 
   return (
-    <section id="overview" className="py-24 bg-secondary/10 relative overflow-hidden">
+    <section id="overview" className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Top Section: Intro and Image */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
@@ -67,52 +66,53 @@ export function About() {
           </div>
         </div>
 
-        {/* Subsection: Strategic Values Grid */}
-        <div className="grid md:grid-cols-3 gap-8 w-full">
-          {values.map((v, i) => (
-            <div
-              key={i}
-              className={cn(
-                "p-1.5 rounded-3xl relative isolate overflow-hidden group transition-all duration-300",
-                "bg-background/40 bg-gradient-to-br from-background/90 to-background/20",
-                "backdrop-blur-xl backdrop-saturate-[180%]",
-                "border border-white/10 shadow-[0_8px_16px_rgb(0_0_0_/_0.25)]",
-                "hover:shadow-accent/5 hover:border-accent/30"
-              )}
-            >
-              <Card className={cn(
-                "h-full border-none shadow-none rounded-2xl relative transition-all duration-300 overflow-hidden",
-                "bg-gradient-to-br from-white/[0.05] to-transparent",
-                "backdrop-blur-md backdrop-saturate-150",
-                "border border-white/[0.08]",
-                "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/[0.03] before:to-white/[0.01] before:opacity-0 before:transition-opacity before:pointer-events-none group-hover:before:opacity-100"
-              )}>
-                <CardHeader className="pb-3 text-center relative z-10">
-                  <CardDecorator>
-                    {v.icon}
-                  </CardDecorator>
-                  <h3 className="mt-6 text-xl font-bold text-white font-headline group-hover:text-accent transition-colors">{v.title}</h3>
-                </CardHeader>
+        {/* Subsection: Strategic Pillars Grid */}
+        <div className="space-y-12">
+          <AnimatedContainer className="text-center max-w-3xl mx-auto">
+            <h3 className="text-3xl font-bold tracking-tight text-white md:text-4xl font-headline">
+              The Tektonics <span className="text-accent">Foundation</span>
+            </h3>
+            <p className="text-white/60 mt-4 font-body leading-relaxed">
+              Our core values drive every integration and monitoring strategy we deploy across the continent.
+            </p>
+          </AnimatedContainer>
 
-                <CardContent className="text-center relative z-10">
-                  <p className="text-white/60 leading-relaxed font-body text-sm md:text-base">
-                    {v.desc}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+          <AnimatedContainer
+            delay={0.4}
+            className="grid grid-cols-1 divide-x divide-y divide-white/5 border border-white/5 sm:grid-cols-2 md:grid-cols-3 bg-white/[0.02]"
+          >
+            {values.map((feature, i) => (
+              <FeatureCard key={i} feature={feature} />
+            ))}
+          </AnimatedContainer>
         </div>
       </div>
     </section>
   );
 }
 
-const CardDecorator = ({ children }: { children: ReactNode }) => (
-  <div aria-hidden className="relative mx-auto size-36 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
-    <div className="absolute inset-0 [--border:rgba(18,217,236,0.3)] bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-    <div className="bg-background/80 absolute inset-0 m-auto flex size-12 items-center justify-center border-t border-l border-accent/20 backdrop-blur-sm rounded-sm">
+type ViewAnimationProps = {
+  delay?: number;
+  className?: string;
+  children: ReactNode;
+};
+
+function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      initial={{ filter: 'blur(4px)', translateY: 20, opacity: 0 }}
+      whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay, duration: 0.8 }}
+      className={className}
+    >
       {children}
-    </div>
-  </div>
-);
+    </motion.div>
+  );
+}
