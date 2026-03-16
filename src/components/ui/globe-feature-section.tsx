@@ -13,14 +13,14 @@ export default function GlobeFeatureSection() {
       <div className="relative w-full mx-auto overflow-hidden rounded-3xl bg-card border border-white/5 shadow-2xl px-6 py-16 md:px-16 md:py-24">
         <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row">
           <div className="z-10 max-w-xl text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-headline">
-              Secure Your <span className="text-primary">Digital Gateway</span>{" "}
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-headline leading-tight">
+              Build with <span className="text-primary">Ruixen UI</span>{" "}
               <span className="block mt-4 text-lg font-normal text-white/60 font-body">
-                Empower your team with precision-engineered DCIM solutions. Tektonics brings simplicity and performance to modern African data centers.
+                Empower your team with fast, elegant, and scalable UI components. Ruixen UI brings simplicity and performance to your modern apps.
               </span>
             </h2>
             <Button size="lg" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary/90 px-8 py-3 text-sm font-bold text-white transition">
-              Get Started Today <ArrowRight className="h-4 w-4" />
+              Join Today <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
           <div className="relative h-[300px] w-full max-w-xl flex items-center justify-center">
@@ -43,8 +43,8 @@ const GLOBE_CONFIG: COBEOptions = {
   diffuse: 1.2,
   mapSamples: 16000,
   mapBrightness: 6,
-  baseColor: [0.0078, 0.5882, 0.7647], // Matching #0096c3
-  markerColor: [0.0706, 0.8510, 0.9255], // Matching #12d9ec
+  baseColor: [0.0078, 0.5882, 0.7647], // Matching Tektonics brand primary
+  markerColor: [0.0706, 0.8510, 0.9255], // Matching brand accent
   glowColor: [0.0078, 0.5882, 0.7647],
   markers: [
     { location: [6.5244, 3.3792], size: 0.1 }, // Lagos
@@ -52,7 +52,6 @@ const GLOBE_CONFIG: COBEOptions = {
     { location: [-33.9249, 18.4241], size: 0.08 }, // Cape Town
     { location: [-26.2041, 28.0473], size: 0.1 }, // Johannesburg
     { location: [30.0444, 31.2357], size: 0.07 }, // Cairo
-    { location: [33.5731, -7.5898], size: 0.06 }, // Casablanca
   ],
 }
 
@@ -64,7 +63,6 @@ export function Globe({
   config?: COBEOptions
 }) {
   let phi = 0
-  let width = 0
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pointerInteracting = useRef(null)
   const pointerInteractionMovement = useRef(0)
@@ -89,19 +87,17 @@ export function Globe({
     (state: Record<string, any>) => {
       if (!pointerInteracting.current) phi += 0.005
       state.phi = phi + r
-      state.width = width * 2
-      state.height = width * 2
     },
     [r],
   )
 
-  const onResize = () => {
-    if (canvasRef.current) {
-      width = canvasRef.current.offsetWidth
-    }
-  }
-
   useEffect(() => {
+    let width = 0
+    const onResize = () => {
+      if (canvasRef.current) {
+        width = canvasRef.current.offsetWidth
+      }
+    }
     window.addEventListener("resize", onResize)
     onResize()
 
@@ -111,14 +107,22 @@ export function Globe({
       ...config,
       width: width * 2,
       height: width * 2,
-      onRender,
+      onRender: (state) => {
+        onRender(state);
+        state.width = width * 2;
+        state.height = width * 2;
+      },
     })
 
     setTimeout(() => {
       if (canvasRef.current) canvasRef.current.style.opacity = "1";
     })
-    return () => globe.destroy()
-  }, [])
+    
+    return () => {
+      globe.destroy();
+      window.removeEventListener("resize", onResize);
+    }
+  }, [onRender, config])
 
   return (
     <div
