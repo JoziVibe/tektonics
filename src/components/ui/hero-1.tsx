@@ -7,7 +7,7 @@ import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 export function HeroSection() {
 	return (
-		<section className="mx-auto w-full max-w-5xl relative overflow-hidden">
+		<section className="mx-auto w-full max-w-7xl relative overflow-hidden">
 			{/* Top Shades - Adapted for Cyan/Navy */}
 			<div
 				aria-hidden="true"
@@ -19,14 +19,14 @@ export function HeroSection() {
 			{/* X Bold Faded Borders */}
 			<div
 				aria-hidden="true"
-				className="absolute inset-0 mx-auto hidden min-h-screen w-full max-w-5xl lg:block"
+				className="absolute inset-0 mx-auto hidden min-h-screen w-full max-w-7xl lg:block"
 			>
 				<div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 left-0 z-10 h-full w-px bg-white/10" />
 				<div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 right-0 z-10 h-full w-px bg-white/10" />
 			</div>
 
 			{/* main content */}
-			<div className="relative flex flex-col items-center justify-center gap-5 pt-56 pb-24 px-6">
+			<div className="relative flex flex-col items-center justify-center gap-5 pt-56 pb-48 px-6">
 				{/* X Content Faded Borders */}
 				<div
 					aria-hidden="true"
@@ -60,7 +60,7 @@ export function HeroSection() {
 					Give your digital <br /> <span className="text-gradient">real estate</span> a voice
 				</h1>
 
-				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-base text-white/70 tracking-wide delay-200 duration-500 ease-out leading-relaxed">
+				<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-2xl animate-in fill-mode-backwards text-center text-[16px] text-white/70 tracking-wide delay-200 duration-500 ease-out leading-relaxed">
 					Tektonics Leads the way in African IT management, providing precision monitoring and strategic optimization for modern data centers.
 				</p>
 
@@ -85,7 +85,7 @@ export function LogosSection() {
 			<h2 className="text-center font-bold text-sm text-white/40 tracking-[0.2em] uppercase">
 				Trusted by <span className="text-accent">Infrastructure Leaders</span>
 			</h2>
-			<div className="relative z-10 mx-auto max-w-5xl">
+			<div className="relative z-10 mx-auto max-w-7xl">
 				<LogoCloud logos={logos} />
 			</div>
 		</section>
