@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -11,8 +10,8 @@ import { ReactNode } from "react";
 export function About() {
   const teamImg = PlaceHolderImages.find(img => img.id === 'about-team');
   
-  // Directly use the path if found, with a robust picsum fallback for development safety
-  const imgSrc = teamImg?.imageUrl || "/Assets/About.jpg";
+  // Use the path from JSON if found, otherwise use the explicit lowercase path
+  const imgSrc = teamImg?.imageUrl || "/assets/about.jpg";
 
   const values = [
     {
@@ -47,7 +46,6 @@ export function About() {
                 data-ai-hint={teamImg?.imageHint || "data center team"}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
-                unoptimized={true} // Helpful for local assets in some development environments
               />
             </div>
             <div className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20">

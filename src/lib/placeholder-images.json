@@ -51,7 +51,7 @@
     {
       "id": "about-team",
       "description": "Tektonics professional team and expert staff standing in a modern data center",
-      "imageUrl": "/Assets/About.jpg",
+      "imageUrl": "/assets/about.jpg",
       "imageHint": "data center team"
     }
   ]
