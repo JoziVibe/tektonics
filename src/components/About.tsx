@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -9,6 +10,9 @@ import { ReactNode } from "react";
 
 export function About() {
   const teamImg = PlaceHolderImages.find(img => img.id === 'about-team');
+  
+  // Primary image path from lib, with a reliable placeholder fallback if undefined
+  const imgSrc = teamImg?.imageUrl || "https://picsum.photos/seed/tek-team-default/1200/800";
 
   const values = [
     {
@@ -34,14 +38,15 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="relative group">
             <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-card/40 aspect-[3/2]">
               <Image
-                src={teamImg?.imageUrl || "https://picsum.photos/seed/tek-team/1200/800"}
+                src={imgSrc}
                 alt={teamImg?.description || "Tektonics Professional Team"}
-                width={1200}
-                height={800}
+                fill
                 className="object-cover"
                 data-ai-hint={teamImg?.imageHint || "data center"}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
             <div className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20">
@@ -77,7 +82,7 @@ export function About() {
 
           <AnimatedContainer
             delay={0.4}
-            className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-3"
+            className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed border-white/10 sm:grid-cols-2 md:grid-cols-3"
           >
             {values.map((feature, i) => (
               <FeatureCard key={i} feature={feature} />
