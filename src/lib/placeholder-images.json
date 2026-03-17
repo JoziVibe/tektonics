@@ -50,9 +50,9 @@
     },
     {
       "id": "about-team",
-      "description": "Professional team working in a modern office",
-      "imageUrl": "https://picsum.photos/seed/tek-team/1200/800",
-      "imageHint": "business team"
+      "description": "Tektonics employee standing in data center",
+      "imageUrl": "/Assets/Tektonics employee standing in data center.jpg",
+      "imageHint": "data center"
     }
   ]
 }

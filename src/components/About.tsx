@@ -31,18 +31,17 @@ export function About() {
   return (
     <section id="overview" className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Top Section: Intro and Image */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="relative group">
             <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-50 group-hover:opacity-100 transition duration-1000"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <Image
                 src={teamImg?.imageUrl || "https://picsum.photos/seed/tek-team/1200/800"}
-                alt="Tektonics Professional Team"
+                alt={teamImg?.description || "Tektonics Professional Team"}
                 width={1200}
                 height={800}
                 className="object-cover"
-                data-ai-hint="business team"
+                data-ai-hint={teamImg?.imageHint || "data center"}
               />
             </div>
             <div className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20">
@@ -66,7 +65,6 @@ export function About() {
           </div>
         </div>
 
-        {/* Subsection: Strategic Pillars Grid */}
         <div className="space-y-12">
           <AnimatedContainer className="text-center max-w-3xl mx-auto">
             <h3 className="text-3xl font-bold tracking-tight text-white md:text-4xl font-headline">
