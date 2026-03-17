@@ -34,7 +34,7 @@ function PricingCard({
 	return (
 		<div
 			className={cn(
-				'bg-card/40 border-white/10 relative overflow-hidden rounded-none border',
+				'bg-card/40 border-white/10 relative overflow-hidden rounded-none border-dashed border',
 				'backdrop-blur-md group',
 				className,
 			)}
@@ -63,7 +63,7 @@ function PricingCard({
 				</div>
 
 				<div className="px-4 py-2 text-left">
-					<div className="h-[40px] w-[65px] relative rounded-lg overflow-hidden border border-white/10">
+					<div className="h-[40px] w-[65px] relative rounded-none overflow-hidden border border-dashed border-white/10">
 						{image && (
 							<Image
 								src={image.imageUrl}
@@ -97,7 +97,7 @@ export function BentoPricing() {
 			{/* Data Centre Infrastructure (Top Left) */}
 			<div
 				className={cn(
-					'bg-card/40 border-white/10 relative w-full overflow-hidden rounded-none border',
+					'bg-card/40 border-white/10 relative w-full overflow-hidden rounded-none border-dashed border',
 					'backdrop-blur-md group',
 					'lg:col-span-5',
 				)}
@@ -124,7 +124,7 @@ export function BentoPricing() {
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10 items-start">
 					<div className="pb-4 shrink-0 text-left">
-						<div className="h-[40px] w-[65px] relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+						<div className="h-[40px] w-[65px] relative rounded-none overflow-hidden border border-dashed border-white/10 shadow-2xl">
 							{infraImage && (
 								<Image
 									src={infraImage.imageUrl}
