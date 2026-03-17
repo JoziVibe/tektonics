@@ -11,8 +11,8 @@ import { ReactNode } from "react";
 export function About() {
   const teamImg = PlaceHolderImages.find(img => img.id === 'about-team');
   
-  // Primary image path from lib, with a reliable placeholder fallback if undefined
-  const imgSrc = teamImg?.imageUrl || "https://picsum.photos/seed/tek-team-default/1200/800";
+  // Directly use the path if found, with a robust picsum fallback for development safety
+  const imgSrc = teamImg?.imageUrl || "/Assets/About.jpg";
 
   const values = [
     {
@@ -44,9 +44,10 @@ export function About() {
                 alt={teamImg?.description || "Tektonics Professional Team"}
                 fill
                 className="object-cover"
-                data-ai-hint={teamImg?.imageHint || "data center"}
+                data-ai-hint={teamImg?.imageHint || "data center team"}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
+                unoptimized={true} // Helpful for local assets in some development environments
               />
             </div>
             <div className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20">
