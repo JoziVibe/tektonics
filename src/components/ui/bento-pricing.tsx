@@ -1,3 +1,4 @@
+
 'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
@@ -33,7 +34,7 @@ function PricingCard({
 	return (
 		<div
 			className={cn(
-				'bg-card/40 border-white/10 relative overflow-hidden rounded-xl border',
+				'bg-card/40 border-white/10 relative overflow-hidden rounded-none border',
 				'backdrop-blur-md group',
 				className,
 			)}
@@ -96,7 +97,7 @@ export function BentoPricing() {
 			{/* Data Centre Infrastructure (Top Left) */}
 			<div
 				className={cn(
-					'bg-card/40 border-white/10 relative w-full overflow-hidden rounded-xl border',
+					'bg-card/40 border-white/10 relative w-full overflow-hidden rounded-none border',
 					'backdrop-blur-md group',
 					'lg:col-span-5',
 				)}
