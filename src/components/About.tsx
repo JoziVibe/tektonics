@@ -48,11 +48,17 @@ export function About() {
                 priority
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+              className="absolute -bottom-6 -right-6 glass-card p-8 rounded-2xl hidden md:block max-w-xs border-accent/20"
+            >
               <div className="text-accent text-3xl font-black mb-1">15+</div>
               <div className="text-white font-bold mb-2">Years Excellence</div>
               <p className="text-white/60 text-sm">Serving clients in the data centre space across the SADC region.</p>
-            </div>
+            </motion.div>
           </div>
 
           <div>
