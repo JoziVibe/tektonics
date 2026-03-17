@@ -35,7 +35,7 @@ export function Solutions() {
         {/* Heading Section */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">Pricing Plans</h2>
-          <h3 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white font-headline leading-tight">
+          <h3 className="text-4xl md:text-6xl font-semibold tracking-tight text-white font-headline leading-tight">
             Data-Driven Growth
           </h3>
           <p className="text-white/60 mt-4 text-base md:text-lg font-body leading-relaxed">
