@@ -37,38 +37,39 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 font-headline">Solutions</h4>
-            <ul className="space-y-4">
-              <li><Link href="/product/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">Environmental Guardian <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">Asset Management <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">SecureGate <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-            </ul>
-          </div>
-
-          <div>
             <h4 className="text-white font-bold mb-6 font-headline">Company</h4>
             <ul className="space-y-4">
-              <li><Link href="#overview" className="text-white/50 hover:text-white">Our Mission</Link></li>
-              <li><Link href="#success" className="text-white/50 hover:text-white">Case Studies</Link></li>
-              <li><Link href="#" className="text-white/50 hover:text-white">African Presence</Link></li>
-              <li><Link href="#" className="text-white/50 hover:text-white">Careers</Link></li>
+              <li><Link href="/" className="text-white/50 hover:text-white flex items-center gap-1 group">Home</Link></li>
+              <li><Link href="/#solutions" className="text-white/50 hover:text-white flex items-center gap-1 group">Solutions</Link></li>
+              <li><Link href="/product/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway</Link></li>
+              <li><Link href="/product/flux" className="text-white/50 hover:text-white flex items-center gap-1 group">Flux</Link></li>
+              <li><Link href="/contact" className="text-white/50 hover:text-white flex items-center gap-1 group">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 font-headline">Newsletter</h4>
-            <p className="text-white/50 text-sm mb-4">Stay updated with the latest in DCIM technology and African IT trends.</p>
-            <form className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email Address" 
-                className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-accent w-full"
-              />
-              <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors">
-                Join
-              </button>
-            </form>
+            <h4 className="text-white font-bold mb-6 font-headline">Use Cases</h4>
+            <ul className="space-y-4">
+              <li><Link href="/use-cases/dcim" className="text-white/50 hover:text-white flex items-center gap-1 group">DCIM</Link></li>
+              <li><Link href="/use-cases/environmental-monitoring" className="text-white/50 hover:text-white flex items-center gap-1 group">Environmental Monitoring</Link></li>
+              <li><Link href="/use-cases/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway</Link></li>
+              <li><Link href="/use-cases/tektonics-flux" className="text-white/50 hover:text-white flex items-center gap-1 group">Tektonics Flux</Link></li>
+              <li><Link href="/use-cases/dry-contact-monitoring" className="text-white/50 hover:text-white flex items-center gap-1 group">Dry Contact Monitoring</Link></li>
+              <li><Link href="/use-cases/netxms" className="text-white/50 hover:text-white flex items-center gap-1 group">NetXMS</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6 font-headline">Legal</h4>
+            <ul className="space-y-4">
+              <li><Link href="/privacy" className="text-white/50 hover:text-white flex items-center gap-1 group">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-white/50 hover:text-white flex items-center gap-1 group">Terms of Service</Link></li>
+              <li>
+                <CookieSettingsModal>
+                  <button className="text-white/50 hover:text-white transition-colors flex items-center gap-1 group">Cookie Settings</button>
+                </CookieSettingsModal>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -76,12 +77,8 @@ export function Footer() {
           <p className="text-white/30 text-sm">
             © {new Date().getFullYear()} Tektonics Systems. All rights reserved.
           </p>
-          <div className="flex gap-8 text-sm text-white/30">
-            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
-            <CookieSettingsModal>
-              <button className="hover:text-white transition-colors">Cookie Settings</button>
-            </CookieSettingsModal>
+          <div className="text-sm text-white/30 flex items-center gap-1">
+            Made with 🤍 by <a href="https://virtuosodevs.com" target="_blank" rel="noopener noreferrer" className="hover:text-white font-medium transition-colors">Virtuoso Digital</a>
           </div>
         </div>
       </div>

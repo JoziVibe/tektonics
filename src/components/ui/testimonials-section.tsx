@@ -19,7 +19,7 @@ const testimonials: Testimonial[] = [
 		name: "Sipho Dlamini",
 		role: "IT Infrastructure Manager",
 		company: "Johannesburg Water",
-		image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&h=256&auto=format&fit=crop",
+		image: "/assets/Testimonials/Sipho Dlamini.png",
 	},
 	{
 		quote:
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
 		name: "Amara Osei",
 		role: "Head of Technology",
 		company: "Giza Systems",
-		image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256&h=256&auto=format&fit=crop",
+		image: "/assets/Testimonials/Amara Osei.png",
 	},
 	{
 		quote:
@@ -35,15 +35,15 @@ const testimonials: Testimonial[] = [
 		name: "Fatima Al-Hassan",
 		role: "Data Centre Director",
 		company: "Orange Telecom",
-		image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&h=256&auto=format&fit=crop",
+		image: "/assets/Testimonials/Fatima Al-Hassan.png",
 	},
 	{
 		quote:
 			"Their consulting team gave us a clear roadmap for reducing our energy consumption by nearly 30%. Tektonics doesn't just advise — they roll up their sleeves and get it done alongside your team.",
-		name: "James Mwangi",
+		name: "James Gladstone",
 		role: "CTO",
 		company: "Safaricom",
-		image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256&h=256&auto=format&fit=crop",
+		image: "/assets/Testimonials/James Gladstone.png",
 	},
 	{
 		quote:
@@ -51,7 +51,7 @@ const testimonials: Testimonial[] = [
 		name: "Lerato Molefe",
 		role: "Systems Administrator",
 		company: "City of Cape Town",
-		image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256&h=256&auto=format&fit=crop",
+		image: "/assets/Testimonials/Lerato Molefe.png",
 	},
 	{
 		quote:
@@ -59,7 +59,7 @@ const testimonials: Testimonial[] = [
 		name: "David Kariuki",
 		role: "IT Operations Lead",
 		company: "NTT Data Africa",
-		image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256&h=256&auto=format&fit=crop",
+		image: "/assets/Testimonials/David Kariuki.png",
 	},
 ];
 

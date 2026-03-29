@@ -41,7 +41,7 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
       { name: 'NetXMS', url: '/use-cases/netxms', icon: Network },
     ]
   },
-  { name: 'Contact', url: '/#contact', icon: Mail },
+  { name: 'Contact', url: '/contact', icon: Mail },
 ];
 
 interface HeaderProps {
@@ -87,9 +87,11 @@ export function Header({ items, stickyMode = "viewport" }: HeaderProps) {
         </div>
 
 				<div className="flex items-center gap-4 shrink-0">
-					<GradientButton className="hidden sm:flex">
-						Get Started
-					</GradientButton>
+          <Link href="/contact">
+					  <GradientButton className="hidden sm:flex">
+						  Work With Us
+					  </GradientButton>
+          </Link>
 				</div>
 			</nav>
 		</header>

@@ -41,7 +41,7 @@ export function ContactForm() {
 
             <div className="space-y-8">
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
                   <Mail className="h-6 w-6 text-accent" />
                 </div>
                 <div>
@@ -50,7 +50,7 @@ export function ContactForm() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
                   <Phone className="h-6 w-6 text-accent" />
                 </div>
                 <div>
@@ -59,7 +59,7 @@ export function ContactForm() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
                   <MapPin className="h-6 w-6 text-accent" />
                 </div>
                 <div>
@@ -70,32 +70,33 @@ export function ContactForm() {
             </div>
           </div>
 
-          <div className="glass-card p-8 md:p-12 rounded-3xl border-white/5 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="glass-card p-8 md:p-12 rounded-3xl border-white/10 relative overflow-hidden bg-background/40 backdrop-blur-xl shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 blur-[80px] rounded-full translate-y-1/4 -translate-x-1/4 pointer-events-none" />
             
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white/80 font-headline">Full Name</Label>
-                  <Input id="name" required placeholder="John Doe" className="bg-white/5 border-white/10 text-white focus:border-accent font-body" />
+                  <Input id="name" required placeholder="John Doe" className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white/80 font-headline">Business Email</Label>
-                  <Input id="email" type="email" required placeholder="john@company.com" className="bg-white/5 border-white/10 text-white focus:border-accent font-body" />
+                  <Input id="email" type="email" required placeholder="john@company.com" className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="company" className="text-white/80 font-headline">Company Name</Label>
-                <Input id="company" placeholder="Enterprise Infrastructure Ltd" className="bg-white/5 border-white/10 text-white focus:border-accent font-body" />
+                <Input id="company" placeholder="Enterprise Infrastructure Ltd" className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-white/80 font-headline">Your Message</Label>
-                <Textarea id="message" required placeholder="How can we help your data center?" className="bg-white/5 border-white/10 text-white focus:border-accent min-h-[120px] font-body" />
+                <Textarea id="message" required placeholder="How can we help your data center?" className="bg-white/5 border-white/10 text-white focus:border-accent min-h-[120px] font-body hover:bg-white/10 transition-colors" />
               </div>
 
-              <GradientButton type="submit" disabled={submitting} className="w-full">
+              <GradientButton type="submit" disabled={submitting} className="w-full mt-4">
                 {submitting ? "Sending..." : "Send Inquiry"}
                 <Send className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
               </GradientButton>

@@ -113,9 +113,11 @@ export default function NotificationsGateway() {
           </p>
 
           <div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-4 pt-4 fill-mode-backwards delay-300 duration-500 ease-out">
-            <GradientButton className="rounded-full px-8 py-4 text-base h-auto hover:scale-105 transition-transform">
-              Request a Demo <ArrowRight className="ml-2 size-5" />
-            </GradientButton>
+            <Link href="/contact">
+              <GradientButton className="rounded-full px-8 py-4 text-base h-auto hover:scale-105 transition-transform">
+                Request a Demo <ArrowRight className="ml-2 size-5" />
+              </GradientButton>
+            </Link>
             <Link href="#capabilities" className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white font-bold hover:bg-white/10 hover:border-white/20 transition-all font-headline tracking-wide text-sm hover:scale-105">
               View Capabilities
             </Link>
@@ -472,7 +474,7 @@ export default function NotificationsGateway() {
            </p>
            
            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-             <Link href="/#contact">
+             <Link href="/contact">
                <button className="bg-white text-primary font-bold font-headline tracking-wide px-9 py-4 rounded-full hover:bg-white/90 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                  Get In Touch
                </button>

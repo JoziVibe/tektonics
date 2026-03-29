@@ -7,10 +7,9 @@ import { About } from "@/components/About";
 import { Solutions } from "@/components/Solutions";
 import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import GlobeFeatureSection from "@/components/ui/globe-feature-section";
-import { ContactForm } from "@/components/ContactForm";
+import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { Home, Info, Cpu, Trophy } from "lucide-react";
 import { logos } from "@/components/ui/demo";
 
 export default function HomePage() {
@@ -39,8 +38,8 @@ export default function HomePage() {
         </section>
 
         <TestimonialsSection />
+        <FaqSection />
         <GlobeFeatureSection />
-        <ContactForm />
       </div>
       <Footer />
       <Toaster />
