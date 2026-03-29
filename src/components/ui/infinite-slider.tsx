@@ -7,8 +7,8 @@ import useMeasure from 'react-use-measure';
 type InfiniteSliderProps = {
   children: React.ReactNode;
   gap?: number;
-  speed?: number;
-  speedOnHover?: number;
+  duration?: number;
+  durationOnHover?: number;
   direction?: 'horizontal' | 'vertical';
   reverse?: boolean;
   className?: string;
@@ -17,13 +17,13 @@ type InfiniteSliderProps = {
 export function InfiniteSlider({
   children,
   gap = 16,
-  speed = 25,
-  speedOnHover,
+  duration = 25,
+  durationOnHover,
   direction = 'horizontal',
   reverse = false,
   className,
 }: InfiniteSliderProps) {
-  const [currentSpeed, setCurrentSpeed] = useState(speed);
+  const [currentDuration, setCurrentDuration] = useState(duration);
   const [ref, { width, height }] = useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -40,7 +40,7 @@ export function InfiniteSlider({
       controls = animate(translation, [translation.get(), to], {
         ease: 'linear',
         duration:
-          currentSpeed * Math.abs((translation.get() - to) / contentSize),
+          currentDuration * Math.abs((translation.get() - to) / contentSize),
         onComplete: () => {
           setIsTransitioning(false);
           setKey((prevKey) => prevKey + 1);
@@ -49,7 +49,7 @@ export function InfiniteSlider({
     } else {
       controls = animate(translation, [from, to], {
         ease: 'linear',
-        duration: currentSpeed,
+        duration: currentDuration,
         repeat: Infinity,
         repeatType: 'loop',
         repeatDelay: 0,
@@ -63,7 +63,7 @@ export function InfiniteSlider({
   }, [
     key,
     translation,
-    currentSpeed,
+    currentDuration,
     width,
     height,
     gap,
@@ -72,15 +72,15 @@ export function InfiniteSlider({
     reverse,
   ]);
 
-  const hoverProps = speedOnHover
+  const hoverProps = durationOnHover
     ? {
         onHoverStart: () => {
           setIsTransitioning(true);
-          setCurrentSpeed(speedOnHover);
+          setCurrentDuration(durationOnHover);
         },
         onHoverEnd: () => {
           setIsTransitioning(true);
-          setCurrentSpeed(speed);
+          setCurrentDuration(duration);
         },
       }
     : {};

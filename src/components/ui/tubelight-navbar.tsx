@@ -111,19 +111,29 @@ export function NavBar({ items, className }: NavBarProps) {
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="bg-background/80 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                  {item.subItems.map((sub) => (
+                  {item.subItems.map((sub) => {
+                    const isSubActive = activeTab === sub.name;
+                    return (
                     <DropdownMenuItem key={sub.name} asChild>
                       <Link 
                         href={sub.url}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer hover:bg-white/10 transition-colors group"
+                        className={cn(
+                          "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
+                          isSubActive ? "bg-white text-background" : "hover:bg-white text-white/70 hover:text-background"
+                        )}
+                        onClick={() => setActiveTab(sub.name)}
                       >
-                        <div className="bg-white/5 p-1.5 rounded-lg group-hover:bg-accent/20 transition-colors">
-                          <sub.icon className="size-4 text-white/70 group-hover:text-accent transition-colors" />
+                        <div className={cn(
+                          "p-1.5 rounded-lg transition-colors",
+                          isSubActive ? "bg-background/10 text-background" : "bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background"
+                        )}>
+                          <sub.icon className="size-4 transition-colors" />
                         </div>
-                        <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">{sub.name}</span>
+                        <span className="text-sm font-medium transition-colors">{sub.name}</span>
                       </Link>
                     </DropdownMenuItem>
-                  ))}
+                    )
+                  })}
                 </DropdownMenuContent>
               </DropdownMenu>
             )

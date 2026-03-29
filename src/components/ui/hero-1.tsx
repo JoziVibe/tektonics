@@ -24,7 +24,7 @@ export function HeroSection() {
 					href="#overview"
 				>
 					<Cpu className="size-3 text-accent" />
-					<span className="text-xs text-white/80 font-medium font-body">New DCIM features deployed</span>
+					<span className="text-xs text-white/80 font-medium font-body">Tektonics Systems</span>
 					<span className="block h-5 border-l border-white/10" />
 					<ArrowRightIcon className="size-3 text-accent duration-150 ease-out group-hover:translate-x-1" />
 				</a>

@@ -4,10 +4,11 @@ import React from "react";
 import Link from "next/link";
 import { 
   ChevronRight, ArrowRight, ArrowDown, Inbox, CloudOff, Target, BarChart3, 
-  Smartphone, Activity, Zap, Factory, Server, Rss, Layers, CheckCircle2,
-  ShieldCheck, Clock, Share2, Network, MessageSquare, AlertTriangle, MessageCircle,
+  Activity, Zap, Factory, Server, Rss, Layers, CheckCircle2,
+  ShieldCheck, Clock, Share2, Network, AlertTriangle, MessageCircle,
   FileText, Search, Wrench, Cloud, Rocket, LucideIcon
 } from "lucide-react";
+import { FaTelegram, FaWhatsapp, FaCommentSms } from "react-icons/fa6";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { cn } from "@/lib/utils";
 
@@ -68,27 +69,23 @@ export default function NotificationsGateway() {
       <div className="grow">
       
       {/* SECTION 1: HERO */}
-      <section className="mx-auto w-full max-w-7xl relative overflow-hidden">
+      <section className="relative w-full overflow-hidden min-h-[90vh] flex flex-col justify-center border-b border-white/5">
+        {/* Parallax Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-fixed mix-blend-luminosity opacity-65"
+          style={{ backgroundImage: 'url("/assets/Backgrounds/Product Hero Image.jpg")' }}
+        />
+        {/* Subtle Color Overlay */}
+        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-accent/10 blur-[150px] rounded-full mix-blend-screen pointer-events-none" />
+
         {/* Top Shades */}
         <div aria-hidden="true" className="absolute inset-0 isolate hidden overflow-hidden lg:block pointer-events-none">
           <div className="absolute inset-0 -top-14 isolate -z-10 bg-[radial-gradient(35%_80%_at_49%_0%,rgba(0,250,223,0.1),transparent)]" />
         </div>
 
-        {/* X Bold Faded Borders */}
-        <div aria-hidden="true" className="absolute inset-0 mx-auto hidden min-h-screen w-full max-w-5xl lg:block pointer-events-none">
-          <div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 left-0 z-10 h-full w-px bg-white/10" />
-          <div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 right-0 z-10 h-full w-px bg-white/10" />
-        </div>
-
-        <div className="relative flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-          {/* X Content Faded Borders */}
-          <div aria-hidden="true" className="absolute inset-0 -z-1 size-full overflow-hidden pointer-events-none">
-            <div className="absolute inset-y-0 left-4 w-px bg-gradient-to-b from-transparent via-white/10 to-white/10 md:left-8" />
-            <div className="absolute inset-y-0 right-4 w-px bg-gradient-to-b from-transparent via-white/10 to-white/10 md:right-8" />
-            <div className="absolute inset-y-0 left-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:left-12" />
-            <div className="absolute inset-y-0 right-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:right-12" />
-          </div>
-
+        <div className="relative z-10 flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto w-full">
           <a
             className={cn(
               "group mx-auto flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-2xl backdrop-blur-md",
@@ -103,7 +100,7 @@ export default function NotificationsGateway() {
           </a>
 
           <h1 className={cn(
-            "fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-4xl md:text-5xl lg:text-6xl font-headline font-bold leading-tight tracking-tight delay-100 duration-500 ease-out",
+            "fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-4xl md:text-5xl lg:text-7xl font-headline font-bold leading-tight tracking-tight delay-100 duration-500 ease-out",
             "text-shadow-[0_0px_50px_rgba(255,255,255,0.1)]"
           )}>
             Edge-Resilient Alerting.<br />
@@ -129,7 +126,7 @@ export default function NotificationsGateway() {
 
 
       {/* SECTION 2: PROBLEM STATEMENT (ADAPTED TO FEATURES-10) */}
-      <section className="bg-background py-24 md:py-32 relative border-y border-white/5">
+      <section className="bg-background py-24 md:py-32 relative border-b border-white/5">
         <div className="mx-auto max-w-2xl px-6 lg:max-w-6xl">
           <div className="mx-auto grid gap-6 lg:grid-cols-2">
             
@@ -214,8 +211,8 @@ export default function NotificationsGateway() {
             {[
               { icon: Inbox, title: "Ingest from Email & HTTP APIs", description: "Universal ingestion from Gmail, Microsoft 365, and direct APIs." },
               { icon: Zap, title: "Process & Normalise Locally", description: "Immediate local processing regardless of external cloud availability." },
-              { icon: MessageSquare, title: "Deliver via Telegram & WhatsApp", description: "Direct delivery to instant messaging platforms your teams already use." },
-              { icon: Smartphone, title: "SMS Failover When Data Fails", description: "Automated transition to cellular SMS when data networks are compromised." },
+              { icon: FaTelegram, title: "Deliver via Telegram & WhatsApp", description: "Direct delivery to instant messaging platforms your teams already use." },
+              { icon: FaCommentSms, title: "SMS Failover When Data Fails", description: "Automated transition to cellular SMS when data networks are compromised." },
               { icon: Activity, title: "Stream Events via MQTT", description: "Seamlessly bridge events to your central monitoring via a local broker." },
               { icon: Target, title: "Track via Edge Message Center", description: "Maintain a complete on-device audit log for reporting and analysis." }
             ].map((item, i) => (
@@ -298,10 +295,10 @@ export default function NotificationsGateway() {
                      <span className="col-span-1 text-right">Status</span>
                    </div>
                    {[
-                     { t: "14:02:45", type: "CRITICAL", sub: "Power", p: "Telegram", s: "Delivered", pulse: true, c: "text-green-400 bg-green-400/10 border-green-400/20" },
-                     { t: "14:02:46", type: "WARN", sub: "Temp", p: "Telegram", s: "Failed", pulse: false, c: "text-red-400 bg-red-400/10 border-red-400/20" },
-                     { t: "14:02:48", type: "WARN", sub: "Temp", p: "SMS", s: "Delivered", pulse: false, c: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20" },
-                     { t: "13:15:00", type: "INFO", sub: "Sync", p: "WhatsApp", s: "Read", pulse: false, c: "text-blue-400 bg-blue-400/10 border-blue-400/20" }
+                     { t: "14:02:45", type: "CRITICAL", sub: "Power", p: "Telegram", s: "Delivered", pulse: true, c: "text-green-400 bg-green-400/10 border-green-400/20", i: FaTelegram },
+                     { t: "14:02:46", type: "WARN", sub: "Temp", p: "Telegram", s: "Failed", pulse: false, c: "text-red-400 bg-red-400/10 border-red-400/20", i: FaTelegram },
+                     { t: "14:02:48", type: "WARN", sub: "Temp", p: "SMS", s: "Delivered", pulse: false, c: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20", i: FaCommentSms },
+                     { t: "13:15:00", type: "INFO", sub: "Sync", p: "WhatsApp", s: "Read", pulse: false, c: "text-blue-400 bg-blue-400/10 border-blue-400/20", i: FaWhatsapp }
                    ].map((row, i) => (
                      <div key={i} className="grid grid-cols-4 gap-2 items-center text-xs text-white/70 bg-white/[0.02] hover:bg-white/[0.06] p-3 rounded-lg border border-white/5 transition-all duration-300 w-full group/row cursor-default">
                        <span className="font-mono text-white/40 text-[10px] sm:text-xs col-span-1">{row.t}</span>
@@ -310,7 +307,7 @@ export default function NotificationsGateway() {
                           <span className="text-xs sm:text-sm truncate">{row.sub}</span>
                        </span>
                        <span className="text-white/50 flex items-center gap-1.5 col-span-1 text-[10px] sm:text-xs truncate">
-                         <Smartphone className="size-3 hidden sm:block"/> 
+                         <row.i className="size-3 hidden sm:block"/> 
                          <span className="truncate">{row.p}</span>
                        </span>
                        <div className="flex justify-end col-span-1">
@@ -389,11 +386,11 @@ export default function NotificationsGateway() {
                {/* Output Layer */}
                <div className="flex-1 bg-card/40 border border-white/10 p-6 rounded-2xl text-left relative">
                  <LayerBadge className="absolute -top-4 left-1/2 -translate-x-1/2">Output Layer</LayerBadge>
-                 <div className="py-4 font-headline font-bold text-lg text-white flex flex-col gap-2 pl-4 md:pl-8">
-                   <div className="flex items-center gap-3"><MessageCircle className="size-4 text-white/40"/> Telegram</div>
-                   <div className="flex items-center gap-3"><MessageSquare className="size-4 text-white/40"/> WhatsApp</div>
-                   <div className="flex items-center gap-3"><Smartphone className="size-4 text-white/40"/> SMS</div>
-                   <div className="flex items-center gap-3"><Activity className="size-4 text-white/40"/> MQTT</div>
+                 <div className="py-4 font-headline font-bold text-lg text-white flex flex-col gap-4 pl-4 md:pl-12">
+                   <div className="flex items-center gap-3"><FaTelegram className="size-5 text-white/40"/> Telegram</div>
+                   <div className="flex items-center gap-3"><FaWhatsapp className="size-5 text-white/40"/> WhatsApp</div>
+                   <div className="flex items-center gap-3"><FaCommentSms className="size-5 text-white/40"/> SMS</div>
+                   <div className="flex items-center gap-3"><Activity className="size-5 text-white/40"/> MQTT</div>
                  </div>
                </div>
             </div>
@@ -454,8 +451,8 @@ export default function NotificationsGateway() {
       <section className="pt-24 pb-32 border-t border-white/10 relative overflow-hidden">
          {/* Parallax Background */}
          <div 
-           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 mix-blend-luminosity"
-           style={{ backgroundImage: 'url("/assets/Card BG.png")' }}
+           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-65 mix-blend-luminosity"
+           style={{ backgroundImage: 'url("/assets/Backgrounds/Product Hero Image.jpg")' }}
          />
          {/* Deep Navy Overlays */}
          <div className="absolute inset-0 bg-[#020617]/80" />

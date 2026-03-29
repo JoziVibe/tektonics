@@ -1,0 +1,65 @@
+"use client";
+
+import { GradientButton } from "@/components/ui/gradient-button";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+
+export default function NetXMSPage() {
+  return (
+    <>
+      <div className="mb-6">
+        <Link href="/" className="text-accent hover:text-white transition-colors text-sm font-semibold tracking-wider uppercase font-headline">
+          Use Cases
+        </Link>
+        <span className="text-white/40 mx-2">/</span>
+        <span className="text-white/60 text-sm font-semibold tracking-wider uppercase font-headline">NetXMS</span>
+      </div>
+
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-headline mb-6 leading-tight">
+        NetXMS — Enterprise Monitoring, Event Management & Infrastructure Visibility
+      </h1>
+      <p className="text-xl md:text-2xl text-white/60 mb-16 font-body leading-relaxed">
+        End-to-end visibility across networks, servers, applications, and infrastructure — from a single platform.
+      </p>
+
+      <div className="space-y-16">
+        <section>
+          <h2 className="text-3xl font-bold text-white font-headline mb-6">Why NetXMS?</h2>
+          <div className="prose prose-invert max-w-none text-white/70 font-body text-lg leading-relaxed space-y-6">
+            <p>
+              Modern IT and infrastructure environments are complex and distributed, making it difficult to maintain consistent visibility and respond to issues quickly. Fragmented tools mean events get missed, correlation is manual, and response is always reactive.
+            </p>
+            <p>
+              NetXMS addresses this by providing:
+            </p>
+            <ul className="grid gap-4 mt-6">
+              {[
+                "Unified monitoring across IT and operational systems",
+                "Centralised event processing and correlation",
+                "Real-time performance tracking and alerting",
+                "Scalable architecture for multi-site deployments"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                  <CheckCircle2 className="w-6 h-6 text-accent shrink-0" />
+                  <span className="text-white/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <div className="mt-20 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8 md:p-16 text-center border border-white/10 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/assets/Card%20BG.png')] bg-cover bg-center opacity-20 mix-blend-overlay" />
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-headline">Take control of your entire infrastructure stack.</h2>
+            <Link href="/#contact">
+              <GradientButton className="mx-auto text-lg px-8 py-4">
+                Speak to the team <ArrowRight className="ml-2 w-5 h-5" />
+              </GradientButton>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

@@ -63,27 +63,23 @@ export default function FluxPage() {
       <div className="grow">
         
         {/* SECTION 1: HERO */}
-        <section className="mx-auto w-full max-w-7xl relative overflow-hidden">
+        <section className="relative w-full overflow-hidden min-h-[90vh] flex flex-col justify-center border-b border-white/5">
+          {/* Parallax Background */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-fixed mix-blend-luminosity opacity-65"
+            style={{ backgroundImage: 'url("/assets/Backgrounds/Product Hero Image.jpg")' }}
+          />
+          {/* Subtle Color Overlay */}
+          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute right-0 top-0 w-1/2 h-full bg-accent/10 blur-[150px] rounded-full mix-blend-screen pointer-events-none" />
+
           {/* Top Shades */}
           <div aria-hidden="true" className="absolute inset-0 isolate hidden overflow-hidden lg:block pointer-events-none">
             <div className="absolute inset-0 -top-14 isolate -z-10 bg-[radial-gradient(35%_80%_at_49%_0%,rgba(0,250,223,0.1),transparent)]" />
           </div>
 
-          {/* X Bold Faded Borders */}
-          <div aria-hidden="true" className="absolute inset-0 mx-auto hidden min-h-screen w-full max-w-5xl lg:block pointer-events-none">
-            <div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 left-0 z-10 h-full w-px bg-white/10" />
-            <div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 right-0 z-10 h-full w-px bg-white/10" />
-          </div>
-
-          <div className="relative flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-            {/* X Content Faded Borders */}
-            <div aria-hidden="true" className="absolute inset-0 -z-1 size-full overflow-hidden pointer-events-none">
-              <div className="absolute inset-y-0 left-4 w-px bg-gradient-to-b from-transparent via-white/10 to-white/10 md:left-8" />
-              <div className="absolute inset-y-0 right-4 w-px bg-gradient-to-b from-transparent via-white/10 to-white/10 md:right-8" />
-              <div className="absolute inset-y-0 left-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:left-12" />
-              <div className="absolute inset-y-0 right-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:right-12" />
-            </div>
-
+          <div className="relative z-10 flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto w-full">
             <a className={cn(
                   "group mx-auto flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-2xl backdrop-blur-md",
                   "fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards transition-all delay-500 duration-500 ease-out"
@@ -91,13 +87,13 @@ export default function FluxPage() {
                 href="#"
             >
               <Rocket className="size-3.5 text-accent" />
-              <span className="text-xs font-bold tracking-widest uppercase text-white/50">Flux Platform</span>
+              <span className="text-xs font-bold tracking-widest uppercase text-white/50">Tektonics Flux</span>
               <span className="block h-4 border-l border-white/20" />
               <ArrowDown className="size-3.5 text-white/40 duration-150 ease-out group-hover:translate-y-1" />
             </a>
 
             <h1 className={cn(
-                "fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-3xl md:text-4xl lg:text-5xl font-headline font-bold leading-tight tracking-tight delay-100 duration-500 ease-out",
+                "fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-4xl md:text-5xl lg:text-7xl font-headline font-bold leading-tight tracking-tight delay-100 duration-500 ease-out",
                 "text-shadow-[0_0px_50px_rgba(255,255,255,0.1)]"
               )}>
               Know What's Happening<br />
@@ -125,7 +121,7 @@ export default function FluxPage() {
         </section>
 
         {/* SECTION 2: VALUE PROP STRIP */}
-        <section className="bg-white/5 py-12 border-y border-white/5">
+        <section className="bg-white/5 py-12 border-b border-white/5">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-xl md:text-2xl font-headline font-bold text-white mb-10">
               No blind spots. No delayed reactions. Just clear, continuous insight.
@@ -153,7 +149,7 @@ export default function FluxPage() {
         </section>
 
         {/* SECTION 3: PROBLEM STATEMENT */}
-        <section className="py-24 md:py-32 relative bg-background border-y border-white/5">
+        <section className="py-24 md:py-32 relative bg-background border-b border-white/5">
           <div className="mx-auto max-w-2xl px-6 lg:max-w-6xl">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-headline font-bold text-white leading-tight">
@@ -229,7 +225,7 @@ export default function FluxPage() {
         </section>
 
         {/* SECTION 4: THE FLUX DIFFERENCE */}
-        <section className="py-24 md:py-32 bg-background border-y border-white/5">
+        <section className="py-24 md:py-32 bg-background border-b border-white/5">
           <div className="container mx-auto px-6 max-w-6xl text-center">
             <div className="max-w-3xl mx-auto mb-20 space-y-6">
               <h2 className="text-4xl md:text-5xl font-headline font-bold text-white">Flux Changes That.</h2>
@@ -265,7 +261,7 @@ export default function FluxPage() {
         </section>
 
         {/* SECTION 5: CORE CAPABILITIES */}
-        <section id="capabilities" className="py-32 relative border-y border-white/10">
+        <section id="capabilities" className="py-32 relative border-b border-white/10">
           <div className="absolute inset-0 bg-primary/5" />
           <div className="container mx-auto px-6 relative z-10">
             <div className="text-center mb-12">
@@ -450,8 +446,8 @@ export default function FluxPage() {
         <section className="pt-24 pb-32 border-t border-white/10 relative overflow-hidden">
            {/* Parallax Background */}
            <div 
-             className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 mix-blend-luminosity"
-             style={{ backgroundImage: 'url("/assets/Card BG.png")' }}
+             className="absolute inset-0 bg-cover bg-center bg-fixed opacity-65 mix-blend-luminosity"
+             style={{ backgroundImage: 'url("/assets/Backgrounds/Product Hero Image.jpg")' }}
            />
            {/* Deep Navy Overlays */}
            <div className="absolute inset-0 bg-[#020617]/80" />

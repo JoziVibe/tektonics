@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Cpu, Linkedin, Twitter, Facebook, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { CookieSettingsModal } from "./ui/cookie-settings-modal";
+import Image from "next/image";
+import { FaLinkedin, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -8,26 +10,28 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6 group">
-              <div className="bg-primary p-1.5 rounded-lg group-hover:bg-accent transition-colors">
-                <Cpu className="h-6 w-6 text-white" />
+            <Link href="/" className="flex items-center gap-2 mb-6 group shrink-0 h-12 py-1.5">
+              <div className="relative h-full aspect-[4/1]">
+                <Image 
+                  src="/assets/Brand Identity/D2 High-Resolution White Transparent.png" 
+                  alt="Tektonics Logo" 
+                  fill
+                  className="object-contain object-left"
+                />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-headline uppercase">
-                TEKTONICS
-              </span>
             </Link>
             <p className="text-white/50 leading-relaxed mb-6">
               Empowering the next generation of African digital infrastructure with world-class DCIM and IT management excellence.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="p-2 rounded-lg bg-white/5 text-white/50 hover:text-accent hover:bg-white/10 transition-all">
-                <Linkedin className="h-5 w-5" />
+                <FaLinkedin className="h-5 w-5" />
               </Link>
               <Link href="#" className="p-2 rounded-lg bg-white/5 text-white/50 hover:text-accent hover:bg-white/10 transition-all">
-                <Twitter className="h-5 w-5" />
+                <FaFacebook className="h-5 w-5" />
               </Link>
               <Link href="#" className="p-2 rounded-lg bg-white/5 text-white/50 hover:text-accent hover:bg-white/10 transition-all">
-                <Facebook className="h-5 w-5" />
+                <FaWhatsapp className="h-5 w-5" />
               </Link>
             </div>
           </div>

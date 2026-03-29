@@ -2,11 +2,12 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useScroll } from '@/components/ui/use-scroll';
-import { Cpu, Home, Zap, Box, Trophy, Mail, ShieldCheck, ChevronDown } from 'lucide-react';
+import { Home, Zap, Box, Trophy, Mail, ShieldCheck, ChevronDown, Monitor, Droplet, BellRing, Activity, GitCommit, Network } from 'lucide-react';
 import Link from 'next/link';
 import { NavBar } from './tubelight-navbar';
 import { LucideIcon } from 'lucide-react';
 import { GradientButton } from './gradient-button';
+import Image from 'next/image';
 
 interface NavItem {
   name: string
@@ -27,7 +28,19 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
       { name: 'Tektonics Flux', url: '/product/flux', icon: Zap },
     ]
   },
-  { name: 'Use Cases', url: '/#success', icon: Trophy },
+  { 
+    name: 'Use Cases', 
+    url: '/#success', 
+    icon: Trophy,
+    subItems: [
+      { name: 'DCIM', url: '/use-cases/dcim', icon: Monitor },
+      { name: 'Environmental Monitoring', url: '/use-cases/environmental-monitoring', icon: Droplet },
+      { name: 'Notifications Gateway', url: '/use-cases/notifications-gateway', icon: BellRing },
+      { name: 'Tektonics Flux', url: '/use-cases/tektonics-flux', icon: Activity },
+      { name: 'Dry Contact Monitoring', url: '/use-cases/dry-contact-monitoring', icon: GitCommit },
+      { name: 'NetXMS', url: '/use-cases/netxms', icon: Network },
+    ]
+  },
   { name: 'Contact', url: '/#contact', icon: Mail },
 ];
 
@@ -58,13 +71,15 @@ export function Header({ items, stickyMode = "viewport" }: HeaderProps) {
 			})}
 		>
 			<nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
-				<Link href="/" className="flex items-center gap-2 group shrink-0">
-					<div className="bg-primary p-1.5 rounded-lg group-hover:bg-accent transition-colors">
-						<Cpu className="h-5 w-5 text-white" />
-					</div>
-					<span className="text-xl font-bold tracking-tight text-white font-headline uppercase">
-						TEKTONICS
-					</span>
+				<Link href="/" className="flex items-center group shrink-0 h-12 py-1.5">
+          <div className="relative h-full aspect-[4/1]">
+					  <Image 
+              src="/assets/Brand Identity/D2 High-Resolution White Transparent.png" 
+              alt="Tektonics Logo" 
+              fill
+              className="object-contain"
+            />
+          </div>
 				</Link>
 
 				<div className="hidden lg:flex items-center justify-center flex-1 px-4">
