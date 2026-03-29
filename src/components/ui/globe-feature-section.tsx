@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import createGlobe, { COBEOptions } from "cobe"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
+import Link from "next/link";
 
 export default function GlobeFeatureSection() {
   return (
@@ -13,15 +14,17 @@ export default function GlobeFeatureSection() {
       <div className="relative w-full mx-auto overflow-hidden rounded-3xl bg-card border border-white/5 shadow-2xl px-6 py-16 md:px-16 md:py-24">
         <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row">
           <div className="z-10 max-w-xl text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-headline leading-tight">
-              Build with <span className="text-primary">Ruixen UI</span>{" "}
+             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-headline leading-tight">
+              Africa's Infrastructure <span className="text-primary">Runs on Expertise</span>.
               <span className="block mt-4 text-lg font-normal text-white/60 font-body">
-                Empower your team with fast, elegant, and scalable UI components. Ruixen UI brings simplicity and performance to your modern apps.
+                From Pretoria to Nairobi, businesses across the continent trust Tektonics to keep their data centres running at peak performance. Join them.
               </span>
             </h2>
-            <Button size="lg" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary/90 px-8 py-3 text-sm font-bold text-white transition">
-              Join Today <ArrowRight className="h-4 w-4" />
-            </Button>
+            <Link href="#contact">
+              <Button size="lg" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary/90 px-8 py-3 text-sm font-bold text-white transition">
+                Contact Us <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
           <div className="relative h-[300px] w-full max-w-xl flex items-center justify-center">
             <Globe className="absolute md:-right-20 md:scale-125" />

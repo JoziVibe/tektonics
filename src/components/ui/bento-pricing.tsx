@@ -9,7 +9,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type PricingCardProps = {
 	title: string;
-	imageResourceId: string;
+	imagePath: string;
 	features: string[];
 	cta?: string;
 	className?: string;
@@ -25,12 +25,10 @@ function FilledCheck() {
 
 function PricingCard({
 	title,
-	imageResourceId,
+	imagePath,
 	features,
 	className,
-}: PricingCardProps) {
-	const image = PlaceHolderImages.find(img => img.id === imageResourceId);
-
+}: PricingCardProps & { imagePath: string }) {
 	return (
 		<div
 			className={cn(
@@ -63,16 +61,13 @@ function PricingCard({
 				</div>
 
 				<div className="px-4 py-2 text-left">
-					<div className="h-[40px] w-[65px] relative rounded-none overflow-hidden border border-dashed border-white/10">
-						{image && (
-							<Image
-								src={image.imageUrl}
-								alt={image.description}
-								fill
-								className="object-cover group-hover:scale-105 transition-transform duration-500"
-								data-ai-hint={image.imageHint}
-							/>
-						)}
+					<div className="h-16 w-16 relative rounded-none overflow-hidden">
+						<Image
+							src={imagePath}
+							alt={title}
+							fill
+							className="object-contain p-1 group-hover:scale-110 transition-transform duration-500"
+						/>
 					</div>
 				</div>
 
@@ -90,8 +85,6 @@ function PricingCard({
 }
 
 export function BentoPricing() {
-	const infraImage = PlaceHolderImages.find(img => img.id === 'solutions-dc-infra');
-
 	return (
 		<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-8">
 			{/* Data Centre Infrastructure (Top Left) */}
@@ -124,16 +117,13 @@ export function BentoPricing() {
 				</div>
 				<div className="flex flex-col p-4 lg:flex-row gap-6 relative z-10 items-start">
 					<div className="pb-4 shrink-0 text-left">
-						<div className="h-[40px] w-[65px] relative rounded-none overflow-hidden border border-dashed border-white/10 shadow-2xl">
-							{infraImage && (
-								<Image
-									src={infraImage.imageUrl}
-									alt={infraImage.description}
-									fill
-									className="object-cover group-hover:scale-105 transition-transform duration-500"
-									data-ai-hint={infraImage.imageHint}
-								/>
-							)}
+						<div className="h-16 w-16 relative rounded-none overflow-hidden">
+							<Image
+								src="/assets/Solutions Icons/data center infrastructure.png"
+								alt="Data Centre Infrastructure"
+								fill
+								className="object-contain p-1 group-hover:scale-110 transition-transform duration-500"
+							/>
 						</div>
 					</div>
 					<ul className="text-white/60 grid gap-4 text-sm flex-1">
@@ -156,7 +146,7 @@ export function BentoPricing() {
 			{/* Consulting Services (Top Right) */}
 			<PricingCard
 				title="Consulting Services"
-				imageResourceId="solutions-consulting"
+				imagePath="/assets/Solutions Icons/Consulting Services.png"
 				features={[
 					'Energy conservation and auditing expertise',
 					'DCIM tools training and support',
@@ -169,7 +159,7 @@ export function BentoPricing() {
 			{/* Software Development (Bottom Left) */}
 			<PricingCard
 				title="Software Development"
-				imageResourceId="solutions-software"
+				imagePath="/assets/Solutions Icons/Software Development.png"
 				features={[
 					'Tailored systems integration solutions',
 					'Custom software and hardware combined',
@@ -182,7 +172,7 @@ export function BentoPricing() {
 			{/* Technology Support (Bottom Right) */}
 			<PricingCard
 				title="Technology Support"
-				imageResourceId="solutions-support"
+				imagePath="/assets/Solutions Icons/Technology Support.png"
 				features={[
 					'Expert technology sourcing guidance',
 					'Vendor evaluation and cost outlining',

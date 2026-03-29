@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useScroll } from '@/components/ui/use-scroll';
-import { Cpu } from 'lucide-react';
+import { Cpu, Home, Zap, Box, Trophy, Mail, ShieldCheck, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { NavBar } from './tubelight-navbar';
 import { LucideIcon } from 'lucide-react';
@@ -12,14 +12,43 @@ interface NavItem {
   name: string
   url: string
   icon: LucideIcon
+  subItems?: { name: string; url: string; icon: LucideIcon }[]
 }
+
+const DEFAULT_NAV_ITEMS: NavItem[] = [
+  { name: 'Home', url: '/', icon: Home },
+  { name: 'Solutions', url: '/#solutions', icon: Zap },
+  { 
+    name: 'Products', 
+    url: '#', 
+    icon: Box,
+    subItems: [
+      { name: 'Notifications Gateway', url: '/product/notifications-gateway', icon: ShieldCheck },
+      { name: 'Tektonics Flux', url: '/product/flux', icon: Zap },
+    ]
+  },
+  { name: 'Use Cases', url: '/#success', icon: Trophy },
+  { name: 'Contact', url: '/#contact', icon: Mail },
+];
 
 interface HeaderProps {
-  items: NavItem[];
+  items?: NavItem[];
+  stickyMode?: "viewport" | "immediate";
 }
 
-export function Header({ items }: HeaderProps) {
-	const scrolled = useScroll(10);
+export function Header({ items, stickyMode = "viewport" }: HeaderProps) {
+	const navItems = items && items.length > 0 ? items : DEFAULT_NAV_ITEMS;
+	const [scrolled, setScrolled] = React.useState(false);
+
+	React.useEffect(() => {
+		const onScroll = () => {
+			const threshold = stickyMode === "viewport" ? window.innerHeight - 80 : 20;
+			setScrolled(window.scrollY > threshold);
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+		return () => window.removeEventListener('scroll', onScroll);
+	}, [stickyMode]);
 
 	return (
 		<header
@@ -39,7 +68,7 @@ export function Header({ items }: HeaderProps) {
 				</Link>
 
 				<div className="hidden lg:flex items-center justify-center flex-1 px-4">
-          <NavBar items={items} className="relative translate-x-0 left-0 top-0 -translate-y-0 mb-0 pt-0" />
+          <NavBar items={navItems} className="relative translate-x-0 left-0 top-0 -translate-y-0 mb-0 pt-0" />
         </div>
 
 				<div className="flex items-center gap-4 shrink-0">

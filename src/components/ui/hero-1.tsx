@@ -4,39 +4,17 @@ import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRightIcon, Cpu } from "lucide-react";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
+import ShaderBackground from "@/components/ui/shader-background";
 
 export function HeroSection() {
 	return (
-		<section className="mx-auto w-full max-w-7xl relative overflow-hidden">
-			{/* Top Shades - Adapted for Cyan/Navy */}
-			<div
-				aria-hidden="true"
-				className="absolute inset-0 isolate hidden overflow-hidden contain-strict lg:block"
-			>
-				<div className="absolute inset-0 -top-14 isolate -z-10 bg-[radial-gradient(35%_80%_at_49%_0%,rgba(18,217,236,0.15),transparent)] contain-strict" />
-			</div>
+		<section className="relative w-full overflow-hidden min-h-screen flex flex-col justify-center">
+			<ShaderBackground />
 
-			{/* X Bold Faded Borders */}
-			<div
-				aria-hidden="true"
-				className="absolute inset-0 mx-auto hidden min-h-screen w-full max-w-7xl lg:block"
-			>
-				<div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 left-0 z-10 h-full w-px bg-white/10" />
-				<div className="mask-y-from-80% mask-y-to-100% absolute inset-y-0 right-0 z-10 h-full w-px bg-white/10" />
-			</div>
+			<div className="mx-auto w-full max-w-7xl relative">
 
 			{/* main content */}
-			<div className="relative flex flex-col items-center justify-center gap-5 py-48 px-6">
-				{/* X Content Faded Borders */}
-				<div
-					aria-hidden="true"
-					className="absolute inset-0 -z-1 size-full overflow-hidden"
-				>
-					<div className="absolute inset-y-0 left-4 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:left-8" />
-					<div className="absolute inset-y-0 right-4 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:right-8" />
-					<div className="absolute inset-y-0 left-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:left-12" />
-					<div className="absolute inset-y-0 right-8 w-px bg-gradient-to-b from-transparent via-white/5 to-white/5 md:right-12" />
-				</div>
+			<div className="relative flex flex-col items-center justify-center gap-5 px-6 py-20 lg:py-0">
 
 				<a
 					className={cn(
@@ -71,6 +49,7 @@ export function HeroSection() {
 					</GradientButton>
 				</div>
 			</div>
+			</div>
 		</section>
 	);
 }
@@ -89,36 +68,14 @@ export function LogosSection() {
 }
 
 const logos = [
-	{
-		src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
-		alt: "Nvidia",
-	},
-	{
-		src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
-		alt: "Supabase",
-	},
-	{
-		src: "https://storage.efferd.com/logo/openai-wordmark.svg",
-		alt: "OpenAI",
-	},
-	{
-		src: "https://storage.efferd.com/logo/turso-wordmark.svg",
-		alt: "Turso",
-	},
-	{
-		src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
-		alt: "Vercel",
-	},
-	{
-		src: "https://storage.efferd.com/logo/github-wordmark.svg",
-		alt: "GitHub",
-	},
-	{
-		src: "https://storage.efferd.com/logo/claude-wordmark.svg",
-		alt: "Claude",
-	},
-	{
-		src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
-		alt: "Clerk",
-	},
+	{ src: "/assets/Logos/1.png", alt: "Logo 1" },
+	{ src: "/assets/Logos/2.png", alt: "Logo 2" },
+	{ src: "/assets/Logos/3.png", alt: "Logo 3" },
+	{ src: "/assets/Logos/4.png", alt: "Logo 4" },
+	{ src: "/assets/Logos/5.png", alt: "Logo 5" },
+	{ src: "/assets/Logos/6.png", alt: "Logo 6" },
+	{ src: "/assets/Logos/7.png", alt: "Logo 7" },
+	{ src: "/assets/Logos/8.png", alt: "Logo 8" },
+	{ src: "/assets/Logos/9.png", alt: "Logo 9" },
+	{ src: "/assets/Logos/Untitled design.png", alt: "Logo 10" },
 ];

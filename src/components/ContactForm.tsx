@@ -46,7 +46,7 @@ export function ContactForm() {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-1 font-headline">Email Inquiry</h4>
-                  <p className="text-white/60 font-body">solutions@tektonicsdg.com</p>
+                  <p className="text-white/60 font-body">info@tektonics.africa</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -55,7 +55,7 @@ export function ContactForm() {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-1 font-headline">Regional HQ</h4>
-                  <p className="text-white/60 font-body">+234 (0) 1 234 5678 (Lagos, NG)</p>
+                  <p className="text-white/60 font-body">+27-12-743-5757 (Pretoria, ZA)</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -63,8 +63,8 @@ export function ContactForm() {
                   <MapPin className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-1 font-headline">Global Address</h4>
-                  <p className="text-white/60 font-body">123 Tech Avenue, Victoria Island, Lagos</p>
+                  <h4 className="text-white font-bold mb-1 font-headline">Head Office</h4>
+                  <p className="text-white/60 font-body text-sm">Unit 4, 92 Willem Botha Dr, Eldoraigne, Centurion, 0157</p>
                 </div>
               </div>
             </div>

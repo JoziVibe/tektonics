@@ -16,18 +16,18 @@ export function About() {
   const values = [
     {
       icon: Target,
-      title: "Our Mission",
-      description: "To empower African enterprises with world-class DCIM solutions that bridge the gap between physical infrastructure and digital excellence."
+      title: "Infrastructure Assessment",
+      description: "We conduct a thorough evaluation of your existing data centre infrastructure, identifying gaps, risks, and opportunities to ensure your environment is built on a solid, well-documented foundation."
     },
     {
       icon: Lightbulb,
-      title: "Our Innovation",
-      description: "Continuously pushing the boundaries of what's possible in IT infrastructure monitoring through AI-driven insights."
+      title: "Efficiency Optimisation",
+      description: "We analyse your operations to uncover inefficiencies and cost drivers, implementing targeted improvements that streamline performance and reduce unnecessary expenditure across your IT environment."
     },
     {
       icon: Users,
-      title: "Our Expertise",
-      description: "A multidisciplinary team of African engineers and technologists with decades of experience in global data center standards."
+      title: "Knowledge & Growth",
+      description: "We equip your team with the expertise and resources needed to elevate data centre operations, helping you extract maximum value from your IT investments and stay ahead of the curve."
     }
   ];
 
@@ -78,10 +78,10 @@ export function About() {
         <div className="space-y-12">
           <AnimatedContainer className="text-center max-w-3xl mx-auto">
             <h3 className="text-3xl font-bold tracking-tight text-white md:text-4xl font-headline">
-              The Tektonics <span className="text-accent">Foundation</span>
+              Where Expertise <span className="text-accent">Meets Execution</span>
             </h3>
             <p className="text-white/60 mt-4 font-body leading-relaxed">
-              Our core values drive every integration and monitoring strategy we deploy across the continent.
+              We pride ourselves on solving complex challenges with precision. We embed ourselves in your environment, delivering practical solutions that drive real, measurable results.
             </p>
           </AnimatedContainer>
 

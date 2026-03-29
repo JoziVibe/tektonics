@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Cpu, Linkedin, Twitter, Facebook, ArrowUpRight } from "lucide-react";
+import { CookieSettingsModal } from "./ui/cookie-settings-modal";
 
 export function Footer() {
   return (
@@ -34,7 +35,7 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 font-headline">Solutions</h4>
             <ul className="space-y-4">
-              <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">Power Intelligence <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/product/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">Environmental Guardian <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">Asset Management <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               <li><Link href="#" className="text-white/50 hover:text-white flex items-center gap-1 group">SecureGate <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
@@ -72,9 +73,11 @@ export function Footer() {
             © {new Date().getFullYear()} Tektonics Systems. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-white/30">
-            <Link href="#" className="hover:text-white">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white">Terms of Service</Link>
-            <Link href="#" className="hover:text-white">Cookie Settings</Link>
+            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+            <CookieSettingsModal>
+              <button className="hover:text-white transition-colors">Cookie Settings</button>
+            </CookieSettingsModal>
           </div>
         </div>
       </div>

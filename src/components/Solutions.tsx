@@ -34,14 +34,12 @@ export function Solutions() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Heading Section */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">Pricing Plans</h2>
-          <h3 className="text-4xl md:text-6xl font-semibold tracking-tight text-white font-headline leading-tight">
-            Data-Driven Growth
+          <h2 className="text-accent font-bold tracking-widest uppercase text-sm mb-4">Our Suite of Services</h2>
+          <h3 className="text-4xl md:text-5xl font-semibold tracking-tight text-white font-headline leading-tight">
+            Everything Your <br /><span className="text-gradient">IT Environment Needs</span>
           </h3>
           <p className="text-white/60 mt-4 text-base md:text-lg font-body leading-relaxed">
-            Are you tired of using outdated tools and insights that hold your
-            team back? We built our pricing around modern teams, so you can
-            focus on what matters most.
+            Managing a data centre comes with no shortage of challenges. Our suite of services is purpose-built to address them — giving you the expertise, tools, and support to operate with confidence at every level.
           </p>
         </div>
 

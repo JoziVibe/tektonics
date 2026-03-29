@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Tektonics Systems is an African leader in Data Center Infrastructure Management (DCIM) and IT solutions.',
 };
 
+import { ChatbotThemba } from '@/components/ChatbotThemba';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,6 +22,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-background text-foreground min-h-screen">
         {children}
+        <ChatbotThemba />
       </body>
     </html>
   );

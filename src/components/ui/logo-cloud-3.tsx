@@ -21,13 +21,13 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
         className
       )}
     >
-      <InfiniteSlider gap={64} reverse speed={40} speedOnHover={15}>
-        {logos.map((logo, idx) => (
+      <InfiniteSlider gap={42} reverse speed={80} speedOnHover={25}>
+        {logos.map((logo) => (
           <img
             alt={logo.alt}
-            className="pointer-events-none h-6 select-none md:h-8 opacity-40 brightness-0 invert hover:opacity-100 transition-opacity"
+            className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert opacity-20 hover:opacity-100 transition-opacity"
             height={logo.height || "auto"}
-            key={`logo-${logo.alt}-${idx}`}
+            key={`logo-${logo.alt}`}
             loading="lazy"
             src={logo.src}
             width={logo.width || "auto"}
