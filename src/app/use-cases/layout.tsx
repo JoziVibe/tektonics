@@ -12,7 +12,7 @@ export default function UseCaseLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header stickyMode="immediate" />
       <div className="grow pt-32 pb-24 relative container mx-auto px-4 md:px-6 max-w-7xl flex gap-12 lg:gap-24">
         {/* Background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-primary/10 blur-[100px] rounded-full pointer-events-none -z-10" />
