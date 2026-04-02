@@ -5,7 +5,7 @@ import { HeroSection } from "@/components/ui/hero-1";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 import { About } from "@/components/About";
 import { Solutions } from "@/components/Solutions";
-import { TestimonialsSection } from "@/components/ui/testimonials-section";
+// import { TestimonialsSection } from "@/components/ui/testimonials-section"; // Kept for future use
 import GlobeFeatureSection from "@/components/ui/globe-feature-section";
 import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
@@ -37,7 +37,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FaqSection />
         <GlobeFeatureSection />
       </div>
