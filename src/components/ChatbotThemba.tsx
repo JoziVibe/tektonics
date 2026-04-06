@@ -100,7 +100,7 @@ export function ChatbotThemba() {
             initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="mb-4 flex h-[600px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] backdrop-blur-3xl"
+            className="mb-4 flex h-[600px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#02264b]/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] backdrop-blur-3xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-white/10 bg-white/5 p-4 px-6 relative overflow-hidden">
@@ -118,7 +118,7 @@ export function ChatbotThemba() {
                        className="object-cover"
                      />
                    </div>
-                   <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-background bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
+                   <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#02264b] bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
                  </div>
                  <div>
                    <h3 className="text-sm font-bold tracking-tight text-white font-headline">Themba</h3>
@@ -153,12 +153,12 @@ export function ChatbotThemba() {
                   <div className={cn(
                     "relative px-4 py-3 text-sm leading-relaxed antialiased font-body tracking-wide",
                     message.role === 'user' 
-                      ? "rounded-2xl rounded-tr-none bg-accent/15 border border-accent/20 text-white shadow-[0_4px_12px_rgba(0,180,250,0.1)]" 
-                      : "rounded-2xl rounded-tl-none bg-white/[0.04] border border-white/10 text-white/80"
+                      ? "rounded-2xl rounded-tr-none bg-accent/20 border border-accent/30 text-white shadow-[0_4px_12px_rgba(0,180,250,0.1)]" 
+                      : "rounded-2xl rounded-tl-none bg-white/10 border border-white/10 text-white/90"
                   )}>
                     {message.content}
                   </div>
-                  <span className="text-[10px] text-white/20 px-1 font-bold tracking-widest uppercase">
+                  <span className="text-[10px] text-white/30 px-1 font-bold tracking-widest uppercase">
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
                   
@@ -169,7 +169,7 @@ export function ChatbotThemba() {
                          <button
                            key={idx}
                            onClick={() => handleSendMessage(reply)}
-                           className="text-[11px] font-bold tracking-wide py-2 px-3 rounded-full bg-white/[0.03] border border-white/10 text-accent hover:bg-accent/10 hover:border-accent/30 transition-all text-left animate-in fade-in slide-in-from-bottom-2 duration-300 fill-mode-backwards flex items-center gap-1.5"
+                           className="text-[11px] font-bold tracking-wide py-2 px-3 rounded-full bg-white/5 border border-white/10 text-accent hover:bg-accent/20 hover:border-accent/40 transition-all text-left animate-in fade-in slide-in-from-bottom-2 duration-300 fill-mode-backwards flex items-center gap-1.5"
                            style={{ animationDelay: `${idx * 100}ms` }}
                          >
                            {reply}
@@ -183,8 +183,8 @@ export function ChatbotThemba() {
 
               {isTyping && (
                 <div className="flex flex-col gap-2 mr-auto max-w-[85%]">
-                  <div className="rounded-2xl rounded-tl-none bg-white/[0.04] border border-white/10 p-3 flex items-center gap-3">
-                     <span className="text-[10px] font-bold tracking-widest uppercase text-white/30 italic">Processing</span>
+                  <div className="rounded-2xl rounded-tl-none bg-white/10 border border-white/10 p-3 flex items-center gap-3">
+                     <span className="text-[10px] font-bold tracking-widest uppercase text-white/40 italic">Processing</span>
                      <div className="flex gap-1">
                         <span className="size-1.5 rounded-full bg-accent/40 animate-bounce [animation-delay:-0.3s]" />
                         <span className="size-1.5 rounded-full bg-accent/40 animate-bounce [animation-delay:-0.15s]" />
@@ -210,7 +210,7 @@ export function ChatbotThemba() {
                    onChange={(e) => setInputValue(e.target.value)}
                    disabled={isTyping}
                    placeholder="Type your message..."
-                   className="w-full rounded-2xl border border-white/10 bg-black/40 py-3 pl-4 pr-12 text-sm text-white placeholder-white/30 focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/40 transition-all font-body tracking-wide disabled:opacity-50"
+                   className="w-full rounded-2xl border border-white/10 bg-black/20 py-3 pl-4 pr-12 text-sm text-white placeholder-white/40 focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/40 transition-all font-body tracking-wide disabled:opacity-50"
                  />
                  <button
                    type="submit"
@@ -221,7 +221,7 @@ export function ChatbotThemba() {
                  </button>
                </form>
                <div className="mt-3 text-center">
-                  <p className="text-[9px] uppercase tracking-widest text-white/20 font-bold">
+                  <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold">
                     Tektonics Knowledge Engine v1.0
                   </p>
                </div>
@@ -236,8 +236,8 @@ export function ChatbotThemba() {
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "relative flex size-16 items-center justify-center rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,0,250,0.4)] transition-all duration-300 border border-white/10",
-          isOpen ? "bg-black/60 rotate-90" : "bg-gradient-to-br from-accent to-accent-foreground"
+          "relative flex size-16 items-center justify-center rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,180,250,0.4)] transition-all duration-300 border border-white/10",
+          isOpen ? "bg-[#02264b]/90 rotate-90" : "bg-gradient-to-br from-accent to-accent-foreground"
         )}
       >
         <AnimatePresence mode="wait">
@@ -259,7 +259,7 @@ export function ChatbotThemba() {
             >
               <MessageCircle className="size-8 text-white" strokeWidth={1.5} />
               {/* Notification Badge */}
-              <div className="absolute top-0 right-0 size-4 rounded-full bg-red-500 border-2 border-primary animate-pulse" />
+              <div className="absolute top-0 right-0 size-4 rounded-full bg-red-500 border-2 border-[#02264b] animate-pulse" />
             </motion.div>
           )}
         </AnimatePresence>

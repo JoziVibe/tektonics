@@ -17,11 +17,11 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
     <div
       {...props}
       className={cn(
-        "overflow-hidden py-8 [mask-image:linear-gradient(to_right,transparent,black,transparent)]",
+        "overflow-hidden py-8",
         className
       )}
     >
-      <InfiniteSlider gap={64} reverse duration={80} durationOnHover={25}>
+      <InfiniteSlider gap={64} reverse duration={80} pauseOnHover={true}>
         {logos.map((logo) => (
           <img
             alt={logo.alt}

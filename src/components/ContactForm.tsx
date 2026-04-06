@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Globe } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { GradientButton } from "@/components/ui/gradient-button";
 
@@ -53,9 +53,18 @@ export function ContactForm() {
                 <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
                   <Phone className="h-6 w-6 text-accent" />
                 </div>
-                <div>
-                  <h4 className="text-white font-bold mb-1 font-headline">Regional HQ</h4>
+                <div className="space-y-2">
+                  <h4 className="text-white font-bold mb-1 font-headline tracking-wide uppercase text-xs opacity-50">South Africa HQ</h4>
                   <p className="text-white/60 font-body">+27-12-743-5757 (Pretoria, ZA)</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
+                  <Globe className="h-6 w-6 text-accent" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="text-white font-bold mb-1 font-headline tracking-wide uppercase text-xs opacity-50">East Africa Office</h4>
+                  <p className="text-white/60 font-body text-sm">+254-76-806-0051 / +254-20-206-0050 (Nairobi, KE)</p>
                 </div>
               </div>
               <div className="flex gap-4">
