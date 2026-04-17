@@ -33,7 +33,7 @@ export default function ZoomDepthTabs({
     <div className={cn("flex flex-col items-center justify-center", className)}>
       <Tabs value={active} onValueChange={setActive} className="w-full">
         {/* Tab List */}
-        <TabsList className="flex gap-2 p-1.5 overflow-x-auto rounded-xl bg-white/5 scrollbar-none border border-white/10 mb-4">
+        <TabsList className="flex gap-2 py-1.5 px-0 overflow-x-auto rounded-none bg-white/5 scrollbar-none border border-white/10 mb-4">
           {items.map((item) => {
             const isActive = item.value === active;
             return (
