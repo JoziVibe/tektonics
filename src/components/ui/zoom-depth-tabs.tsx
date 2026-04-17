@@ -32,7 +32,7 @@ export default function ZoomDepthTabs({
   return (
     <div className={cn("flex flex-col items-center justify-center", className)}>
       <Tabs value={active} onValueChange={setActive} className="w-full">
-        {/* Tab List - Added w-full and flex to sit flush against Dropdown edges */}
+        {/* Tab List */}
         <TabsList className="flex w-full gap-2 py-1.5 px-0 overflow-x-auto rounded-none bg-white/5 scrollbar-none border-b border-white/10">
           {items.map((item) => {
             const isActive = item.value === active;
@@ -40,23 +40,33 @@ export default function ZoomDepthTabs({
               <TabsTrigger
                 key={item.value}
                 value={item.value}
-                className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest relative border-none bg-transparent data-[state=active]:bg-transparent"
+                className="px-4 py-2 text-xs font-bold uppercase tracking-widest relative border-none bg-transparent data-[state=active]:bg-transparent outline-none group"
               >
-                <motion.span
-                  animate={{
-                    scale: isActive ? 1.05 : 0.95,
-                    rotateX: isActive ? 0 : -5,
-                    rotateY: isActive ? 0 : 5,
-                    opacity: isActive ? 1 : 0.5,
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className={cn(
-                    "block px-4 py-2 rounded-lg transition-colors",
-                    isActive ? "text-white bg-primary shadow-[0_0_20px_rgba(0,150,195,0.3)]" : "text-white/60 hover:text-white"
-                  )}
-                >
+                <span className={cn(
+                  "relative z-10 transition-colors duration-300",
+                  isActive ? "text-accent" : "text-white/60 group-hover:text-white"
+                )}>
                   {item.label}
-                </motion.span>
+                </span>
+
+                {isActive && (
+                  <motion.div
+                    layoutId="sublamp"
+                    className="absolute inset-0 w-full bg-primary/10 rounded-full -z-0"
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                    }}
+                  >
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-accent rounded-t-full">
+                      <div className="absolute w-12 h-6 bg-accent/20 rounded-full blur-md -top-2 -left-2" />
+                      <div className="absolute w-8 h-6 bg-accent/20 rounded-full blur-md -top-1" />
+                      <div className="absolute w-4 h-4 bg-accent/20 rounded-full blur-sm top-0 left-2" />
+                    </div>
+                  </motion.div>
+                )}
               </TabsTrigger>
             );
           })}
