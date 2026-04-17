@@ -166,7 +166,7 @@ export function NavBar({ items, className }: NavBarProps) {
                                     setOpenMenu(null);
                                   }}
                                 >
-                                  <div className="p-2 rounded-xl bg-white/5 text-white/40 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
+                                  <div className="p-2 rounded-xl bg-white/5 text-white/60 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
                                     <nested.icon className="size-4" />
                                   </div>
                                   <div className="flex flex-col">
@@ -186,14 +186,14 @@ export function NavBar({ items, className }: NavBarProps) {
                             <Link 
                               href={sub.url}
                               className={cn(
-                                "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white/10 text-white/70 hover:text-white"
+                                "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white/10 text-white/70 hover:text-white focus:bg-transparent focus:text-white"
                               )}
                               onClick={() => {
                                 setActiveTab(item.name);
                                 setOpenMenu(null);
                               }}
                             >
-                              <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:text-accent transition-colors">
+                              <div className="p-1.5 rounded-lg bg-white/5 text-white/60 group-hover:text-accent transition-colors">
                                 <sub.icon className="size-4" />
                               </div>
                               <span className="text-sm font-medium transition-colors">{sub.name}</span>
