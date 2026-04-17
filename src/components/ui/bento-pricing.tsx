@@ -53,7 +53,7 @@ function PricingCard({
 				<div className="flex items-center gap-3 p-4">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">{title}</span>
 					<div className="ml-auto">
-						<HoverButton className="hidden size-8 p-0 flex items-center justify-center rounded-full">
+						<HoverButton className="hidden">
 							<ArrowUpRight className="size-4" />
 						</HoverButton>
 					</div>
@@ -110,7 +110,7 @@ export function BentoPricing() {
 				<div className="flex items-center gap-3 p-4 relative z-10">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">Data Centre Infrastructure</span>
 					<div className="ml-auto">
-						<HoverButton className="hidden size-8 p-0 flex items-center justify-center rounded-full">
+						<HoverButton className="hidden">
 							<ArrowUpRight className="size-4" />
 						</HoverButton>
 					</div>
