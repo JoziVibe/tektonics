@@ -18,10 +18,10 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Overview", href: "#overview" },
-    { name: "Solutions", href: "#solutions" },
-    { name: "Success Stories", href: "#success" },
-    { name: "Contact", href: "#contact" },
+    { name: "Overview", href: "/#overview" },
+    { name: "Solutions", href: "/solutions" },
+    { name: "Success Stories", href: "/#success" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (

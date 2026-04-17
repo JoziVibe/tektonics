@@ -22,7 +22,7 @@ interface NavItem {
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
   { name: 'Home', url: '/', icon: Home },
-  { name: 'Solutions', url: '/#solutions', icon: Zap },
+  { name: 'Solutions', url: '/solutions', icon: Zap },
   { 
     name: 'Products', 
     url: '#', 
