@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { LucideIcon, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
+import ZoomDepthTabs from "@/components/ui/zoom-depth-tabs"
 
 interface NavItem {
   name: string
@@ -95,6 +96,9 @@ export function NavBar({ items, className }: NavBarProps) {
           const isActive = activeTab === item.name
 
           if (item.subItems) {
+            // Check if this is a Mega-Menu (contains sub-sub items, like Products)
+            const isMegaMenu = item.subItems.some(sub => sub.subItems && sub.subItems.length > 0);
+
             return (
               <div 
                 key={item.name}
@@ -141,72 +145,62 @@ export function NavBar({ items, className }: NavBarProps) {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     align="center" 
-                    className="bg-background/80 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                    className={cn(
+                      "bg-[#02112e]/95 backdrop-blur-2xl border-white/10 rounded-3xl p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-visible",
+                      isMegaMenu ? "min-w-[600px]" : "min-w-[220px]"
+                    )}
                   >
-                    {item.subItems.map((sub) => {
-                      const isSubActive = activeTab === sub.name;
-                      
-                      if (sub.subItems) {
-                        return (
-                          <DropdownMenuSub key={sub.name}>
-                            <DropdownMenuSubTrigger 
-                              className={cn(
-                                "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
-                                "hover:bg-white text-white/70 hover:text-background data-[state=open]:bg-white data-[state=open]:text-background"
-                              )}
-                            >
-                              <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background group-data-[state=open]:bg-background/10 group-data-[state=open]:text-background">
-                                <sub.icon className="size-4" />
-                              </div>
-                              <span className="text-sm font-medium">{sub.name}</span>
-                            </DropdownMenuSubTrigger>
-                            <DropdownMenuSubContent className="bg-background/90 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px]">
-                              {sub.subItems.map((nested) => (
-                                <DropdownMenuItem key={nested.name} asChild>
-                                  <Link 
-                                    href={nested.url}
-                                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white text-white/70 hover:text-background"
-                                    onClick={() => {
-                                      setActiveTab(item.name);
-                                      setOpenMenu(null);
-                                    }}
-                                  >
-                                    <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background">
-                                      <nested.icon className="size-4" />
-                                    </div>
-                                    <span className="text-sm font-medium">{nested.name}</span>
-                                  </Link>
-                                </DropdownMenuItem>
+                    {isMegaMenu ? (
+                      <ZoomDepthTabs 
+                        items={item.subItems.map(sub => ({
+                          value: sub.name,
+                          label: sub.name,
+                          content: (
+                            <div className="grid grid-cols-2 gap-2">
+                              {sub.subItems?.map(nested => (
+                                <Link
+                                  key={nested.name}
+                                  href={nested.url}
+                                  className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all group hover:bg-white/[0.08] border border-transparent hover:border-white/10"
+                                  onClick={() => {
+                                    setActiveTab(item.name);
+                                    setOpenMenu(null);
+                                  }}
+                                >
+                                  <div className="p-2 rounded-xl bg-white/5 text-white/40 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
+                                    <nested.icon className="size-4" />
+                                  </div>
+                                  <div className="flex flex-col">
+                                    <span className="text-sm font-bold text-white/80 group-hover:text-white transition-colors">{nested.name}</span>
+                                    <span className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Product</span>
+                                  </div>
+                                </Link>
                               ))}
-                            </DropdownMenuSubContent>
-                          </DropdownMenuSub>
-                        )
-                      }
-
-                      return (
-                      <DropdownMenuItem key={sub.name} asChild>
-                        <Link 
-                          href={sub.url}
-                          className={cn(
-                            "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
-                            isSubActive ? "bg-white text-background" : "hover:bg-white text-white/70 hover:text-background"
-                          )}
-                          onClick={() => {
-                            setActiveTab(sub.name);
-                            setOpenMenu(null);
-                          }}
-                        >
-                          <div className={cn(
-                            "p-1.5 rounded-lg transition-colors",
-                            isSubActive ? "bg-background/10 text-background" : "bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background"
-                          )}>
-                            <sub.icon className="size-4 transition-colors" />
-                          </div>
-                          <span className="text-sm font-medium transition-colors">{sub.name}</span>
-                        </Link>
-                      </DropdownMenuItem>
-                      )
-                    })}
+                            </div>
+                          )
+                        }))}
+                      />
+                    ) : (
+                      item.subItems.map((sub) => (
+                        <DropdownMenuItem key={sub.name} asChild>
+                          <Link 
+                            href={sub.url}
+                            className={cn(
+                              "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white text-white/70 hover:text-background"
+                            )}
+                            onClick={() => {
+                              setActiveTab(item.name);
+                              setOpenMenu(null);
+                            }}
+                          >
+                            <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background transition-colors">
+                              <sub.icon className="size-4" />
+                            </div>
+                            <span className="text-sm font-medium transition-colors">{sub.name}</span>
+                          </Link>
+                        </DropdownMenuItem>
+                      ))
+                    )}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
