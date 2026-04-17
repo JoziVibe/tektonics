@@ -37,22 +37,23 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6 font-headline">Company</h4>
             <ul className="space-y-4">
               <li><Link href="/" className="text-white/50 hover:text-white flex items-center gap-1 group">Home</Link></li>
-              <li><Link href="/#solutions" className="text-white/50 hover:text-white flex items-center gap-1 group">Solutions</Link></li>
-              <li><Link href="/product/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway</Link></li>
-              <li><Link href="/product/flux" className="text-white/50 hover:text-white flex items-center gap-1 group">Flux</Link></li>
-              <li><Link href="/contact" className="text-white/50 hover:text-white flex items-center gap-1 group">Contact</Link></li>
+              <li><Link href="/#overview" className="text-white/50 hover:text-white flex items-center gap-1 group">About Us</Link></li>
+              <li><Link href="/#solutions" className="text-white/50 hover:text-white flex items-center gap-1 group">Our Solutions</Link></li>
+              <li><Link href="/contact" className="text-white/50 hover:text-white flex items-center gap-1 group">Get in Touch</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 font-headline">Use Cases</h4>
+            <h4 className="text-white font-bold mb-6 font-headline">Products</h4>
             <ul className="space-y-4">
-              <li><Link href="/use-cases/dcim" className="text-white/50 hover:text-white flex items-center gap-1 group">DCIM</Link></li>
-              <li><Link href="/use-cases/environmental-monitoring" className="text-white/50 hover:text-white flex items-center gap-1 group">Environmental Monitoring</Link></li>
-              <li><Link href="/use-cases/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway</Link></li>
-              <li><Link href="/use-cases/tektonics-flux" className="text-white/50 hover:text-white flex items-center gap-1 group">Tektonics Flux</Link></li>
-              <li><Link href="/use-cases/dry-contact-monitoring" className="text-white/50 hover:text-white flex items-center gap-1 group">Dry Contact Monitoring</Link></li>
-              <li><Link href="/use-cases/netxms" className="text-white/50 hover:text-white flex items-center gap-1 group">NetXMS</Link></li>
+              <li><Link href="/product/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway</Link></li>
+              <li><Link href="/product/flux" className="text-white/50 hover:text-white flex items-center gap-1 group">Tektonics Flux</Link></li>
+              <li><Link href="/product/netbotz" className="text-white/50 hover:text-white flex items-center gap-1 group">NetBotz Sensors</Link></li>
+              <li><Link href="/product/thingsboard-pe" className="text-white/50 hover:text-white flex items-center gap-1 group">ThingsBoard PE</Link></li>
+              <li><Link href="/product/netxms" className="text-white/50 hover:text-white flex items-center gap-1 group">NetXMS Enterprise</Link></li>
+              <li><Link href="/product/ecostruxure-it-expert" className="text-white/50 hover:text-white flex items-center gap-1 group">IT Expert</Link></li>
+              <li><Link href="/product/ecostruxure-it-advisor" className="text-white/50 hover:text-white flex items-center gap-1 group">IT Advisor</Link></li>
+              <li><Link href="/product/ecostruxure-data-center-expert" className="text-white/50 hover:text-white flex items-center gap-1 group">Data Center Expert</Link></li>
             </ul>
           </div>
 
