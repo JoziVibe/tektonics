@@ -21,31 +21,31 @@ const thingsboardCapabilities: ProjectData[] = [
   {
     title: "Advanced Role-Based Access Control",
     description: "ThingsBoard PE includes Advanced Access Control (RBAC) — enabling custom user roles with granular permissions for devices, assets, and dashboards. Manage a hierarchy of customers with multiple levels of sub-customers, independent users, and devices.",
-    link: "/assets/ThingsBoard PE/RBAC.jpg",
+    link: "/assets/ThingsBoard PE/Advanced Role-Based Access Control.png",
     color: "#0a0f1c",
   },
   {
     title: "Rule Engine & Event Processing",
     description: "Define data processing rule chains. Transform and normalise your device data. Raise alarms on incoming telemetry events, attribute updates, device inactivity, and user actions. Complex multi-step workflows can be built and deployed without custom development.",
-    link: "/assets/ThingsBoard PE/Scheduler.jpg",
+    link: "/assets/ThingsBoard PE/Rule Engine & Event Processing.png",
     color: "#06102b",
   },
   {
     title: "Platform Integrations",
     description: "ThingsBoard PE enables seamless connection with cloud services like AWS IoT and Azure IoT Hub, plus Kafka and LoRaWAN network servers. It also supports NB-IoT, SigFox, MQTT, CoAP, HTTP, and LwM2M protocols.",
-    link: "/assets/ThingsBoard PE/Platform Integrations.jpg",
+    link: "/assets/ThingsBoard PE/Platform Integrations.png",
     color: "#081333",
   },
   {
     title: "White-Labelling",
     description: "Rebrand the ThingsBoard platform web interface with your company or product logo and colour scheme in 2 minutes — no coding or service restart required. Allow your customers and their sub-customers to white-label their interface as well.",
-    link: "/assets/ThingsBoard PE/White-Labelling.jpg",
+    link: "/assets/ThingsBoard PE/White-Labeling.png",
     color: "#0a1945",
   },
   {
     title: "Scalable Multi-Tenant Architecture",
     description: "A single ThingsBoard server can support 10,000+ devices and 100 million messages per hour, while a simple cluster can support millions of devices and billions of messages. Deploy on-premises or in the cloud with horizontal scaling.",
-    link: "/assets/ThingsBoard PE/Scalable Multi-Tenant Architecture.jpg",
+    link: "/assets/ThingsBoard PE/Scalable Multi-Tenant Architecture.png",
     color: "#0b1e4f",
   }
 ];
