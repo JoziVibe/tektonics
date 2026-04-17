@@ -31,64 +31,24 @@ export default function DemoOne() {
 
 
 export const logos = [
-  {
-    src: "/assets/Logos/1.png",
-    alt: "Logo 1",
-  },
-  {
-    src: "/assets/Logos/11.png",
-    alt: "Logo 11",
-  },
-  {
-    src: "/assets/Logos/12.png",
-    alt: "Logo 12",
-  },
-  {
-    src: "/assets/Logos/13.png",
-    alt: "Logo 13",
-  },
-  {
-    src: "/assets/Logos/14.png",
-    alt: "Logo 14",
-  },
-  {
-    src: "/assets/Logos/15.png",
-    alt: "Logo 15",
-  },
-  {
-    src: "/assets/Logos/2.png",
-    alt: "Logo 2",
-  },
-  {
-    src: "/assets/Logos/3.png",
-    alt: "Logo 3",
-  },
-  {
-    src: "/assets/Logos/4.png",
-    alt: "Logo 4",
-  },
-  {
-    src: "/assets/Logos/5.png",
-    alt: "Logo 5",
-  },
-  {
-    src: "/assets/Logos/6.png",
-    alt: "Logo 6",
-  },
-  {
-    src: "/assets/Logos/7.png",
-    alt: "Logo 7",
-  },
-  {
-    src: "/assets/Logos/8.png",
-    alt: "Logo 8",
-  },
-  {
-    src: "/assets/Logos/9.png",
-    alt: "Logo 9",
-  },
-  {
-    src: "/assets/Logos/Untitled design.png",
-    alt: "Logo Untitled design",
-  },
+  { src: "/assets/Logos/1.png", alt: "Logo 1" },
+  { src: "/assets/Logos/2.png", alt: "Logo 2" },
+  { src: "/assets/Logos/3.png", alt: "Logo 3" },
+  { src: "/assets/Logos/4.png", alt: "Logo 4" },
+  { src: "/assets/Logos/5.png", alt: "Logo 5" },
+  { src: "/assets/Logos/6.png", alt: "Logo 6" },
+  { src: "/assets/Logos/7.png", alt: "Logo 7" },
+  { src: "/assets/Logos/8.png", alt: "Logo 8" },
+  { src: "/assets/Logos/9.png", alt: "Logo 9" },
+  { src: "/assets/Logos/10.png", alt: "Logo 10" },
+  { src: "/assets/Logos/11.png", alt: "Logo 11" },
+  { src: "/assets/Logos/12.png", alt: "Logo 12" },
+  { src: "/assets/Logos/13.png", alt: "Logo 13" },
+  { src: "/assets/Logos/14.png", alt: "Logo 14" },
+  { src: "/assets/Logos/15.png", alt: "Logo 15" },
+  { src: "/assets/Logos/16.png", alt: "Logo 16" },
+  { src: "/assets/Logos/17.png", alt: "Logo 17" },
+  { src: "/assets/Logos/18.png", alt: "Logo 18" },
+  { src: "/assets/Logos/19.png", alt: "Logo 19" },
+  { src: "/assets/Logos/20.png", alt: "Logo 20" },
 ];

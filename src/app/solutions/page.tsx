@@ -7,9 +7,11 @@ import { Header } from "@/components/ui/header-1";
 import { Footer } from "@/components/Footer";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const services = [
   {
+    id: "data-centre-infrastructure",
     title: "Data Centre Infrastructure",
     description: "We ensure your data centre operates at peak performance, deploying robust systems and software to protect against external threats and internal failures. Our expertise covers everything from initial builds to ongoing management.",
     features: [
@@ -21,6 +23,7 @@ const services = [
     image: "/assets/solutions/DCIM.png",
   },
   {
+    id: "consulting-services",
     title: "Expert Consulting Services",
     description: "Managing a data centre is a complex, full-time job. Leverage our years of experience in energy conservation, auditing, and security. We provide strategic guidance and training to streamline your data collection, analysis, and reporting, turning your operational challenges into opportunities for growth.",
     features: [
@@ -32,6 +35,7 @@ const services = [
     image: "/assets/solutions/Consulting.png",
   },
   {
+    id: "software-development",
     title: "Custom Software Development & Integration",
     description: "We build custom applications and hardware integrations tailored to your specific business needs. Our team focuses on solving your unique problems, taking your requirements from concept to a fully realized, high-performance solution.",
     features: [
@@ -43,6 +47,7 @@ const services = [
     image: "/assets/solutions/Software Development.png",
   },
   {
+    id: "technology-support",
     title: "SME Technology Support",
     description: "Navigating the technology landscape can be challenging. We provide comprehensive desktop and server support for SMEs, helping you identify the right technology, manage costs, and evaluate suppliers. We also offer expertise in data security and compliance to keep your business protected.",
     features: [
@@ -83,21 +88,29 @@ export default function SolutionsPage() {
             <div className="space-y-24">
               {services.map((service, index) => (
                 <div
+                  id={service.id}
                   key={service.title}
                   className={cn(
-                    "flex flex-col md:flex-row gap-12 lg:gap-16 items-center",
+                    "flex flex-col md:flex-row gap-12 lg:gap-16 items-center pt-24 -mt-24",
                     index % 2 !== 0 && "md:flex-row-reverse"
                   )}
                 >
-                  <div className="md:w-1/2 rounded-2xl bg-white/5 p-8 border border-white/10">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={500}
-                      height={500}
-                      className="object-contain w-full h-full"
-                    />
-                  </div>
+                  <motion.div 
+                    whileHover={{ scale: 1.02, rotateY: index % 2 === 0 ? 5 : -5 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="md:w-1/2 rounded-3xl bg-white/5 p-3 border border-white/10 overflow-hidden shadow-2xl perspective-1000 group"
+                  >
+                    <div className="relative overflow-hidden rounded-2xl">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={500}
+                        height={500}
+                        className="object-contain w-full h-auto transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </motion.div>
                   <div className="md:w-1/2">
                     <h2 className="text-3xl md:text-4xl font-headline font-bold text-white mb-6">{service.title}</h2>
                     <p className="text-white/60 leading-relaxed mb-8">{service.description}</p>

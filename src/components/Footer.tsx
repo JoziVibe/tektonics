@@ -3,11 +3,18 @@ import { ArrowUpRight } from "lucide-react";
 import { CookieSettingsModal } from "./ui/cookie-settings-modal";
 import Image from "next/image";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { InfiniteGridBackground } from "./ui/infinite-grid";
 
 export function Footer() {
   return (
-    <footer className="bg-background pt-24 pb-12 border-t border-white/5">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer className="bg-background pt-24 pb-12 border-t border-white/5 relative overflow-hidden group/footer">
+      {/* Animated Grid Background */}
+      <InfiniteGridBackground 
+        gridSize={20} 
+        className="opacity-40 group-hover/footer:opacity-100 transition-opacity duration-1000" 
+      />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6 group shrink-0 h-12 py-1.5">
@@ -38,7 +45,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li><Link href="/" className="text-white/50 hover:text-white flex items-center gap-1 group">Home</Link></li>
               <li><Link href="/#overview" className="text-white/50 hover:text-white flex items-center gap-1 group">About Us</Link></li>
-              <li><Link href="/#solutions" className="text-white/50 hover:text-white flex items-center gap-1 group">Our Solutions</Link></li>
+              <li><Link href="/solutions" className="text-white/50 hover:text-white flex items-center gap-1 group">Our Solutions</Link></li>
               <li><Link href="/contact" className="text-white/50 hover:text-white flex items-center gap-1 group">Get in Touch</Link></li>
             </ul>
           </div>

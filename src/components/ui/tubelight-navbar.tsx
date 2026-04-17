@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useEffect, useState, useRef } from "react"
@@ -111,8 +110,8 @@ export function NavBar({ items, className }: NavBarProps) {
                   <DropdownMenuTrigger asChild>
                     <button
                       className={cn(
-                        "relative cursor-pointer text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 rounded-full transition-all duration-300 font-headline flex items-center gap-2",
-                        "text-white/60 hover:text-accent outline-none",
+                        "relative cursor-pointer text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 rounded-full transition-all duration-300 font-headline flex items-center gap-2 outline-none",
+                        "text-white/60 hover:text-accent",
                         isActive && "text-accent",
                       )}
                     >
@@ -214,7 +213,7 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 rounded-full transition-all duration-300 font-headline",
+                "relative cursor-pointer text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 rounded-full transition-all duration-300 font-headline outline-none",
                 "text-white/60 hover:text-accent",
                 isActive && "text-accent",
               )}
