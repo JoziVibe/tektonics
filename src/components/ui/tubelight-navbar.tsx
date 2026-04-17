@@ -10,7 +10,12 @@ interface NavItem {
   name: string
   url: string
   icon: LucideIcon
-  subItems?: { name: string; url: string; icon: LucideIcon }[]
+  subItems?: { 
+    name: string; 
+    url: string; 
+    icon: LucideIcon;
+    subItems?: { name: string; url: string; icon: LucideIcon }[]
+  }[]
 }
 
 interface NavBarProps {
@@ -23,6 +28,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu"
 
 export function NavBar({ items, className }: NavBarProps) {
@@ -36,11 +44,21 @@ export function NavBar({ items, className }: NavBarProps) {
       const hash = window.location.hash;
       const currentUrl = path + hash;
       
-      const activeItem = items.find(item => 
-        item.url === currentUrl || 
-        (item.subItems?.some(sub => sub.url === currentUrl)) ||
-        (path === "/" && item.url === "/")
-      );
+      const activeItem = items.find(item => {
+        if (item.url === currentUrl) return true;
+        if (path === "/" && item.url === "/") return true;
+        
+        if (item.subItems) {
+          return item.subItems.some(sub => {
+            if (sub.url === currentUrl) return true;
+            if (sub.subItems) {
+              return sub.subItems.some(nested => nested.url === currentUrl);
+            }
+            return false;
+          });
+        }
+        return false;
+      });
       
       if (activeItem) {
         setActiveTab(activeItem.name);
@@ -113,6 +131,41 @@ export function NavBar({ items, className }: NavBarProps) {
                 <DropdownMenuContent align="center" className="bg-background/80 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                   {item.subItems.map((sub) => {
                     const isSubActive = activeTab === sub.name;
+                    
+                    if (sub.subItems) {
+                      return (
+                        <DropdownMenuSub key={sub.name}>
+                          <DropdownMenuSubTrigger 
+                            className={cn(
+                              "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
+                              "hover:bg-white text-white/70 hover:text-background data-[state=open]:bg-white data-[state=open]:text-background"
+                            )}
+                          >
+                            <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background group-data-[state=open]:bg-background/10 group-data-[state=open]:text-background">
+                              <sub.icon className="size-4" />
+                            </div>
+                            <span className="text-sm font-medium">{sub.name}</span>
+                          </DropdownMenuSubTrigger>
+                          <DropdownMenuSubContent className="bg-background/90 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px]">
+                            {sub.subItems.map((nested) => (
+                              <DropdownMenuItem key={nested.name} asChild>
+                                <Link 
+                                  href={nested.url}
+                                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white text-white/70 hover:text-background"
+                                  onClick={() => setActiveTab(item.name)}
+                                >
+                                  <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background">
+                                    <nested.icon className="size-4" />
+                                  </div>
+                                  <span className="text-sm font-medium">{nested.name}</span>
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuSubContent>
+                        </DropdownMenuSub>
+                      )
+                    }
+
                     return (
                     <DropdownMenuItem key={sub.name} asChild>
                       <Link 

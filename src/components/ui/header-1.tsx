@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { useScroll } from '@/components/ui/use-scroll';
-import { Home, Zap, Box, Trophy, Mail, ShieldCheck, ChevronDown, Monitor, Droplet, BellRing, Activity, GitCommit, Network, Server, Database, Cloud, BarChart3 } from 'lucide-react';
+import { Home, Zap, Box, Trophy, Mail, ShieldCheck, ChevronDown, Monitor, Droplet, BellRing, Activity, GitCommit, Network, Server, Database, Cloud, BarChart3, Layers } from 'lucide-react';
 import Link from 'next/link';
 import { NavBar } from './tubelight-navbar';
 import { LucideIcon } from 'lucide-react';
@@ -13,7 +12,12 @@ interface NavItem {
   name: string
   url: string
   icon: LucideIcon
-  subItems?: { name: string; url: string; icon: LucideIcon }[]
+  subItems?: { 
+    name: string; 
+    url: string; 
+    icon: LucideIcon;
+    subItems?: { name: string; url: string; icon: LucideIcon }[]
+  }[]
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
@@ -24,15 +28,36 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
     url: '#', 
     icon: Box,
     subItems: [
-      { name: 'Notifications Gateway', url: '/product/notifications-gateway', icon: ShieldCheck },
-      { name: 'Tektonics Flux', url: '/product/flux', icon: Activity },
-      { name: 'NetBotz', url: '/product/netbotz', icon: ShieldCheck },
-      { name: 'ThingsBoard PE', url: '/product/thingsboard-pe', icon: Database },
-      { name: 'NetXMS', url: '/product/netxms', icon: Network },
-      { name: 'EcoStruxure IT Expert', url: '/product/ecostruxure-it-expert', icon: Cloud },
-      { name: 'EcoStruxure IT Advisor', url: '/product/ecostruxure-it-advisor', icon: BarChart3 },
-      { name: 'Data Center Expert', url: '/product/ecostruxure-data-center-expert', icon: Server },
-      { name: 'Power Monitoring Expert', url: '/product/ecostruxure-power-monitoring-expert', icon: Zap },
+      { 
+        name: 'Environmentals', 
+        url: '#', 
+        icon: Droplet,
+        subItems: [
+          { name: 'Netbotz', url: '/product/netbotz', icon: ShieldCheck },
+          { name: 'Tektonics Flux', url: '/product/flux', icon: Activity },
+          { name: 'Notifications Gateway', url: '/product/notifications-gateway', icon: ShieldCheck },
+        ]
+      },
+      { 
+        name: 'Monitoring Software', 
+        url: '#', 
+        icon: Monitor,
+        subItems: [
+          { name: 'Thingsboard', url: '/product/thingsboard-pe', icon: Database },
+          { name: 'NetXMS', url: '/product/netxms', icon: Network },
+          { name: 'IT Expert', url: '/product/ecostruxure-it-expert', icon: Cloud },
+          { name: 'Power Management Expert', url: '/product/ecostruxure-power-monitoring-expert', icon: Zap },
+        ]
+      },
+      { 
+        name: 'DCIM', 
+        url: '#', 
+        icon: Layers,
+        subItems: [
+          { name: 'IT Advisor', url: '/product/ecostruxure-it-advisor', icon: BarChart3 },
+          { name: 'Data Center Expert', url: '/product/ecostruxure-data-center-expert', icon: Server },
+        ]
+      },
     ]
   },
   { 
