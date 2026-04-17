@@ -27,37 +27,37 @@ const capabilitiesProjects: ProjectData[] = [
   {
     title: "Multi-Channel Delivery",
     description: "Priority-based failover: Telegram → WhatsApp → SMS. Alerts always reach someone, even in worst-case conditions, moving down the communication chain seamlessly.",
-    link: "/assets/Core%20Capabilities/Multi-Channel%20Delivery.png",
+    link: "/assets/Notifications Gateway/Multi-Channel Delivery.png",
     color: "#0a0f1c",
   },
   {
     title: "Edge Deployment Architecture",
     description: "No external dependencies. Runs locally on your network with limited or intermittent cloud connectivity. Faster, simpler, securely isolated, and unbreakably reliable.",
-    link: "/assets/Core%20Capabilities/Edge%20Deployment%20Architecture.png",
+    link: "/assets/Notifications Gateway/Edge Deployment Architecture.png",
     color: "#06102b",
   },
   {
     title: "Out-of-Band Connectivity",
     description: "Maintains independent alert delivery paths even when the primary corporate network is completely down, retaining full remote management and troubleshooting support.",
-    link: "/assets/Core%20Capabilities/Out-of-Band%20Connectivity.png",
+    link: "/assets/Notifications Gateway/Out-of-Band Connectivity.png",
     color: "#081333",
   },
   {
     title: "Multi-Source Alert Ingestion",
     description: "Accepts universal alerts from Gmail, Microsoft 365, generic IMAP, and HTTP POST APIs. Fully compatible with SCADA systems, network monitoring tools, and custom apps.",
-    link: "/assets/Core%20Capabilities/Multi-Source%20Alert%20Ingestion.png",
+    link: "/assets/Notifications Gateway/Multi-Source Alert Ingestion.png",
     color: "#0a1945",
   },
   {
     title: "Alarm Parsing & Normalisation",
     description: "Intelligently converts and normalises all incoming chaotic alerts by severity — Error, Warning, Information — enabling consistent routing rules and accurate operational prioritisation.",
-    link: "/assets/Core%20Capabilities/Alarm%20Parsing%20&%20Normalisation.png",
+    link: "/assets/Notifications Gateway/Alarm Parsing & Normalisation.png",
     color: "#0b1e4f",
   },
   {
     title: "Repeat Alarm Suppression",
     description: "Detects duplicates automatically, suppresses unnecessary repeating storms, and groups related alerts. Your engineering teams focus on real incidents, not alert noise.",
-    link: "/assets/Core%20Capabilities/Repeat%20Alarm%20Suppression.png",
+    link: "/assets/Notifications Gateway/Repeat Alarm Suppression.png",
     color: "#0c245c",
   }
 ];
@@ -276,7 +276,7 @@ export default function NotificationsGateway() {
                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-accent/20 via-transparent to-accent/5 opacity-50 blur-xl transition-opacity duration-500 group-hover:opacity-70" />
                <div className="absolute -inset-px rounded-2xl border border-white/10 bg-white/[0.01] backdrop-blur-3xl -z-1" />
                
-               <div className="relative h-full bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 flex flex-col pt-12 overflow-hidden overflow-y-auto custom-scrollbar transition-transform duration-700 hover:[transform:rotateX(2deg)_rotateY(-2deg)]">
+               <div className="relative h-full bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 flex flex-col pt-12 overflow-hidden  transition-transform duration-700 hover:[transform:rotateX(2deg)_rotateY(-2deg)]">
                  
                  {/* Internal subtle glow */}
                  <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] pointer-events-none" />

@@ -26,31 +26,31 @@ const fluxCapabilities: ProjectData[] = [
   {
     title: "Environmental Risk Detection",
     description: "Stay ahead of environmental risks. Temperature spikes, humidity shifts, and power instability build quietly — Flux catches them early.",
-    link: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    link: "/assets/Flux/Environmental Risk Detection.png",
     color: "#0a0f1c",
   },
   {
     title: "Multi-Site Visibility",
     description: "See every site without being there. Monitor all locations from a single interface, compare performance, and identify anomalies instantly.",
-    link: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop",
+    link: "/assets/Flux/Multi-Site Visibility.png",
     color: "#06102b",
   },
   {
     title: "Actionable Dashboards",
     description: "Turn data into action. Clean, intuitive dashboards with site-based context and clear indicators of what actually needs attention.",
-    link: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    link: "/assets/Flux/Actionable Dashboards.png",
     color: "#081333",
   },
   {
     title: "Fast Deployment",
     description: "Deploy without the usual complexity. Lightweight architecture, quick setup, minimal disruption — built for remote sites.",
-    link: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop",
+    link: "/assets/Flux/Fast Deployment.png",
     color: "#0a1945",
   },
   {
     title: "Frictionless Scaling",
     description: "Scale without friction. Add new sites, maintain consistent monitoring standards, and centralise visibility as your footprint grows.",
-    link: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop",
+    link: "/assets/Flux/Frictionless Scaling.png",
     color: "#0b1e4f",
   }
 ];

@@ -111,7 +111,7 @@ export function ChatbotThemba() {
                  <div className="relative">
                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 text-accent ring-4 ring-accent/10 shadow-lg overflow-hidden">
                      <Image 
-                       src="/assets/Themba Avatar.png" 
+                       src="/assets/Themba Chat Avatar.png" 
                        alt="Themba Avatar" 
                        width={40} 
                        height={40}

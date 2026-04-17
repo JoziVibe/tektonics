@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CookieSettingsModal } from "./ui/cookie-settings-modal";
 import Image from "next/image";
-import { FaLinkedin, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -27,9 +27,6 @@ export function Footer() {
               <a href="https://www.linkedin.com/company/tektonics-systems/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 text-white/50 hover:text-accent hover:bg-white/10 transition-all">
                 <FaLinkedin className="h-5 w-5" />
               </a>
-              <Link href="#" className="p-2 rounded-lg bg-white/5 text-white/50 hover:text-accent hover:bg-white/10 transition-all">
-                <FaFacebook className="h-5 w-5" />
-              </Link>
               <a href="https://wa.me/27615441608" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 text-white/50 hover:text-accent hover:bg-white/10 transition-all">
                 <FaWhatsapp className="h-5 w-5" />
               </a>

@@ -66,6 +66,7 @@ function PricingCard({
 							src={imagePath}
 							alt={title}
 							fill
+							sizes="64px"
 							className="object-contain p-1 group-hover:scale-110 transition-transform duration-500"
 						/>
 					</div>
@@ -122,6 +123,7 @@ export function BentoPricing() {
 								src="/assets/Solutions Icons/data center infrastructure.png"
 								alt="Data Centre Infrastructure"
 								fill
+								sizes="64px"
 								className="object-contain p-1 group-hover:scale-110 transition-transform duration-500"
 							/>
 						</div>
