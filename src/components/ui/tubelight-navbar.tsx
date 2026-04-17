@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { LucideIcon, ChevronDown } from "lucide-react"
@@ -35,7 +35,8 @@ import {
 
 export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState("")
-  const [isMobile, setIsMobile] = useState(false)
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Sync active tab with current path or window hash
   useEffect(() => {
@@ -70,15 +71,16 @@ export function NavBar({ items, className }: NavBarProps) {
     return () => window.removeEventListener("hashchange", updateActiveTab);
   }, [items]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
+  const handleMouseEnter = (name: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenMenu(name);
+  };
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenMenu(null);
+    }, 150);
+  };
 
   return (
     <div
@@ -94,101 +96,119 @@ export function NavBar({ items, className }: NavBarProps) {
 
           if (item.subItems) {
             return (
-              <DropdownMenu key={item.name}>
-                <DropdownMenuTrigger asChild>
-                  <button
-                    className={cn(
-                      "relative cursor-pointer text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 rounded-full transition-all duration-300 font-headline flex items-center gap-2",
-                      "text-white/60 hover:text-accent outline-none",
-                      isActive && "text-accent",
-                    )}
+              <div 
+                key={item.name}
+                onMouseEnter={() => handleMouseEnter(item.name)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <DropdownMenu 
+                  open={openMenu === item.name} 
+                  onOpenChange={(open) => !open && setOpenMenu(null)}
+                >
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      className={cn(
+                        "relative cursor-pointer text-xs sm:text-sm font-bold px-4 sm:px-6 py-2 rounded-full transition-all duration-300 font-headline flex items-center gap-2",
+                        "text-white/60 hover:text-accent outline-none",
+                        isActive && "text-accent",
+                      )}
+                    >
+                      <span className="hidden md:inline">{item.name}</span>
+                      <span className="md:hidden">
+                        <Icon size={18} strokeWidth={2.5} />
+                      </span>
+                      <ChevronDown className={cn("size-3 transition-transform", openMenu === item.name ? "rotate-180" : "")} />
+                      {isActive && (
+                        <motion.div
+                          layoutId="lamp"
+                          className="absolute inset-0 w-full bg-primary/10 rounded-full -z-10"
+                          initial={false}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                          }}
+                        >
+                          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-accent rounded-t-full">
+                            <div className="absolute w-12 h-6 bg-accent/20 rounded-full blur-md -top-2 -left-2" />
+                            <div className="absolute w-8 h-6 bg-accent/20 rounded-full blur-md -top-1" />
+                            <div className="absolute w-4 h-4 bg-accent/20 rounded-full blur-sm top-0 left-2" />
+                          </div>
+                        </motion.div>
+                      )}
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent 
+                    align="center" 
+                    className="bg-background/80 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                   >
-                    <span className="hidden md:inline">{item.name}</span>
-                    <span className="md:hidden">
-                      <Icon size={18} strokeWidth={2.5} />
-                    </span>
-                    <ChevronDown className={cn("size-3 transition-transform", isActive ? "rotate-180" : "")} />
-                    {isActive && (
-                      <motion.div
-                        layoutId="lamp"
-                        className="absolute inset-0 w-full bg-primary/10 rounded-full -z-10"
-                        initial={false}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
-                      >
-                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-accent rounded-t-full">
-                          <div className="absolute w-12 h-6 bg-accent/20 rounded-full blur-md -top-2 -left-2" />
-                          <div className="absolute w-8 h-6 bg-accent/20 rounded-full blur-md -top-1" />
-                          <div className="absolute w-4 h-4 bg-accent/20 rounded-full blur-sm top-0 left-2" />
-                        </div>
-                      </motion.div>
-                    )}
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="center" className="bg-background/80 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                  {item.subItems.map((sub) => {
-                    const isSubActive = activeTab === sub.name;
-                    
-                    if (sub.subItems) {
-                      return (
-                        <DropdownMenuSub key={sub.name}>
-                          <DropdownMenuSubTrigger 
-                            className={cn(
-                              "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
-                              "hover:bg-white text-white/70 hover:text-background data-[state=open]:bg-white data-[state=open]:text-background"
-                            )}
-                          >
-                            <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background group-data-[state=open]:bg-background/10 group-data-[state=open]:text-background">
-                              <sub.icon className="size-4" />
-                            </div>
-                            <span className="text-sm font-medium">{sub.name}</span>
-                          </DropdownMenuSubTrigger>
-                          <DropdownMenuSubContent className="bg-background/90 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px]">
-                            {sub.subItems.map((nested) => (
-                              <DropdownMenuItem key={nested.name} asChild>
-                                <Link 
-                                  href={nested.url}
-                                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white text-white/70 hover:text-background"
-                                  onClick={() => setActiveTab(item.name)}
-                                >
-                                  <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background">
-                                    <nested.icon className="size-4" />
-                                  </div>
-                                  <span className="text-sm font-medium">{nested.name}</span>
-                                </Link>
-                              </DropdownMenuItem>
-                            ))}
-                          </DropdownMenuSubContent>
-                        </DropdownMenuSub>
-                      )
-                    }
+                    {item.subItems.map((sub) => {
+                      const isSubActive = activeTab === sub.name;
+                      
+                      if (sub.subItems) {
+                        return (
+                          <DropdownMenuSub key={sub.name}>
+                            <DropdownMenuSubTrigger 
+                              className={cn(
+                                "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
+                                "hover:bg-white text-white/70 hover:text-background data-[state=open]:bg-white data-[state=open]:text-background"
+                              )}
+                            >
+                              <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background group-data-[state=open]:bg-background/10 group-data-[state=open]:text-background">
+                                <sub.icon className="size-4" />
+                              </div>
+                              <span className="text-sm font-medium">{sub.name}</span>
+                            </DropdownMenuSubTrigger>
+                            <DropdownMenuSubContent className="bg-background/90 backdrop-blur-2xl border-white/10 rounded-2xl p-2 min-w-[220px]">
+                              {sub.subItems.map((nested) => (
+                                <DropdownMenuItem key={nested.name} asChild>
+                                  <Link 
+                                    href={nested.url}
+                                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white text-white/70 hover:text-background"
+                                    onClick={() => {
+                                      setActiveTab(item.name);
+                                      setOpenMenu(null);
+                                    }}
+                                  >
+                                    <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background">
+                                      <nested.icon className="size-4" />
+                                    </div>
+                                    <span className="text-sm font-medium">{nested.name}</span>
+                                  </Link>
+                                </DropdownMenuItem>
+                              ))}
+                            </DropdownMenuSubContent>
+                          </DropdownMenuSub>
+                        )
+                      }
 
-                    return (
-                    <DropdownMenuItem key={sub.name} asChild>
-                      <Link 
-                        href={sub.url}
-                        className={cn(
-                          "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
-                          isSubActive ? "bg-white text-background" : "hover:bg-white text-white/70 hover:text-background"
-                        )}
-                        onClick={() => setActiveTab(sub.name)}
-                      >
-                        <div className={cn(
-                          "p-1.5 rounded-lg transition-colors",
-                          isSubActive ? "bg-background/10 text-background" : "bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background"
-                        )}>
-                          <sub.icon className="size-4 transition-colors" />
-                        </div>
-                        <span className="text-sm font-medium transition-colors">{sub.name}</span>
-                      </Link>
-                    </DropdownMenuItem>
-                    )
-                  })}
-                </DropdownMenuContent>
-              </DropdownMenu>
+                      return (
+                      <DropdownMenuItem key={sub.name} asChild>
+                        <Link 
+                          href={sub.url}
+                          className={cn(
+                            "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group",
+                            isSubActive ? "bg-white text-background" : "hover:bg-white text-white/70 hover:text-background"
+                          )}
+                          onClick={() => {
+                            setActiveTab(sub.name);
+                            setOpenMenu(null);
+                          }}
+                        >
+                          <div className={cn(
+                            "p-1.5 rounded-lg transition-colors",
+                            isSubActive ? "bg-background/10 text-background" : "bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background"
+                          )}>
+                            <sub.icon className="size-4 transition-colors" />
+                          </div>
+                          <span className="text-sm font-medium transition-colors">{sub.name}</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      )
+                    })}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             )
           }
 
