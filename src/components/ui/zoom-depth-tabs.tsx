@@ -40,7 +40,7 @@ export default function ZoomDepthTabs({
               <TabsTrigger
                 key={item.value}
                 value={item.value}
-                className="px-4 py-2 text-xs font-bold uppercase tracking-widest relative border-none bg-transparent data-[state=active]:bg-transparent outline-none group"
+                className="px-4 py-2 text-xs font-bold uppercase tracking-widest relative border-none bg-transparent data-[state=active]:bg-transparent outline-none group font-headline"
               >
                 <span className={cn(
                   "relative z-10 transition-colors duration-300",
