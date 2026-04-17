@@ -29,9 +29,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu"
 
 export function NavBar({ items, className }: NavBarProps) {
@@ -146,8 +143,8 @@ export function NavBar({ items, className }: NavBarProps) {
                   <DropdownMenuContent 
                     align="center" 
                     className={cn(
-                      "bg-[#02112e]/95 backdrop-blur-2xl border-white/10 rounded-3xl p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-visible",
-                      isMegaMenu ? "min-w-[600px]" : "min-w-[220px]"
+                      "bg-[#02112e]/95 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
+                      isMegaMenu ? "min-w-[600px] p-0" : "min-w-[220px] p-1"
                     )}
                   >
                     {isMegaMenu ? (
