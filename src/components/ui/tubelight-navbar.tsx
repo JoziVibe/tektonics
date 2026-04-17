@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useEffect, useState, useRef } from "react"
@@ -142,9 +143,9 @@ export function NavBar({ items, className }: NavBarProps) {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     align="center" 
-                    sideOffset={14}
+                    sideOffset={18}
                     className={cn(
-                      "bg-[#02112e]/95 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
+                      "z-[110] bg-background/95 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
                       isMegaMenu ? "min-w-[600px] p-0" : "min-w-[220px] p-1"
                     )}
                   >
