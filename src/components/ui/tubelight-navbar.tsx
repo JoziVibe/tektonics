@@ -145,7 +145,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     align="center" 
                     sideOffset={18}
                     className={cn(
-                      "z-[110] bg-background/95 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
+                      "z-[110] bg-background/80 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
                       isMegaMenu ? "min-w-[600px] p-0" : "min-w-[220px] p-1"
                     )}
                   >
@@ -171,7 +171,7 @@ export function NavBar({ items, className }: NavBarProps) {
                                   </div>
                                   <div className="flex flex-col">
                                     <span className="text-sm font-bold text-white/80 group-hover:text-white transition-colors">{nested.name}</span>
-                                    <span className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Product</span>
+                                    <span className="text-[10px] text-white/30 uppercase tracking-widest font-bold font-headline">Product</span>
                                   </div>
                                 </Link>
                               ))}
@@ -180,25 +180,27 @@ export function NavBar({ items, className }: NavBarProps) {
                         }))}
                       />
                     ) : (
-                      item.subItems.map((sub) => (
-                        <DropdownMenuItem key={sub.name} asChild>
-                          <Link 
-                            href={sub.url}
-                            className={cn(
-                              "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white text-white/70 hover:text-background"
-                            )}
-                            onClick={() => {
-                              setActiveTab(item.name);
-                              setOpenMenu(null);
-                            }}
-                          >
-                            <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:bg-background/10 group-hover:text-background transition-colors">
-                              <sub.icon className="size-4" />
-                            </div>
-                            <span className="text-sm font-medium transition-colors">{sub.name}</span>
-                          </Link>
-                        </DropdownMenuItem>
-                      ))
+                      <div className="p-1">
+                        {item.subItems.map((sub) => (
+                          <DropdownMenuItem key={sub.name} asChild>
+                            <Link 
+                              href={sub.url}
+                              className={cn(
+                                "flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors group hover:bg-white/10 text-white/70 hover:text-white"
+                              )}
+                              onClick={() => {
+                                setActiveTab(item.name);
+                                setOpenMenu(null);
+                              }}
+                            >
+                              <div className="p-1.5 rounded-lg bg-white/5 text-white/70 group-hover:text-accent transition-colors">
+                                <sub.icon className="size-4" />
+                              </div>
+                              <span className="text-sm font-medium transition-colors">{sub.name}</span>
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                      </div>
                     )}
                   </DropdownMenuContent>
                 </DropdownMenu>
