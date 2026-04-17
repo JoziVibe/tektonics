@@ -104,6 +104,7 @@ export function NavBar({ items, className }: NavBarProps) {
                 <DropdownMenu 
                   open={openMenu === item.name} 
                   onOpenChange={(open) => !open && setOpenMenu(null)}
+                  modal={false}
                 >
                   <DropdownMenuTrigger asChild>
                     <button
