@@ -145,7 +145,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     align="center" 
                     sideOffset={18}
                     className={cn(
-                      "z-[110] bg-background/80 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
+                      "z-[110] bg-background/60 backdrop-blur-2xl border-white/10 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden",
                       isMegaMenu ? "min-w-[600px] p-0" : "min-w-[220px] p-1"
                     )}
                   >
