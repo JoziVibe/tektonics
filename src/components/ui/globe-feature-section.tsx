@@ -24,7 +24,7 @@ export default function GlobeFeatureSection() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 blur-[120px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/4" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/30 blur-[100px] rounded-full pointer-events-none -z-10 -translate-x-1/4 translate-y-1/3" />
 
-        <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row relative z-10 h-full">
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row relative z-10 h-full">
           <div className="max-w-xl text-left my-auto">
              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-headline leading-tight">
               Africa's Infrastructure <span className="text-accent">Runs on Expertise</span>.
@@ -38,8 +38,9 @@ export default function GlobeFeatureSection() {
               </GradientButton>
             </Link>
           </div>
-          <div className="relative h-[300px] md:h-[400px] w-full max-w-lg flex items-center justify-center my-auto overflow-visible pointer-events-none">
-            <div className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-[480px] h-[480px] md:w-[560px] md:h-[560px] pointer-events-auto">
+          
+          <div className="relative h-[250px] w-[250px] md:h-[400px] md:w-[400px] lg:h-[450px] lg:w-[450px] flex items-center justify-center my-auto overflow-visible pointer-events-none">
+            <div className="w-full h-full pointer-events-auto">
               <Globe 
                 markers={markers}
                 baseColor={[0.0078, 0.5882, 0.7647]}
