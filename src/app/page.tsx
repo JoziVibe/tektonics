@@ -4,7 +4,7 @@ import { Header } from "@/components/ui/header-1";
 import { HeroSection } from "@/components/ui/hero-1";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 import { About } from "@/components/About";
-import { Solutions } from "@/components/Solutions";
+import { Services } from "@/components/Services";
 // import { TestimonialsSection } from "@/components/ui/testimonials-section"; // Kept for future use
 import GlobeFeatureSection from "@/components/ui/globe-feature-section";
 import { FaqSection } from "@/components/FaqSection";
@@ -19,7 +19,7 @@ export default function HomePage() {
       <div className="grow">
         <HeroSection />
         <About />
-        <Solutions />
+        <Services />
 
         {/* LOGO CLOUD SECTION */}
         <section className="relative w-full bg-white py-24 overflow-hidden">

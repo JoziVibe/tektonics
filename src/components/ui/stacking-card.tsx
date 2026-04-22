@@ -3,7 +3,6 @@ import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
 import { useRef, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
-import { ReactLenis } from 'lenis/react';
 
 export interface ProjectData {
   title: string;
@@ -34,12 +33,6 @@ export const Card = ({
   targetScale,
 }: CardProps) => {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'start start'],
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -66,14 +59,11 @@ export const Card = ({
         </div>
 
         <div
-          className={`relative w-full md:w-1/2 h-full rounded-2xl overflow-hidden mt-8 md:mt-0`}
+          className={`relative w-full md:w-1/2 h-full mt-8 md:mt-0 flex items-center justify-center`}
         >
-          <motion.div
-            className={`w-full h-full`}
-            style={{ scale: imageScale }}
-          >
+          <div className="relative w-full aspect-square max-w-[300px] rounded-2xl overflow-hidden shadow-xl">
             <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover' />
-          </motion.div>
+          </div>
         </div>
       </motion.div>
     </div>

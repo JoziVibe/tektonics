@@ -45,7 +45,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li><Link href="/" className="text-white/50 hover:text-white flex items-center gap-1 group">Home</Link></li>
               <li><Link href="/#overview" className="text-white/50 hover:text-white flex items-center gap-1 group">About Us</Link></li>
-              <li><Link href="/solutions" className="text-white/50 hover:text-white flex items-center gap-1 group">Our Solutions</Link></li>
+              <li><Link href="/services" className="text-white/50 hover:text-white flex items-center gap-1 group">Our Services</Link></li>
               <li><Link href="/contact" className="text-white/50 hover:text-white flex items-center gap-1 group">Get in Touch</Link></li>
             </ul>
           </div>
@@ -53,6 +53,7 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 font-headline">Products</h4>
             <ul className="space-y-4">
+              <li><Link href="/product/octaipipe" className="text-white/50 hover:text-white flex items-center gap-1 group">OctaiPipe AI Cooling</Link></li>
               <li><Link href="/product/notifications-gateway" className="text-white/50 hover:text-white flex items-center gap-1 group">Notifications Gateway</Link></li>
               <li><Link href="/product/flux" className="text-white/50 hover:text-white flex items-center gap-1 group">Tektonics Flux</Link></li>
               <li><Link href="/product/netbotz" className="text-white/50 hover:text-white flex items-center gap-1 group">NetBotz Sensors</Link></li>

@@ -1,18 +1,20 @@
 "use client";
 
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export default function NotificationsGatewayPage() {
   return (
     <>
-      <div className="mb-6">
-        <Link href="/" className="text-accent hover:text-white transition-colors text-sm font-semibold tracking-wider uppercase font-headline">
-          Use Cases
+      <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-6">
+        <Link href="/" className="hover:text-accent transition-colors">
+          Home
         </Link>
-        <span className="text-white/40 mx-2">/</span>
-        <span className="text-white/60 text-sm font-semibold tracking-wider uppercase font-headline">Notifications Gateway</span>
+        <ChevronRight className="size-3" />
+        <span className="text-white/60">Use Cases</span>
+        <ChevronRight className="size-3" />
+        <span className="text-white">Notifications Gateway</span>
       </div>
 
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-headline mb-6 leading-tight">
@@ -23,6 +25,7 @@ export default function NotificationsGatewayPage() {
       </p>
 
       <div className="space-y-16">
+        {/* Why Notifications Gateway */}
         <section>
           <h2 className="text-2xl font-bold text-white font-headline mb-6">Why Notifications Gateway?</h2>
           <div className="prose prose-invert max-w-none text-white/70 font-body text-base leading-relaxed space-y-6">
@@ -48,6 +51,7 @@ export default function NotificationsGatewayPage() {
           </div>
         </section>
 
+        {/* Core Capabilities */}
         <section>
           <h2 className="text-2xl font-bold text-white font-headline mb-8">Core Capabilities</h2>
           <div className="space-y-6">
@@ -69,6 +73,7 @@ export default function NotificationsGatewayPage() {
           </div>
         </section>
 
+        {/* Key Use Cases */}
         <section>
           <h2 className="text-2xl font-bold text-white font-headline mb-8">Key Use Cases</h2>
           <div className="grid gap-4">
@@ -87,6 +92,7 @@ export default function NotificationsGatewayPage() {
           </div>
         </section>
 
+        {/* Key Benefits */}
         <section>
           <h2 className="text-2xl font-bold text-white font-headline mb-6">Key Benefits</h2>
           <div className="grid sm:grid-cols-2 gap-4">

@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Tektonics Systems | African DCIM Solutions',
+  title: 'Tektonics Systems | Give Your Digital Real Estate A Voice',
   description: 'Tektonics Systems is an African leader in Data Center Infrastructure Management (DCIM) and IT solutions.',
 };
 

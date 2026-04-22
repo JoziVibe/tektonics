@@ -3,9 +3,9 @@
 import { BentoPricing } from "@/components/ui/bento-pricing";
 import { cn } from '@/lib/utils';
 
-export function Solutions() {
+export function Services() {
   return (
-    <section id="solutions" className="relative py-24 overflow-hidden">
+    <section id="services" className="relative py-24 overflow-hidden">
       {/* Background Effects adapted from demo */}
       <div 
         className="absolute inset-0 -z-10 bg-[radial-gradient(35%_80%_at_50%_0%,rgba(18,217,236,0.05),transparent)]" 

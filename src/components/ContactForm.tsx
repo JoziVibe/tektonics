@@ -11,19 +11,67 @@ import { GradientButton } from "@/components/ui/gradient-button";
 export function ContactForm() {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const sanitizeInput = (text: string) => {
+    // Basic sanitization: remove HTML tags and common script patterns
+    return text.replace(/<[^>]*>?/gm, '').replace(/javascript:/gi, '').replace(/on\w+=/gi, '');
+  };
+
+  const containsForbiddenContent = (text: string) => {
+    // Check for URLs (http/https/www)
+    const urlPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi;
+    // Check for common code patterns (brackets, semi-colons, script tags)
+    const codePattern = /[<>{};]|\b(script|function|const|let|var|eval)\b/gi;
+    
+    return urlPattern.test(text) || codePattern.test(text);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validation for URLs and Code
+    if (containsForbiddenContent(formData.name) || 
+        containsForbiddenContent(formData.company) || 
+        containsForbiddenContent(formData.message)) {
+      toast({
+        variant: "destructive",
+        title: "Submission Blocked",
+        description: "Links and code snippets are not allowed for security reasons.",
+      });
+      return;
+    }
+
     setSubmitting(true);
-    // Simulate API call
+
+    const whatsappNumber = "27615441608";
+    const sanitizedName = sanitizeInput(formData.name);
+    const sanitizedEmail = sanitizeInput(formData.email);
+    const sanitizedCompany = sanitizeInput(formData.company);
+    const sanitizedMessage = sanitizeInput(formData.message);
+
+    const text = `*New Inquiry - Tektonics Systems*\n\n*Name:* ${sanitizedName}\n*Email:* ${sanitizedEmail}\n*Company:* ${sanitizedCompany || "N/A"}\n\n*Message:* ${sanitizedMessage}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
     setTimeout(() => {
       setSubmitting(false);
+      window.open(whatsappUrl, "_blank");
       toast({
-        title: "Inquiry Sent",
-        description: "Thank you for reaching out. A Tektonics specialist will contact you shortly.",
+        title: "Redirecting to WhatsApp",
+        description: "Your inquiry has been formatted. Please send the message in the WhatsApp window.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+      setFormData({ name: "", email: "", company: "", message: "" });
+    }, 1000);
   };
 
   return (
@@ -87,26 +135,54 @@ export function ContactForm() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white/80 font-headline">Full Name</Label>
-                  <Input id="name" required placeholder="John Doe" className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" />
+                  <Input 
+                    id="name" 
+                    required 
+                    placeholder="John Doe" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" 
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white/80 font-headline">Business Email</Label>
-                  <Input id="email" type="email" required placeholder="john@company.com" className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    required 
+                    placeholder="john@company.com" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" 
+                  />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="company" className="text-white/80 font-headline">Company Name</Label>
-                <Input id="company" placeholder="Enterprise Infrastructure Ltd" className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" />
+                <Input 
+                  id="company" 
+                  placeholder="Enterprise Infrastructure Ltd" 
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white focus:border-accent font-body hover:bg-white/10 transition-colors" 
+                />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-white/80 font-headline">Your Message</Label>
-                <Textarea id="message" required placeholder="How can we help your data center?" className="bg-white/5 border-white/10 text-white focus:border-accent min-h-[120px] font-body hover:bg-white/10 transition-colors" />
+                <Textarea 
+                  id="message" 
+                  required 
+                  placeholder="How can we help your data center?" 
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white focus:border-accent min-h-[120px] font-body hover:bg-white/10 transition-colors" 
+                />
               </div>
 
               <GradientButton type="submit" disabled={submitting} className="w-full mt-4">
-                {submitting ? "Sending..." : "Send Inquiry"}
+                {submitting ? "Processing..." : "Send via WhatsApp"}
                 <Send className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
               </GradientButton>
             </form>

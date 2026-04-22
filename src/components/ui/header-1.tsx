@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { 
   Home, Zap, Box, Trophy, Mail, ShieldCheck, ChevronDown, Monitor, Droplet, 
   BellRing, Activity, GitCommit, Network, Server, Database, Cloud, BarChart3, 
-  Layers, Menu, X, ChevronRight, ArrowRight 
+  Layers, Menu, X, ChevronRight, ArrowRight, Wind 
 } from 'lucide-react';
 import Link from 'next/link';
 import { NavBar } from './tubelight-navbar';
@@ -27,7 +27,7 @@ interface NavItem {
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
   { name: 'Home', url: '/', icon: Home },
-  { name: 'Solutions', url: '/solutions', icon: Zap },
+  { name: 'Services', url: '/services', icon: Zap },
   { 
     name: 'Products', 
     url: '#', 
@@ -48,6 +48,7 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
         url: '#', 
         icon: Monitor,
         subItems: [
+          { name: 'OctaiPipe', url: '/product/octaipipe', icon: Wind },
           { name: 'Thingsboard', url: '/product/thingsboard-pe', icon: Database },
           { name: 'NetXMS', url: '/product/netxms', icon: Network },
           { name: 'IT Expert', url: '/product/ecostruxure-it-expert', icon: Cloud },
@@ -119,22 +120,14 @@ export function Header({ items, stickyMode = "viewport" }: HeaderProps) {
         // Just remove this item and its children
         return prev.filter(i => !i.startsWith(name));
       } else {
-        // Expand this item, but close other items AT THE SAME LEVEL
-        // A level is determined by the number of hyphens or a specific level logic
-        // Level 1: "Products", "Use Cases"
-        // Level 2: "Products-Environmentals", etc.
-        
         const filtered = prev.filter(i => {
            if (level === 1) {
-             // If we're at level 1, close all other level 1 items (and their children)
-             // Level 1 items don't have hyphens
              return i.includes('-'); 
            }
            if (level === 2) {
-             // If we're at level 2, close all other level 2 items in the SAME parent
              const parent = name.split('-')[0];
              if (i.startsWith(parent + '-')) {
-                return false; // Close it
+                return false; 
              }
              return true;
            }

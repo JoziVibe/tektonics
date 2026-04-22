@@ -80,17 +80,14 @@ export default function FluxPage() {
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto w-full">
-            <a className={cn(
-                  "group mx-auto flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-2xl backdrop-blur-md",
-                  "fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards transition-all delay-500 duration-500 ease-out"
-                )} 
-                href="#"
-            >
-              <Rocket className="size-3.5 text-accent" />
-              <span className="text-xs font-bold tracking-widest uppercase text-white/50">Tektonics Flux</span>
-              <span className="block h-4 border-l border-white/20" />
-              <ArrowDown className="size-3.5 text-white/40 duration-150 ease-out group-hover:translate-y-1" />
-            </a>
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-4 fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards delay-500 duration-500 ease-out">
+              <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+              <ChevronRight className="size-3" />
+              <span className="text-white/60">Products</span>
+              <ChevronRight className="size-3" />
+              <span className="text-white">Tektonics Flux</span>
+            </div>
 
             <h1 className={cn(
                 "fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-4xl md:text-5xl lg:text-7xl font-headline font-bold leading-tight tracking-tight delay-100 duration-500 ease-out",

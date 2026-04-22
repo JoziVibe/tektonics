@@ -2,9 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ArrowRightIcon, Cpu } from "lucide-react";
+import { ArrowRightIcon, ChevronRight } from "lucide-react";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
 import ShaderBackground from "@/components/ui/shader-background";
+import Link from "next/link";
 
 export function HeroSection() {
 	return (
@@ -16,18 +17,11 @@ export function HeroSection() {
 			{/* main content */}
 			<div className="relative flex flex-col items-center justify-center gap-5 px-6 py-20 lg:py-0">
 
-				<a
-					className={cn(
-						"group mx-auto flex w-fit items-center gap-3 rounded-full border border-accent/20 bg-card/40 backdrop-blur-md px-3 py-1 shadow-lg shadow-accent/5",
-						"fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards transition-all delay-500 duration-500 ease-out"
-					)}
-					href="#overview"
-				>
-					<Cpu className="size-3 text-accent" />
-					<span className="text-xs text-white/80 font-medium font-body">Tektonics Systems</span>
-					<span className="block h-5 border-l border-white/10" />
-					<ArrowRightIcon className="size-3 text-accent duration-150 ease-out group-hover:translate-x-1" />
-				</a>
+				<div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-2 fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards delay-500 duration-500 ease-out">
+					<span className="text-accent">Tektonics Systems</span>
+					<ChevronRight className="size-3" />
+					<span className="text-white">Home</span>
+				</div>
 
 				<h1
 					className={cn(
@@ -43,10 +37,12 @@ export function HeroSection() {
 				</p>
 
 				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-4 fill-mode-backwards pt-4 delay-300 duration-500 ease-out">
-					<GradientButton>
-						Explore Solutions
-						<ArrowRightIcon className="size-4 ms-2" data-icon="inline-end" />
-					</GradientButton>
+					<Link href="/services">
+						<GradientButton>
+							Explore Services
+							<ArrowRightIcon className="size-4 ms-2" data-icon="inline-end" />
+						</GradientButton>
+					</Link>
 				</div>
 			</div>
 			</div>

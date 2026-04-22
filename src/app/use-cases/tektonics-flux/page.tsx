@@ -1,18 +1,20 @@
 "use client";
 
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export default function TektonicsFluxPage() {
   return (
     <>
-      <div className="mb-6">
-        <Link href="/" className="text-accent hover:text-white transition-colors text-sm font-semibold tracking-wider uppercase font-headline">
-          Use Cases
+      <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-6">
+        <Link href="/" className="hover:text-accent transition-colors">
+          Home
         </Link>
-        <span className="text-white/40 mx-2">/</span>
-        <span className="text-white/60 text-sm font-semibold tracking-wider uppercase font-headline">Tektonics Flux</span>
+        <ChevronRight className="size-3" />
+        <span className="text-white/60">Use Cases</span>
+        <ChevronRight className="size-3" />
+        <span className="text-white">Tektonics Flux</span>
       </div>
 
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-headline mb-6 leading-tight">
