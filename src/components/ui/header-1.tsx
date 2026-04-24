@@ -73,6 +73,7 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
     subItems: [
       { name: 'DCIM', url: '/use-cases/dcim', icon: Monitor },
       { name: 'Environmental Monitoring', url: '/use-cases/environmental-monitoring', icon: Droplet },
+      { name: 'OctaiPipe', url: '/use-cases/octaipipe', icon: Wind },
       { name: 'Notifications Gateway', url: '/use-cases/notifications-gateway', icon: BellRing },
       { name: 'Tektonics Flux', url: '/use-cases/tektonics-flux', icon: Activity },
       { name: 'Dry Contact Monitoring', url: '/use-cases/dry-contact-monitoring', icon: GitCommit },

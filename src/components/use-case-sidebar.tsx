@@ -9,6 +9,7 @@ import {
   Activity,
   GitCommit,
   Network,
+  Wind,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -23,6 +24,11 @@ const items = [
     title: "Environmental Monitoring",
     url: "/use-cases/environmental-monitoring",
     icon: Droplet,
+  },
+  {
+    title: "OctaiPipe",
+    url: "/use-cases/octaipipe",
+    icon: Wind,
   },
   {
     title: "Notifications Gateway",
