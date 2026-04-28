@@ -259,7 +259,7 @@ export function ChatbotThemba() {
             >
               <MessageCircle className="size-8 text-white" strokeWidth={1.5} />
               {/* Notification Badge */}
-              <div className="absolute top-0 right-0 size-4 rounded-full bg-red-500 border-2 border-[#02264b] animate-pulse" />
+              <div className="absolute top-0 right-0 size-4 rounded-full bg-green-500 border-2 border-[#02264b] animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
             </motion.div>
           )}
         </AnimatePresence>
