@@ -163,7 +163,7 @@ export function BentoPricing() {
 				<div className="flex items-center gap-3 p-4 relative z-10">
 					<span className="text-white font-bold font-headline uppercase tracking-tight text-sm">Data Centre Infrastructure</span>
 					<div className="ml-auto">
-						<Link href="/solutions#data-centre-infrastructure">
+						<Link href="/services#data-centre-infrastructure">
 							<HoverButton className="flex">
 								<ArrowUpRight className="size-4" />
 							</HoverButton>
@@ -203,7 +203,7 @@ export function BentoPricing() {
 			<PricingCard
 				title="Consulting Services"
 				imagePath="/assets/Solutions Icons/Consulting Services.png"
-				href="/solutions#consulting-services"
+				href="/services#consulting-services"
 				features={[
 					'Energy conservation and auditing expertise',
 					'DCIM tools training and support',
@@ -217,7 +217,7 @@ export function BentoPricing() {
 			<PricingCard
 				title="Software Development"
 				imagePath="/assets/Solutions Icons/Software Development.png"
-				href="/solutions#software-development"
+				href="/services#software-development"
 				features={[
 					'Tailored systems integration solutions',
 					'Custom software and hardware combined',
@@ -231,7 +231,7 @@ export function BentoPricing() {
 			<PricingCard
 				title="Technology Support"
 				imagePath="/assets/Solutions Icons/Technology Support.png"
-				href="/solutions#technology-support"
+				href="/services#technology-support"
 				features={[
 					'Expert technology sourcing guidance',
 					'Vendor evaluation and cost outlining',
