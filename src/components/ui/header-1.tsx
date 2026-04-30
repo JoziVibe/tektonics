@@ -73,7 +73,6 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
     subItems: [
       { name: 'DCIM', url: '/use-cases/dcim', icon: Monitor },
       { name: 'Environmental Monitoring', url: '/use-cases/environmental-monitoring', icon: Droplet },
-      { name: 'OctaiPipe', url: '/use-cases/octaipipe', icon: Wind },
       { name: 'Notifications Gateway', url: '/use-cases/notifications-gateway', icon: BellRing },
       { name: 'Tektonics Flux', url: '/use-cases/tektonics-flux', icon: Activity },
       { name: 'Dry Contact Monitoring', url: '/use-cases/dry-contact-monitoring', icon: GitCommit },
@@ -154,6 +153,7 @@ export function Header({ items, stickyMode = "viewport" }: HeaderProps) {
               src="/assets/Brand Identity/D2 High-Resolution White Transparent.png" 
               alt="Tektonics Logo" 
               fill
+              sizes="(max-width: 768px) 100px, 150px"
               className="object-contain"
             />
           </div>
