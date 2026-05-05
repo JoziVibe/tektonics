@@ -42,6 +42,8 @@ export default function DataCenterExpertPage() {
           <div className="relative z-10 flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto w-full">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-4 fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards delay-500 duration-500 ease-out">
+              <span className="text-accent">Tektonics Systems</span>
+              <ChevronRight className="size-3" />
               <Link href="/" className="hover:text-accent transition-colors">Home</Link>
               <ChevronRight className="size-3" />
               <span className="text-white/60">Products</span>
