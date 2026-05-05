@@ -14,7 +14,6 @@ import { Header } from "@/components/ui/header-1";
 import { Footer } from "@/components/Footer";
 
 import StackingCard, { ProjectData } from "@/components/ui/stacking-card";
-import { LayerBadge } from "@/components/ui/layer-badge";
 import { FeatureCard } from "@/components/ui/grid-feature-cards";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
@@ -40,7 +39,7 @@ const thingsboardCapabilities: ProjectData[] = [
   {
     title: "White-Labelling",
     description: "Rebrand the ThingsBoard platform web interface with your company or product logo and colour scheme in 2 minutes — no coding or service restart required. Allow your customers and their sub-customers to white-label their interface as well.",
-    link: "/assets/ThingsBoard PE/White-Labeling.png",
+    link: "/assets/ThingsBoard PE/White-Labelling.png",
     color: "#0a1945",
   },
   {
@@ -75,11 +74,9 @@ export default function ThingsBoardPage() {
           <div className="relative z-10 flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto w-full">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-4 fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards delay-500 duration-500 ease-out">
-              <span className="text-accent">Tektonics Systems</span>
-              <ChevronRight className="size-3" />
               <Link href="/" className="hover:text-accent transition-colors">Home</Link>
               <ChevronRight className="size-3" />
-              <span className="text-white/60">Products</span>
+              <Link href="/services" className="hover:text-accent transition-colors">Products</Link>
               <ChevronRight className="size-3" />
               <span className="text-white">ThingsBoard PE</span>
             </div>

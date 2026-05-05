@@ -42,8 +42,6 @@ export default function PowerMonitoringExpertPage() {
           <div className="relative z-10 flex flex-col items-center justify-center gap-8 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto w-full">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest mb-4 fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards delay-500 duration-500 ease-out">
-              <span className="text-accent">Tektonics Systems</span>
-              <ChevronRight className="size-3" />
               <Link href="/" className="hover:text-accent transition-colors">Home</Link>
               <ChevronRight className="size-3" />
               <span className="text-white/60">Products</span>
@@ -178,6 +176,9 @@ export default function PowerMonitoringExpertPage() {
         {/* SECTION 5: USE CASES */}
         <section className="py-32 bg-background border-b border-white/5 overflow-hidden">
           <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-headline font-bold text-white tracking-tight">Key Use Cases</h2>
+            </div>
 
             <div className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed border-white/10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {[
