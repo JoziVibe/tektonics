@@ -131,8 +131,15 @@ export function ChatbotThemba() {
           >
             <div className="flex items-center justify-between border-b border-white/10 bg-white/5 p-4 px-6">
                <div className="flex items-center gap-3">
-                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/20 border border-accent/20 text-accent overflow-hidden">
-                   <Image src="/assets/Themba Chat Avatar.png" alt="Themba" width={40} height={40} />
+                 <div className="relative">
+                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/20 border border-accent/20 text-accent overflow-hidden">
+                     <Image src="/assets/Themba Chat Avatar.png" alt="Themba" width={40} height={40} />
+                   </div>
+                   {/* Online status indicator on modal avatar */}
+                   <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
+                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-[#02264B]"></span>
+                   </span>
                  </div>
                  <div>
                    <h3 className="text-sm font-bold text-white font-headline">Themba</h3>
