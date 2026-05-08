@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { ChatbotThemba } from '@/components/ChatbotThemba';
 
 export const viewport: Viewport = {
   themeColor: '#020c1b',
@@ -70,8 +70,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { ChatbotThemba } from '@/components/ChatbotThemba';
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -80,13 +78,24 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DCH51VQ20L" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DCH51VQ20L');
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background text-foreground min-h-screen">
         {children}
-        <GoogleAnalytics gaId="G-DCH51VQ20L" />
         <ChatbotThemba />
       </body>
     </html>
