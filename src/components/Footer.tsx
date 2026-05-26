@@ -17,12 +17,13 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6 group shrink-0 h-12 py-1.5">
-              <div className="relative h-full aspect-[4/1]">
+            <Link href="/" className="mb-6 block w-fit group">
+              <div className="relative h-12 w-48">
                 <Image 
                   src="/assets/Brand Identity/D2 High-Resolution White Transparent.png" 
                   alt="Tektonics Logo" 
                   fill
+                  sizes="192px"
                   className="object-contain object-left"
                 />
               </div>
