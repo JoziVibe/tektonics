@@ -107,7 +107,7 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
         style={{
           "--circle-start": "#12d9ec",
           "--circle-end": "#0096c3",
-        }}
+        } as React.CSSProperties}
       >
         {circles.map(({ id, x, y, color, fadeState }) => (
           <div

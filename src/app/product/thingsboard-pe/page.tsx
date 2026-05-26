@@ -37,9 +37,9 @@ const thingsboardCapabilities: ProjectData[] = [
     color: "#081333",
   },
   {
-    title: "White-Labelling",
+    title: "White-Labeling",
     description: "Rebrand the ThingsBoard platform web interface with your company or product logo and colour scheme in 2 minutes — no coding or service restart required. Allow your customers and their sub-customers to white-label their interface as well.",
-    link: "/assets/ThingsBoard PE/White-Labelling.png",
+    link: "/assets/ThingsBoard PE/White-Labeling.png",
     color: "#0a1945",
   },
   {

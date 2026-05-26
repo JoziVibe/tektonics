@@ -2,12 +2,10 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  allowedDevOrigins: [
+    'https://*.cloudworkstations.dev',
+    'https://*.firebase.app',
+  ],
   images: {
     remotePatterns: [
       {
@@ -31,10 +29,7 @@ const nextConfig: NextConfig = {
     ],
   },
   devIndicators: {
-    allowedDevOrigins: [
-      'https://*.cloudworkstations.dev',
-      'https://*.firebase.app',
-    ],
+    position: 'bottom-right',
   },
 };
 

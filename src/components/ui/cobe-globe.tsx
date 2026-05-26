@@ -125,6 +125,33 @@ export function Globe({
     let animationId: number
     let currentPhi = 0
 
+    function getFrameState() {
+      if (!isPausedRef.current) {
+        currentPhi += speed
+        if (
+          Math.abs(velocity.current.phi) > 0.0001 ||
+          Math.abs(velocity.current.theta) > 0.0001
+        ) {
+          phiOffsetRef.current += velocity.current.phi
+          thetaOffsetRef.current += velocity.current.theta
+          velocity.current.phi *= 0.95
+          velocity.current.theta *= 0.95
+        }
+        const thetaMin = -0.4
+        const thetaMax = 0.4
+        if (thetaOffsetRef.current < thetaMin) {
+          thetaOffsetRef.current += (thetaMin - thetaOffsetRef.current) * 0.1
+        } else if (thetaOffsetRef.current > thetaMax) {
+          thetaOffsetRef.current += (thetaMax - thetaOffsetRef.current) * 0.1
+        }
+      }
+
+      return {
+        phi: currentPhi + phiOffsetRef.current + dragOffset.current.phi,
+        theta: theta + thetaOffsetRef.current + dragOffset.current.theta,
+      }
+    }
+
     function init() {
       const width = canvas.offsetWidth
       if (width === 0 || globe) return
@@ -144,11 +171,12 @@ export function Globe({
         markerColor,
         glowColor,
         markers: markers.map((m) => ({
+          id: m.id,
           location: m.location,
           size: markerSize,
         })),
-        // @ts-expect-error Types for Cobe are missing arc properties
         arcs: arcs.map((a) => ({
+          id: a.id,
           from: a.from,
           to: a.to,
         })),
@@ -156,32 +184,10 @@ export function Globe({
         arcWidth,
         arcHeight,
         opacity: 1,
-        onRender: (state) => {
-          if (!isPausedRef.current) {
-            currentPhi += speed
-            if (
-              Math.abs(velocity.current.phi) > 0.0001 ||
-              Math.abs(velocity.current.theta) > 0.0001
-            ) {
-              phiOffsetRef.current += velocity.current.phi
-              thetaOffsetRef.current += velocity.current.theta
-              velocity.current.phi *= 0.95
-              velocity.current.theta *= 0.95
-            }
-            const thetaMin = -0.4,
-              thetaMax = 0.4
-            if (thetaOffsetRef.current < thetaMin) {
-              thetaOffsetRef.current += (thetaMin - thetaOffsetRef.current) * 0.1
-            } else if (thetaOffsetRef.current > thetaMax) {
-              thetaOffsetRef.current += (thetaMax - thetaOffsetRef.current) * 0.1
-            }
-          }
-          state.phi = currentPhi + phiOffsetRef.current + dragOffset.current.phi
-          state.theta = theta + thetaOffsetRef.current + dragOffset.current.theta
-        }
       })
 
       function animate() {
+        globe?.update(getFrameState())
         animationId = requestAnimationFrame(animate)
       }
 

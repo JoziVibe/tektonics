@@ -102,15 +102,38 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip
 
+type ChartTooltipPayload = {
+  color?: string
+  dataKey?: string | number
+  name?: string | number
+  payload?: Record<string, unknown>
+  value?: number | string
+}
+
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-    React.ComponentProps<"div"> & {
+  React.ComponentProps<"div"> & {
+      active?: boolean
+      color?: string
+      formatter?: (
+        value: number | string,
+        name: string | number,
+        item: ChartTooltipPayload,
+        index: number,
+        payload?: Record<string, unknown>
+      ) => React.ReactNode
       hideLabel?: boolean
       hideIndicator?: boolean
       indicator?: "line" | "dot" | "dashed"
+      label?: React.ReactNode
+      labelClassName?: string
+      labelFormatter?: (
+        value: React.ReactNode,
+        payload: ChartTooltipPayload[]
+      ) => React.ReactNode
       nameKey?: string
       labelKey?: string
+      payload?: ChartTooltipPayload[]
     }
 >(
   (
@@ -188,7 +211,8 @@ const ChartTooltipContent = React.forwardRef<
           {payload.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = getPayloadConfigFromPayload(config, item, key)
-            const indicatorColor = color || item.payload.fill || item.color
+            const indicatorColor =
+              color || (item.payload?.fill as string | undefined) || item.color
 
             return (
               <div
@@ -258,12 +282,19 @@ ChartTooltipContent.displayName = "ChartTooltip"
 
 const ChartLegend = RechartsPrimitive.Legend
 
+type ChartLegendPayload = {
+  color?: string
+  dataKey?: string | number
+  value?: string | number
+}
+
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+  React.ComponentProps<"div"> & {
       hideIcon?: boolean
       nameKey?: string
+      payload?: ChartLegendPayload[]
+      verticalAlign?: "top" | "bottom"
     }
 >(
   (
