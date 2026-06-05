@@ -8,7 +8,7 @@ const contactSchema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(254),
   company: z.string().trim().max(160).optional().default(""),
-  message: z.string().trim().min(10).max(4000),
+  message: z.string().trim().min(1).max(4000),
 });
 
 const forbiddenPattern =
@@ -32,6 +32,24 @@ const escapeHtml = (value: string) =>
 
 const hasForbiddenContent = (value: string) => forbiddenPattern.test(value);
 
+const getValidationError = (issues: z.ZodIssue[]) => {
+  const field = issues[0]?.path[0];
+
+  if (field === "name") {
+    return "Please enter your full name.";
+  }
+
+  if (field === "email") {
+    return "Please enter a valid email address.";
+  }
+
+  if (field === "message") {
+    return "Please enter a message.";
+  }
+
+  return "Please complete the required fields.";
+};
+
 const parseSmtpPort = (value: string | undefined) => {
   const port = Number(value ?? "587");
 
@@ -48,9 +66,7 @@ export async function POST(request: Request) {
 
   if (!parsed.success) {
     return NextResponse.json(
-      {
-        error: "Please complete the required fields with a valid email address.",
-      },
+      { error: getValidationError(parsed.error.issues) },
       { status: 400 },
     );
   }
