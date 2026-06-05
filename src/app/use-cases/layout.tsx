@@ -3,7 +3,6 @@
 import { UseCaseSidebar } from "@/components/use-case-sidebar";
 import { Header } from "@/components/ui/header-1";
 import { Footer } from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
 
 export default function UseCaseLayout({
   children,
@@ -21,7 +20,6 @@ export default function UseCaseLayout({
         <UseCaseSidebar />
       </div>
       <Footer />
-      <Toaster />
     </div>
   );
 }

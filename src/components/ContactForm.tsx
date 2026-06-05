@@ -88,8 +88,9 @@ export function ContactForm() {
       }
 
       toast({
-        title: "Inquiry Sent",
-        description: "Thank you. The Tektonics team will be in touch soon.",
+        title: "Email Sent",
+        description:
+          "Your message was submitted successfully. The Tektonics team will be in touch soon.",
       });
       setFormData({ name: "", email: "", company: "", message: "" });
     } catch {

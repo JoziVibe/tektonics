@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ChatbotThemba } from '@/components/ChatbotThemba';
+import { Toaster } from '@/components/ui/toaster';
 
 export const viewport: Viewport = {
   themeColor: '#020c1b',
@@ -97,6 +98,7 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground min-h-screen">
         {children}
         <ChatbotThemba />
+        <Toaster />
       </body>
     </html>
   );

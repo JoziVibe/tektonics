@@ -9,7 +9,6 @@ import { Services } from "@/components/Services";
 import GlobeFeatureSection from "@/components/ui/globe-feature-section";
 import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
 import { logos } from "@/components/ui/demo";
 
 export default function HomePage() {
@@ -47,7 +46,6 @@ export default function HomePage() {
         <GlobeFeatureSection />
       </div>
       <Footer />
-      <Toaster />
     </main>
   );
 }
