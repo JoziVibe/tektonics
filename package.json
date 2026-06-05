@@ -80,6 +80,7 @@
     "postcss": "$postcss",
     "uuid": "^14.0.0",
     "@opentelemetry/sdk-node": "^0.218.0",
-    "@opentelemetry/auto-instrumentations-node": "^0.76.0"
+    "@opentelemetry/auto-instrumentations-node": "^0.76.0",
+    "glob": "13.0.6"
   }
 }
