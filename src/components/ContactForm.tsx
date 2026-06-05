@@ -211,7 +211,7 @@ export function ContactForm() {
               </div>
 
               <GradientButton type="submit" disabled={submitting} className="w-full mt-4">
-                {submitting ? "Sending..." : "Send Inquiry"}
+                {submitting ? "Sending..." : "Send Email"}
                 <Send className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
               </GradientButton>
             </form>
