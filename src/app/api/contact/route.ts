@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { z } from "zod";
 
 export const runtime = "nodejs";
@@ -50,16 +50,6 @@ const getValidationError = (issues: z.ZodIssue[]) => {
   return "Please complete the required fields.";
 };
 
-const parseSmtpPort = (value: string | undefined) => {
-  const port = Number(value ?? "587");
-
-  if (!Number.isInteger(port) || port < 1 || port > 65535) {
-    return 587;
-  }
-
-  return port;
-};
-
 export async function POST(request: Request) {
   const payload = await request.json().catch(() => null);
   const parsed = contactSchema.safeParse(payload);
@@ -82,20 +72,15 @@ export async function POST(request: Request) {
     );
   }
 
-  const smtpHost = process.env.SENDGRID_SMTP_HOST ?? "smtp.sendgrid.net";
-  const smtpPort = parseSmtpPort(process.env.SENDGRID_SMTP_PORT);
-  const smtpUser = process.env.SENDGRID_SMTP_USER ?? "apikey";
-  const smtpPassword = process.env.SENDGRID_SMTP_PASSWORD;
-  const fromEmail = process.env.SENDGRID_FROM_EMAIL;
-  const toEmail = process.env.SENDGRID_TO_EMAIL ?? "info@tektonics.africa";
-  const fromName = process.env.SENDGRID_FROM_NAME ?? "Tektonics Website";
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
+  const toEmail = process.env.RESEND_TO_EMAIL ?? "info@tektonics.africa";
+  const fromName = process.env.RESEND_FROM_NAME ?? "Tektonics Website";
   const subjectPrefix =
-    process.env.SENDGRID_SUBJECT_PREFIX ?? "Tektonics Website Inquiry";
+    process.env.RESEND_SUBJECT_PREFIX ?? "Tektonics Website Inquiry";
 
-  if (!smtpPassword || !fromEmail) {
-    console.error(
-      "SendGrid SMTP is not configured. SENDGRID_SMTP_PASSWORD and SENDGRID_FROM_EMAIL are required.",
-    );
+  if (!apiKey || !fromEmail) {
+    console.error("Resend is not configured. RESEND_API_KEY and RESEND_FROM_EMAIL are required.");
 
     return NextResponse.json(
       { error: "Email service is not configured yet." },
@@ -130,39 +115,36 @@ export async function POST(request: Request) {
     <p>${escapeHtml(inquiry.message).replace(/\n/g, "<br />")}</p>
   `;
 
-  const transporter = nodemailer.createTransport({
-    host: smtpHost,
-    port: smtpPort,
-    secure: smtpPort === 465,
-    requireTLS: smtpPort !== 465,
-    auth: {
-      user: smtpUser,
-      pass: smtpPassword,
-    },
-  });
+  const resend = new Resend(apiKey);
 
   try {
-    await transporter.sendMail({
+    const { error } = await resend.emails.send({
       to: toEmail,
-      from: {
-        name: fromName,
-        address: fromEmail,
-      },
-      replyTo: {
-        name: inquiry.name,
-        address: inquiry.email,
-      },
+      from: `${fromName} <${fromEmail}>`,
+      replyTo: inquiry.email,
       subject: `${subjectPrefix}: ${inquiry.name}`,
       text,
       html,
-      headers: {
-        "X-SMTPAPI": JSON.stringify({ category: ["website-contact"] }),
-      },
+      tags: [
+        {
+          name: "category",
+          value: "website-contact",
+        },
+      ],
     });
+
+    if (error) {
+      console.error("Resend contact email failed", error);
+
+      return NextResponse.json(
+        { error: "We could not send your inquiry right now." },
+        { status: 502 },
+      );
+    }
 
     return NextResponse.json({ ok: true }, { status: 201 });
   } catch (error) {
-    console.error("SendGrid SMTP contact email failed", error);
+    console.error("Resend contact email failed", error);
 
     return NextResponse.json(
       { error: "We could not send your inquiry right now." },

@@ -50,7 +50,6 @@
     "lucide-react": "^1.16.0",
     "motion": "^12.40.0",
     "next": "16.2.6",
-    "nodemailer": "^8.0.10",
     "patch-package": "^8.0.1",
     "react": "^19.2.6",
     "react-day-picker": "^10.0.1",
@@ -60,6 +59,7 @@
     "react-markdown": "^10.1.0",
     "react-use-measure": "^2.1.7",
     "recharts": "^3.8.1",
+    "resend": "^6.12.4",
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7",
@@ -67,7 +67,6 @@
   },
   "devDependencies": {
     "@types/node": "^25",
-    "@types/nodemailer": "^8.0.0",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
