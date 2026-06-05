@@ -37,7 +37,7 @@ export function ContactForm() {
     return urlPattern.test(text) || codePattern.test(text);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validation for URLs and Code
@@ -54,24 +54,53 @@ export function ContactForm() {
 
     setSubmitting(true);
 
-    const whatsappNumber = "27615441608";
     const sanitizedName = sanitizeInput(formData.name);
     const sanitizedEmail = sanitizeInput(formData.email);
     const sanitizedCompany = sanitizeInput(formData.company);
     const sanitizedMessage = sanitizeInput(formData.message);
 
-    const text = `*New Inquiry - Tektonics Systems*\n\n*Name:* ${sanitizedName}\n*Email:* ${sanitizedEmail}\n*Company:* ${sanitizedCompany || "N/A"}\n\n*Message:* ${sanitizedMessage}`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: sanitizedName,
+          email: sanitizedEmail,
+          company: sanitizedCompany,
+          message: sanitizedMessage,
+        }),
+      });
+      const result = (await response.json().catch(() => null)) as
+        | { error?: string }
+        | null;
 
-    setTimeout(() => {
-      setSubmitting(false);
-      window.open(whatsappUrl, "_blank");
+      if (!response.ok) {
+        toast({
+          variant: "destructive",
+          title: "Message Not Sent",
+          description:
+            result?.error ??
+            "Please try again or email info@tektonics.africa directly.",
+        });
+        return;
+      }
+
       toast({
-        title: "Redirecting to WhatsApp",
-        description: "Your inquiry has been formatted. Please send the message in the WhatsApp window.",
+        title: "Inquiry Sent",
+        description: "Thank you. The Tektonics team will be in touch soon.",
       });
       setFormData({ name: "", email: "", company: "", message: "" });
-    }, 1000);
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Message Not Sent",
+        description: "Please try again or email info@tektonics.africa directly.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -182,7 +211,7 @@ export function ContactForm() {
               </div>
 
               <GradientButton type="submit" disabled={submitting} className="w-full mt-4">
-                {submitting ? "Processing..." : "Send via WhatsApp"}
+                {submitting ? "Sending..." : "Send Inquiry"}
                 <Send className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
               </GradientButton>
             </form>
